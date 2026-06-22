@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import logoPath from "@assets/thekosmictrinitygold_1777355949969.png";
 import { useTransparentLogo } from "@/hooks/use-transparent-logo";
-import { Facebook, Instagram, Twitter, Mail, ArrowUp } from "lucide-react";
+import { Facebook, Instagram, Twitter, Mail, MapPin, ArrowUp } from "lucide-react";
 
 export function Footer() {
   const transparentLogo = useTransparentLogo(logoPath);
@@ -76,6 +76,10 @@ export function Footer() {
                 <Mail size={16} className="group-hover:animate-pulse" />
                 hello@kosmictrinity.com
               </a>
+              <div className="flex items-start gap-3 text-muted-foreground text-sm">
+                <MapPin size={16} className="shrink-0 mt-0.5 text-primary/60" />
+                <span>343/250C, Krishna Nagar<br />Prayagraj, Uttar Pradesh 211003<br />India</span>
+              </div>
               <div className="p-4 border border-primary/20 rounded bg-background/50 backdrop-blur-sm relative overflow-hidden group">
                 <div className="absolute inset-0 bg-primary/5 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
                 <p className="text-xs text-muted-foreground relative z-10 italic">

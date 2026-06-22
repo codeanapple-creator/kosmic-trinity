@@ -90,8 +90,7 @@ export function Footer() {
 
         <div className="border-t border-primary/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground/60 text-center md:text-left">
-            &copy; {new Date().getFullYear()} Kosmic Trinity. All rights reserved. 
-            <br className="md:hidden" /> Dharma · Artha · Kaam
+            &copy; {new Date().getFullYear()} Kosmic Trinity. All rights reserved.
             <br />
             <span className="inline-flex items-center gap-4 mt-1">
               <Link href="/terms" className="hover:text-primary transition-colors">Terms &amp; Conditions</Link>

@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import { X, Send, Sparkles } from "lucide-react";
-import { Ganesha3D } from "./ganesha-3d";
 import bodhiImg from "../../assets/bodhi_nobg.png";
 
 type Message = { from: "ganesha" | "user"; text: string };
@@ -58,7 +57,7 @@ const WISDOM: { keywords: string[]; responses: string[] }[] = [
     keywords: ["booking", "reading", "session", "consult", "book", "appointment", "service"],
     responses: [
       "How auspicious that you seek a reading! 🌟 Every chart is a sacred text. Head to our *Booking* page — choose Dharma, Artha, or Kaam, and let thekosmictrinity illuminate your cosmic blueprint.",
-      "The stars await your consultation! Click *Begin Your Journey* on the home page, or visit the Booking section. May your session bring the clarity your soul seeks. 🐘",
+      "The stars await your consultation! Visit the Booking section and let us illuminate your cosmic blueprint together. May your session bring the clarity your soul seeks. 🐘",
     ],
   },
   {
@@ -122,6 +121,15 @@ const WISDOM: { keywords: string[]; responses: string[] }[] = [
   },
 ];
 
+const OPENING_QUOTES = [
+  "*'Yatra yogeshvarah krishno yatra partho dhanur-dharah, tatra shrir vijayo bhutir dhruva nitir matir mama.'*\n\nWherever there is Krishna, the lord of yoga, and wherever there is Arjuna, the archer, there will also certainly be opulence, victory, extraordinary power, and morality — that is my opinion.\n— Bhagavad Gita 18.78 ✨",
+  "*'Tameva bhantam anubhati sarvam, tasya bhasa sarvam idam vibhati.'*\n\nIt is the Light of Consciousness alone that illumines everything. By that light, all this universe shines.\n— Mundaka Upanishad 🌟",
+  "*'Sarve bhavantu sukhinah, sarve santu niramayah, sarve bhadrani pashyantu, ma kashchid duhkhabhag bhavet.'*\n\nMay all be happy. May all be free from disease. May all see what is auspicious. May none suffer.\n— Ancient Vedic Prayer 🕉️",
+  "*'Asato ma sadgamaya, tamaso ma jyotirgamaya, mrityor ma amritam gamaya.'*\n\nLead me from the unreal to the real. Lead me from darkness to light. Lead me from death to immortality.\n— Brihadaranyaka Upanishad ✨",
+  "*'Uddhared atmanatmanam natmanam avasadayet, atmaiva hy atmano bandhur atmaiva ripur atmanah.'*\n\nLet a man lift himself by himself; let him not degrade himself. For the Self alone is the friend of the self, and the Self alone is the enemy of the self.\n— Bhagavad Gita 6.5 🌟",
+  "*'Na jayate mriyate va kadachin nayam bhutva bhavita va na bhuyah, ajo nityah shashvato yam purano na hanyate hanyamane sharire.'*\n\nThe soul is never born, nor dies. Having once existed, it does not cease to be. It is unborn, eternal, ever-existing, and primeval — it is not slain when the body is slain.\n— Bhagavad Gita 2.20 🕉️",
+];
+
 const FALLBACKS = [
   "The Upanishads say — *'Satyam eva jayate'* — Truth alone triumphs. Sit with your question a little longer; the answer already lives within you.\n\nIf you seek deeper clarity, a personal reading with thekosmictrinity can illuminate what the stars are whispering to you specifically. 🕉️",
   "Every sincere question is a prayer, and the cosmos always answers — sometimes through insight, sometimes through timing, sometimes through a person who arrives exactly when needed. ✨\n\nTell me more — are you navigating love, purpose, abundance, or something else? I am here.",
@@ -130,10 +138,13 @@ const FALLBACKS = [
   "Some questions are portals, not problems. Let me ask you this: what would your life look like if the answer arrived tomorrow? That vision — *that* is the mantra your soul is already chanting. 🕉️",
 ];
 
-const INTRO: Message = {
-  from: "ganesha",
-  text: "Om Namaste! 🐘✨ I am Bodhi — the little spark of enlightened wisdom sitting right here at Kosmic Trinity.\n\nAsk me about your dharma, love, abundance, karma, or anything that weighs on your soul. I am always here, always listening.",
-};
+function getOpeningMessage(): Message {
+  const quote = OPENING_QUOTES[Math.floor(Math.random() * OPENING_QUOTES.length)];
+  return {
+    from: "ganesha",
+    text: `Om Namaste! 🐘✨ I am Bodhi — your cosmic wisdom guide at Kosmic Trinity.\n\nA gift of ancient wisdom as you arrive:\n\n${quote}\n\nAsk me about dharma, love, abundance, karma, or anything that weighs on your soul.`,
+  };
+}
 
 function pickResponse(input: string): string {
   const lower = input.toLowerCase();
@@ -146,7 +157,7 @@ function pickResponse(input: string): string {
 }
 
 function renderText(text: string) {
-  return text.split(/(\*[^*]+\*|🐘|✨|🌟|🕉️|🌕|🌙)/).map((part, i) => {
+  return text.split(/(\*[^*]+\*|🐘|✨|🌟|🕉️|🌕|🌙|😄|💛|🌿)/).map((part, i) => {
     if (part.startsWith("*") && part.endsWith("*")) {
       return <em key={i} className="text-primary not-italic font-medium">{part.slice(1, -1)}</em>;
     }
@@ -156,10 +167,17 @@ function renderText(text: string) {
 
 export function GaneshaChat() {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([INTRO]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  function handleOpen() {
+    if (!open && messages.length === 0) {
+      setMessages([getOpeningMessage()]);
+    }
+    setOpen((o) => !o);
+  }
 
   useEffect(() => {
     if (open) bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -187,7 +205,7 @@ export function GaneshaChat() {
     <>
       {/* Floating toggle button */}
       <button
-        onClick={() => setOpen((o) => !o)}
+        onClick={handleOpen}
         aria-label="Open Bodhi wisdom chat"
         className="fixed bottom-6 right-6 z-50 w-20 h-20 rounded-full
           flex items-center justify-center overflow-hidden
@@ -212,15 +230,15 @@ export function GaneshaChat() {
       {/* Chat window */}
       {open && (
         <div
-          className="fixed bottom-24 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)]
+          className="fixed bottom-28 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)]
             bg-background border border-primary/40 rounded-lg shadow-[0_0_40px_rgba(201,168,76,0.2)]
             flex flex-col overflow-hidden"
           style={{ height: "480px" }}
         >
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 border-b border-primary/20 bg-card/40 shrink-0">
-            <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/40 overflow-hidden shrink-0">
-              <Ganesha3D size={48} />
+            <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/40 overflow-hidden shrink-0 flex items-center justify-center">
+              <img src={bodhiImg} alt="Bodhi" className="w-[90%] h-[90%] object-contain" />
             </div>
             <div className="min-w-0">
               <p className="font-serif text-sm text-primary tracking-wide leading-none">Bodhi</p>
@@ -234,8 +252,8 @@ export function GaneshaChat() {
             {messages.map((m, i) => (
               <div key={i} className={`flex gap-2 ${m.from === "user" ? "justify-end" : "justify-start"}`}>
                 {m.from === "ganesha" && (
-                  <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 overflow-hidden shrink-0 mt-0.5">
-                    <Ganesha3D size={32} />
+                  <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 overflow-hidden shrink-0 mt-0.5 flex items-center justify-center">
+                    <img src={bodhiImg} alt="Bodhi" className="w-[88%] h-[88%] object-contain" />
                   </div>
                 )}
                 <div
@@ -253,8 +271,8 @@ export function GaneshaChat() {
             ))}
             {typing && (
               <div className="flex gap-2 justify-start">
-                <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 overflow-hidden shrink-0">
-                  <Ganesha3D size={32} />
+                <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 overflow-hidden shrink-0 flex items-center justify-center">
+                  <img src={bodhiImg} alt="Bodhi" className="w-[88%] h-[88%] object-contain" />
                 </div>
                 <div className="bg-card/60 border border-primary/20 rounded-lg px-4 py-3 flex gap-1 items-center">
                   {[0, 1, 2].map((d) => (

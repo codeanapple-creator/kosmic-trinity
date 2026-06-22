@@ -33,7 +33,7 @@ export default function Kaam() {
               कामस्तदग्रे समवर्तताधि मनसो रेतः प्रथमं यदासीत्।<br />
               सतो बन्धुमसति निरविन्दन् हृदि प्रतीष्या कवयो मनीषा।।
             </p>
-            <p className="text-muted-foreground text-sm italic leading-relaxed mb-2">
+            <p className="text-primary/90 text-sm italic leading-relaxed mb-2">
               "In the beginning, Kama arose — the primal seed, the first impulse of the cosmic mind.<br />
               Sages, seeking within their hearts with wisdom, discovered the bond between existence and non-existence."
             </p>
@@ -151,22 +151,27 @@ export default function Kaam() {
             </div>
           </MotionSection>
 
-          {/* 3 — Storefront */}
+          {/* 3 — SRIJAN BY SMRITI */}
           <MotionSection delay={0.5}>
             <div className="bg-card/30 backdrop-blur border border-accent/30 p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full" />
               <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
-                <h2 className="text-2xl font-serif text-foreground">The Soul Store</h2>
-                <span className="px-3 py-1 bg-accent/10 text-accent border border-accent/20 text-[10px] uppercase tracking-widest rounded shrink-0">Storefront</span>
+                <h2 className="text-2xl font-serif text-foreground">Srijan by Smriti</h2>
+                <span className="px-3 py-1 bg-accent/10 text-accent border border-accent/20 text-[10px] uppercase tracking-widest rounded shrink-0">Zen Art Session</span>
               </div>
-              <p className="text-accent text-xs uppercase tracking-widest mb-4">Gifts · Artworks · Journals · Manifestation Tools</p>
+              <p className="text-accent text-xs uppercase tracking-widest mb-4">A Zen Art Session by Smriti · 40 Minutes · Zoom</p>
               <p className="text-muted-foreground leading-relaxed mb-8 font-light">
-                Personalised poetry gifts, soulful artworks, quote calendars, reflective journals, digital workbooks, and esoteric tools — crafted to express love, inspire creativity, and support your manifestation practice.
+                A mindful, creative session designed to help you reconnect with your inner world through the sacred act of making. Srijan — meaning creation — invites you to slow down, pick up a brush, a pen, or a piece of clay, and let your soul speak without words. No prior art experience needed. Just presence, intention, and the willingness to create.
               </p>
-              <Link href="/storefront"
+              <div className="flex flex-wrap gap-3 mb-8">
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Zen Art</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">40 Minutes</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Live via Zoom</span>
+              </div>
+              <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors">
-                Visit the Soul Store <ArrowRight size={12} />
-              </Link>
+                Book Srijan <ArrowRight size={12} />
+              </a>
             </div>
           </MotionSection>
 

@@ -10,7 +10,7 @@ export default function Dharma() {
       <div className="container mx-auto px-4 max-w-4xl">
         <MotionSection className="text-center mb-10">
           <span className="text-primary font-serif text-2xl mb-2 block">Path I</span>
-          <h1 className="text-4xl md:text-6xl font-serif gold-gradient-text mb-4">Dharma</h1>
+          <h1 className="text-4xl md:text-6xl font-serif text-white/90 mb-4">Dharma</h1>
           <p className="text-primary/80 font-serif text-lg italic mb-2">The Path Chosen by Your Soul</p>
           <p className="text-muted-foreground uppercase tracking-widest text-sm max-w-2xl mx-auto mt-4">
             Soul Purpose · Karmic Patterns · Inner Calling
@@ -36,9 +36,6 @@ export default function Dharma() {
 
         {/* Intro */}
         <MotionSection delay={0.15} className="mb-6 text-center max-w-2xl mx-auto">
-          <p className="text-primary/70 font-serif italic text-base mb-4">
-            Dhaaryati — dhāran karne yogya jo hai, wo Dharm hai.
-          </p>
           <p className="text-muted-foreground leading-relaxed text-lg font-light mb-4">
             There is a difference between what you are good at and what you are meant to embody as your purpose. Vedic philosophy upholds Dharm to be the highest of all — because that is what helps a soul fulfil her desires, ambitions, and responsibilities righteously, while maintaining order in the world.
           </p>
@@ -137,24 +134,27 @@ export default function Dharma() {
             </div>
           </MotionSection>
 
-          {/* 3 — Let's Tango with Tarot */}
+          {/* 3 — SOULFARM SEASON Reading */}
           <MotionSection delay={0.45}>
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
-              <h2 className="text-2xl font-serif mb-2 text-foreground">Let's Tango with Tarot</h2>
-              <p className="text-primary text-xs uppercase tracking-widest mb-4">Course · 1:1 Coaching · Learn & Serve</p>
+              <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
+                <h2 className="text-2xl font-serif text-foreground">Soulfarm Season Reading</h2>
+                <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">Live 1:1 · Astrology + Tarot</span>
+              </div>
+              <p className="text-primary text-xs uppercase tracking-widest mb-4">Transits · Solar Return · Timelines</p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-                Learn to access your own intuitive intelligence and read Tarot Cards beyond the obvious meanings. Learning this art will not only help you reveal your own purpose — it will also equip you to serve others in finding theirs. Taught as personalised 1:1 coaching. Full course details in the attached brochure.
+                A live 1:1 Astrology + Tarot based reading for checking transits, solar return themes, and understanding timelines — to check what to sow, reap and harvest in the current phase of your life. An invitation to align with your cosmic seasons consciously.
               </p>
               <div className="flex flex-wrap gap-3 mb-6">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Tarot Mastery</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">1:1 Coaching</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Intuitive Intelligence</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Solar Return</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Transit Reading</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Live via Zoom</span>
               </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
-                <p className="text-primary font-serif text-lg">Rs. 25,000 &nbsp;·&nbsp; $250 &nbsp;·&nbsp; €250</p>
+                <p className="text-primary font-serif text-lg">Rs. 5,500 &nbsp;·&nbsp; $55 &nbsp;·&nbsp; €55</p>
                 <Link href="/booking" className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors">
-                  Enquire to Join <ArrowRight size={12} />
+                  Book Now <ArrowRight size={12} />
                 </Link>
               </div>
             </div>

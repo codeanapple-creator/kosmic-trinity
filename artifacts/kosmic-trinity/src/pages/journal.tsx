@@ -1,5 +1,6 @@
 import { MotionSection } from "@/components/ui/motion-section";
-import { BookOpen, FileText, PenTool } from "lucide-react";
+import { Link } from "wouter";
+import { BookOpen, FileText, PenTool, ArrowRight } from "lucide-react";
 
 export default function Journal() {
   return (
@@ -8,9 +9,37 @@ export default function Journal() {
       
       <div className="container mx-auto px-4 max-w-5xl">
         <MotionSection className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-serif gold-gradient-text mb-4">Kosmic Journal</h1>
-          <p className="text-muted-foreground uppercase tracking-widest text-sm">Musings, Poetry & Free Resources</p>
+          <h1 className="text-4xl md:text-6xl font-serif gold-gradient-text mb-4">Swadhyay</h1>
+          <p className="text-muted-foreground uppercase tracking-widest text-sm">Musings, Poetry, Courses & Free Resources</p>
         </MotionSection>
+
+        {/* Let's Tango with Tarot — Course */}
+        <MotionSection delay={0.05} className="mb-12">
+          <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
+            <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
+              <h2 className="text-2xl font-serif text-foreground">Let's Tango with Tarot</h2>
+              <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">Course · 1:1 Coaching</span>
+            </div>
+            <p className="text-primary text-xs uppercase tracking-widest mb-4">Learn & Serve · Personalised Coaching</p>
+            <p className="text-muted-foreground leading-relaxed mb-6 font-light">
+              Learn to access your own intuitive intelligence and read Tarot Cards beyond the obvious meanings. Learning this art will not only help you reveal your own purpose — it will also equip you to serve others in finding theirs. Taught as personalised 1:1 coaching. Full course details in the attached brochure.
+            </p>
+            <div className="flex flex-wrap gap-3 mb-6">
+              <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Tarot Mastery</span>
+              <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">1:1 Coaching</span>
+              <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Intuitive Intelligence</span>
+            </div>
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <p className="text-primary font-serif text-lg">Rs. 25,000 &nbsp;·&nbsp; $250 &nbsp;·&nbsp; €250</p>
+              <Link href="/booking" className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors">
+                Enquire to Join <ArrowRight size={12} />
+              </Link>
+            </div>
+          </div>
+        </MotionSection>
+
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent mb-12" />
 
         <div className="grid md:grid-cols-12 gap-8">
           

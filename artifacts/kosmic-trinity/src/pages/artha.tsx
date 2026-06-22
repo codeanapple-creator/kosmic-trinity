@@ -33,7 +33,7 @@ export default function Artha() {
               उद्यमेन हि सिध्यन्ति कार्याणि न मनोरथैः।<br />
               न हि सुप्तस्य सिंहस्य प्रविशन्ति मुखे मृगाः।।
             </p>
-            <p className="text-muted-foreground text-sm italic leading-relaxed mb-2">
+            <p className="text-primary/80 text-sm italic leading-relaxed mb-2">
               "Goals are accomplished through effort, not mere wishes.<br />
               Deer do not enter the mouth of a sleeping lion."
             </p>
@@ -95,7 +95,7 @@ export default function Artha() {
                 <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Wealth Patterns</span>
               </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
-                <p className="text-foreground font-serif text-lg">Rs. 8,500 &nbsp;<span className="text-muted-foreground text-sm font-light">/ $85 / €85</span></p>
+                <p className="text-primary font-serif text-lg">Rs. 8,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $85 / €85</span></p>
                 <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors">
                   Book Now <ArrowRight size={12} />
@@ -107,24 +107,24 @@ export default function Artha() {
           {/* 2 — SARTHAK */}
           <MotionSection delay={0.35}>
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
               <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
                 <h2 className="text-2xl font-serif text-foreground">SARTHAK — A Book of Money Magic</h2>
-                <span className="px-3 py-1 bg-accent/10 text-accent border border-accent/20 text-[10px] uppercase tracking-widest rounded shrink-0">PDF · Birth Chart</span>
+                <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">PDF · Birth Chart</span>
               </div>
-              <p className="text-accent text-xs uppercase tracking-widest mb-4">Digital Reading · Self-Paced · Personalised</p>
+              <p className="text-primary text-xs uppercase tracking-widest mb-4">Digital Reading · Self-Paced · Personalised</p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
                 Discover strengths you may not be fully utilising yet — your tangible talents, your money element, and ways to use them for monetary benefits. A PDF reading based on your birth chart, designed to reveal the unique cosmic blueprint behind your earning and holding capacity.
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">PDF Download</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Birth Chart</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Money Element</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">PDF Download</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Birth Chart</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Money Element</span>
               </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
-                <p className="text-foreground font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-muted-foreground text-sm font-light">/ $25 / €25</span></p>
+                <p className="text-primary font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $25 / €25</span></p>
                 <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-accent text-accent hover:bg-accent/10 font-serif tracking-wider uppercase text-xs rounded transition-colors">
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary/10 font-serif tracking-wider uppercase text-xs rounded transition-colors">
                   Get SARTHAK <ArrowRight size={12} />
                 </a>
               </div>
@@ -149,7 +149,7 @@ export default function Artha() {
                 <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">30 Minutes Live</span>
               </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
-                <p className="text-foreground font-serif text-lg">Rs. 3,500 &nbsp;<span className="text-muted-foreground text-sm font-light">/ $35 / €35</span></p>
+                <p className="text-primary font-serif text-lg">Rs. 3,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $35 / €35</span></p>
                 <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors">
                   Book Now <ArrowRight size={12} />
@@ -160,13 +160,13 @@ export default function Artha() {
 
           {/* 4 — SHREE by Shruti */}
           <MotionSection delay={0.45}>
-            <div className="bg-card/30 backdrop-blur border border-accent/20 p-8 md:p-12 rounded glow-hover relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full" />
+            <div className="bg-card/30 backdrop-blur border border-primary/20 p-8 md:p-12 rounded glow-hover relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
               <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
                 <h2 className="text-2xl font-serif text-foreground">SHREE by Shruti</h2>
-                <span className="px-3 py-1 bg-accent/10 text-accent border border-accent/20 text-[10px] uppercase tracking-widest rounded shrink-0">With CA Shruti Gupta</span>
+                <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">With CA Shruti Gupta</span>
               </div>
-              <p className="text-accent text-xs uppercase tracking-widest mb-4">Financial Structure · Money as Energy · 30-Min Call</p>
+              <p className="text-primary text-xs uppercase tracking-widest mb-4">Financial Structure · Money as Energy · 30-Min Call</p>
               <p className="text-muted-foreground leading-relaxed mb-4 font-light">
                 Our seasoned CA Shruti Gupta offers her expertise to individuals, families, and women-led businesses — bringing clarity and structure to their financial world. This session goes beyond accounting and works with money as <span className="text-foreground italic">energy</span>, helping you build systems that create ease, confidence, and sustainable growth.
               </p>
@@ -174,15 +174,15 @@ export default function Artha() {
                 Under her mentorship, you get to organise your finances, identify gaps, simplify financial understanding, and design smoother workflows for both your personal and business use. This work is especially for homemakers, women entrepreneurs, small business owners, and anyone seeking better financial organisation and awareness — because material stability and spiritual growth are not separate paths. They are meant to strengthen each other.
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">CA Expertise</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Women Entrepreneurs</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Financial Systems</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">30-Min Discovery Call</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">CA Expertise</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Women Entrepreneurs</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Financial Systems</span>
+                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">30-Min Discovery Call</span>
               </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
-                <p className="text-foreground font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-muted-foreground text-sm font-light">discovery call</span></p>
+                <p className="text-primary font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-primary/70 text-sm font-light">discovery call</span></p>
                 <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-accent text-accent hover:bg-accent/10 font-serif tracking-wider uppercase text-xs rounded transition-colors">
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary/10 font-serif tracking-wider uppercase text-xs rounded transition-colors">
                   Unlock your SHREE <ArrowRight size={12} />
                 </a>
               </div>

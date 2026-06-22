@@ -5,7 +5,6 @@ const pillars = [
   {
     name: "Dharma",
     sanskrit: "धर्म",
-    goddess: "Mahasaraswati",
     color: "from-primary/10 to-primary/5",
     border: "border-primary/40",
     description:
@@ -14,7 +13,6 @@ const pillars = [
   {
     name: "Artha",
     sanskrit: "अर्थ",
-    goddess: "Mahalakshmi",
     color: "from-amber-900/20 to-amber-900/5",
     border: "border-amber-500/40",
     description:
@@ -23,7 +21,6 @@ const pillars = [
   {
     name: "Kaam",
     sanskrit: "काम",
-    goddess: "Mahakali",
     color: "from-rose-900/20 to-rose-900/5",
     border: "border-rose-700/40",
     description:
@@ -40,14 +37,14 @@ export default function About() {
 
         {/* Hero */}
         <MotionSection className="text-center mb-16">
-          <p className="text-primary uppercase tracking-[0.3em] text-xs mb-4">Where Three Rivers Meet</p>
+          <p className="text-primary uppercase tracking-[0.3em] text-xs mb-4">Where Three Vibrations Meet</p>
           <h1 className="text-4xl md:text-6xl font-serif gold-gradient-text mb-5">About Us</h1>
           <p className="text-muted-foreground text-base max-w-xl mx-auto leading-relaxed">
-            Three souls. One confluence. A sacred current of astrology, tarot, Reiki, and karmic wisdom flowing into your life.
+            Three Souls. One Confluence. A sacred interconnection of Esoterics, Psychology, Financial literacy and Creative Arts.
           </p>
         </MotionSection>
 
-        {/* Origin Story — Triveni Sangam */}
+        {/* Origin Story */}
         <MotionSection delay={0.1} className="max-w-4xl mx-auto mb-20">
           <div className="grid lg:grid-cols-12 gap-10 items-start">
             {/* Image */}
@@ -65,17 +62,6 @@ export default function About() {
 
             {/* Story Text */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="relative px-6 py-8 border border-primary/20 rounded bg-card/20 backdrop-blur">
-                <div className="absolute -top-px left-12 w-20 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
-                <div className="absolute -bottom-px left-12 w-20 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
-                <p className="font-serif text-lg md:text-xl text-primary text-center leading-relaxed mb-3">
-                  त्रिवेणी संगम
-                </p>
-                <p className="text-[11px] text-primary/60 uppercase tracking-widest text-center">
-                  — Triveni Sangam · Prayagraj
-                </p>
-              </div>
-
               <p className="text-muted-foreground leading-relaxed text-base font-light">
                 We are three sisters from <span className="text-foreground font-medium">Prayagraj</span> — the city where the Ganga, Yamuna, and the invisible Saraswati converge. We grew up at the Triveni Sangam, watching three rivers become one sacred body of water. That image never left us.
               </p>
@@ -92,41 +78,7 @@ export default function About() {
           </div>
         </MotionSection>
 
-        {/* Vedic Trinity */}
-        <MotionSection delay={0.15} className="max-w-4xl mx-auto mb-20">
-          <div className="text-center mb-10">
-            <p className="text-primary uppercase tracking-[0.3em] text-xs mb-3">The Vedic Foundation</p>
-            <h2 className="font-serif text-3xl md:text-4xl gold-gradient-text mb-4">The Trinity of the Cosmos</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Ancient India did not divide the sacred from the worldly. The Vedic tradition gave us <span className="text-primary font-medium">Trivarga</span> — three goals that together make a complete, liberated life. Each goal has a Goddess. Each Goddess has a face of the cosmos.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { goddess: "Mahasaraswati", aspect: "Dharma", quality: "Knowledge · Clarity · Soul Purpose", symbol: "✦" },
-              { goddess: "Mahalakshmi", aspect: "Artha", quality: "Abundance · Prosperity · Right Livelihood", symbol: "✧" },
-              { goddess: "Mahakali", aspect: "Kaam", quality: "Desire · Passion · Creative Power", symbol: "✦" },
-            ].map((item, i) => (
-              <FadeIn key={i} delay={0.1 * i}>
-                <div className="border border-primary/20 rounded bg-card/20 backdrop-blur p-6 text-center h-full flex flex-col">
-                  <p className="text-primary text-2xl mb-3">{item.symbol}</p>
-                  <h3 className="font-serif text-lg gold-gradient-text mb-1">{item.goddess}</h3>
-                  <p className="text-xs text-primary/70 uppercase tracking-widest mb-3">{item.aspect}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed flex-1">{item.quality}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-
-          <FadeIn delay={0.35}>
-            <p className="text-center text-muted-foreground text-sm leading-relaxed mt-8 max-w-2xl mx-auto italic">
-              The ancient texts called this the <span className="text-primary not-italic font-medium">Trivarga</span> — not three separate boxes, but three braids of the same sacred rope. A life that honours all three is a life of genuine wholeness.
-            </p>
-          </FadeIn>
-        </MotionSection>
-
-        {/* Three Pillars */}
+        {/* Three Pillars — What We Do */}
         <MotionSection delay={0.2} className="mb-20">
           <div className="text-center mb-10">
             <p className="text-primary uppercase tracking-[0.3em] text-xs mb-3">What We Do</p>
@@ -140,8 +92,7 @@ export default function About() {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.06),transparent_70%)]" />
                   <div className="relative z-10">
                     <p className="font-serif text-4xl gold-gradient-text mb-1">{pillar.sanskrit}</p>
-                    <h3 className="font-serif text-2xl text-foreground mb-1">{pillar.name}</h3>
-                    <p className="text-[10px] text-primary/60 uppercase tracking-widest mb-5">{pillar.goddess}</p>
+                    <h3 className="font-serif text-2xl text-foreground mb-4">{pillar.name}</h3>
                     <div className="w-8 h-px bg-primary/50 mb-5" />
                     <p className="text-muted-foreground text-sm leading-relaxed">{pillar.description}</p>
                   </div>
@@ -166,8 +117,8 @@ export default function About() {
               <p className="relative z-10 text-muted-foreground leading-relaxed text-base mb-4 font-light">
                 Every soul who comes to Kosmic Trinity carries their own Triveni within them — the river of purpose, the river of abundance, and the river of feeling. Our work is simply to stand at that inner Sangam with you, and help you see where your three rivers flow.
               </p>
-              <p className="relative z-10 text-muted-foreground leading-relaxed text-base font-light">
-                You are not here by accident. The stars that charted our beginning also wrote your arrival into this page. Welcome, seeker. The waters are warm here.
+              <p className="relative z-10 text-foreground font-serif text-lg mt-6 leading-relaxed">
+                Welcome Seeker. Ready to take a holy dip?
               </p>
               <p className="relative z-10 font-serif text-primary text-lg mt-8 tracking-widest">✦ thekosmictrinity ✦</p>
             </div>

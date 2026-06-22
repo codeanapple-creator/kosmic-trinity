@@ -1,6 +1,6 @@
 import { MotionSection, FadeIn } from "@/components/ui/motion-section";
 import { Link } from "wouter";
-import { ArrowRight, Star, Moon, Sun, Sparkles } from "lucide-react";
+import { Star, Moon, Sun, Sparkles } from "lucide-react";
 import colortexture from "@assets/colortexture_1777355912930.jpeg";
 import sacredGeometry from "@/assets/sacred_geometry.png";
 
@@ -114,24 +114,17 @@ export default function Home() {
           <MotionSection delay={0.4} className="max-w-4xl mx-auto space-y-6">
             <h2 className="text-sm md:text-base text-primary tracking-[0.3em] uppercase mb-4">Dharma &nbsp;·&nbsp; Artha &nbsp;·&nbsp; Kaam</h2>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground leading-[1.1]">
-              Decode Your <br />
-              <span className="gold-gradient-text">Cosmic Blueprint</span>
+              From Insights to <br />
+              <span className="gold-gradient-text">Inner Alignment</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mt-6 font-light">
-              Decode the deeper intention behind your birth. Align your Dharma, Artha & Kaam through the sacred lens of Astrology and Tarot — and live the life your soul chose.
+              Align your Dharma, Artha & Kaam by understanding your patterns, honouring your desires, and building a life that feels aligned.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 pt-8">
               <Link 
-                href="/dharma"
-                className="px-8 py-4 bg-primary text-primary-foreground rounded hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:shadow-[0_0_30px_rgba(201,168,76,0.5)] font-serif tracking-wider uppercase text-sm w-full sm:w-auto text-center font-bold"
-                data-testid="link-hero-dharma"
-              >
-                Begin Your Journey
-              </Link>
-              <Link 
                 href="/about"
-                className="px-8 py-4 border border-primary/50 text-foreground rounded hover:bg-primary/10 transition-all font-serif tracking-wider uppercase text-sm w-full sm:w-auto text-center"
+                className="px-8 py-4 bg-primary text-primary-foreground rounded hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:shadow-[0_0_30px_rgba(201,168,76,0.5)] font-serif tracking-wider uppercase text-sm w-full sm:w-auto text-center font-bold"
                 data-testid="link-hero-about"
               >
                 Meet Us
@@ -229,7 +222,7 @@ export default function Home() {
                     Spiritual path, karmic tasks, and soul print readings. Discover what you incarnated to master.
                   </p>
                   <span className="text-xs uppercase tracking-widest text-primary flex items-center gap-2 group-hover:gap-4 transition-all">
-                    Explore <ArrowRight size={14} />
+                    Explore
                   </span>
                 </div>
               </Link>
@@ -246,7 +239,7 @@ export default function Home() {
                     Financial astrology and career alignment. Cultivate an abundance mindset and material stability.
                   </p>
                   <span className="text-xs uppercase tracking-widest text-primary flex items-center gap-2 group-hover:gap-4 transition-all">
-                    Explore <ArrowRight size={14} />
+                    Explore
                   </span>
                 </div>
               </Link>
@@ -263,7 +256,7 @@ export default function Home() {
                     Relationship readings, Synastry, and Couple Readings. Understand your soul contracts.
                   </p>
                   <span className="text-xs uppercase tracking-widest text-primary flex items-center gap-2 group-hover:gap-4 transition-all">
-                    Explore <ArrowRight size={14} />
+                    Explore
                   </span>
                 </div>
               </Link>

@@ -1,5 +1,5 @@
 import { MotionSection, FadeIn } from "@/components/ui/motion-section";
-import triveniSangam from "@assets/about_us_1782111118235.jpeg";
+import triveniSangam from "@assets/sangam_pexels_1_1782111372144.jpg";
 
 const pillars = [
   {

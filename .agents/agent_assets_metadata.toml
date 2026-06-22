@@ -1,0 +1,20 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "6-wMe3AxHEsR5od8A0YzO"
+uri = "file://attached_assets/image_search/sangam_1.jpg"
+type = "image"
+title = "Option 1 — Wide aerial, rivers converging (2560×1773)"
+
+[[outputs]]
+id = "N7FtNuhPoVKYeJZwsq8-h"
+uri = "file://attached_assets/image_search/sangam_2.jpg"
+type = "image"
+title = "Option 2 — Drone shot, Sangam point (2560×1440)"
+
+[[outputs]]
+id = "FtZl7XW38UTbXFEYANeay"
+uri = "file://attached_assets/image_search/sangam_3.jpg"
+type = "image"
+title = "Option 3 — Maha Shivratri aerial (2560×1623)"

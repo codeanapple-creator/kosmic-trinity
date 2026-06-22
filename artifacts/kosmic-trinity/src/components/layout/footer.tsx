@@ -72,9 +72,9 @@ export function Footer() {
               <span className="absolute -bottom-2 left-0 w-1/2 h-[1px] bg-primary/50" />
             </h3>
             <div className="space-y-4">
-              <a href="mailto:hello@kosmictrinity.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-sm group">
+              <a href="mailto:kosmictrinity@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-sm group">
                 <Mail size={16} className="group-hover:animate-pulse" />
-                hello@kosmictrinity.com
+                kosmictrinity@gmail.com
               </a>
               <div className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin size={16} className="shrink-0 mt-0.5 text-primary/60" />

@@ -18,3 +18,15 @@ id = "FtZl7XW38UTbXFEYANeay"
 uri = "file://attached_assets/image_search/sangam_3.jpg"
 type = "image"
 title = "Option 3 — Maha Shivratri aerial (2560×1623)"
+
+[[outputs]]
+id = "2-pglFLWyg3UdR7q_Vglf"
+uri = "file://attached_assets/image_search/sangam_pexels_1.jpg"
+type = "image"
+title = "Option A — Aerial Kumbh Mela / Triveni Sangam"
+
+[[outputs]]
+id = "1PBArOqRzRmOF2IDqWgSn"
+uri = "file://attached_assets/image_search/sangam_pexels_2.jpg"
+type = "image"
+title = "Option B — Mahakumbh Prayagraj aerial"

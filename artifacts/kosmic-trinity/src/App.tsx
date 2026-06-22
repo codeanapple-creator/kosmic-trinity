@@ -22,6 +22,10 @@ import Disclaimer from "@/pages/disclaimer";
 import Terms from "@/pages/terms";
 import Booking from "@/pages/booking";
 import BookingSuccess from "@/pages/booking-success";
+import RisingSign from "@/pages/blog/rising-sign";
+import ElementalMagic from "@/pages/blog/elemental-magic";
+import SummerSolstice from "@/pages/blog/summer-solstice";
+import TarotYearbook from "@/pages/blog/tarot-yearbook";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +57,10 @@ function Router() {
           <Route path="/terms" component={Terms} />
           <Route path="/booking" component={Booking} />
           <Route path="/booking/success" component={BookingSuccess} />
+          <Route path="/journal/rising-sign" component={RisingSign} />
+          <Route path="/journal/elemental-magic" component={ElementalMagic} />
+          <Route path="/journal/summer-solstice" component={SummerSolstice} />
+          <Route path="/journal/tarot-yearbook" component={TarotYearbook} />
           <Route component={NotFound} />
         </Switch>
       </main>

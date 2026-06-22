@@ -1,6 +1,34 @@
-import { MotionSection } from "@/components/ui/motion-section";
+import { MotionSection, FadeIn } from "@/components/ui/motion-section";
 import { Link } from "wouter";
 import { BookOpen, FileText, PenTool, ArrowRight } from "lucide-react";
+
+const blogs = [
+  {
+    href: "/journal/rising-sign",
+    category: "Astrology",
+    title: "Stop Fixating at Your Sun Sign, Unlock Your Rising Sign First",
+    excerpt: "Beyond horoscopes and mercury retrograde memes — your Rising Sign (Ascendant) is the first lens astrologers read. Discover what it is, how to find it, and why it explains more about you than your Sun Sign ever could.",
+  },
+  {
+    href: "/journal/elemental-magic",
+    category: "Rituals & Magic",
+    title: "Harnessing the Elemental Magic for Manifestation & Release",
+    excerpt: "Fire, Earth, Air, Water — the four elements are fundamental forces that govern the flow of energy in your life. Learn how to use them intentionally in your rituals to manifest desires and release what no longer serves you.",
+  },
+  {
+    href: "/journal/summer-solstice",
+    category: "Cosmic Events · Tarot",
+    title: "Summer Solstice: When the Sun Stands Still and the Soul Steps Forward",
+    excerpt: "The longest day of the year is not just a geographical event — it is a cosmic spotlight on everything growing within you. Includes a 6-card Tarot spread to align with the Solstice energy.",
+  },
+  {
+    href: "/journal/tarot-yearbook",
+    category: "Soul Farm by Kriti",
+    title: "The Tarot Year Book for 2026 — Themes, Timing & Inner Alignment",
+    excerpt: "Calculate your Personal Year Tarot Card and discover the overarching theme life is inviting you into this year. All 21 Major Arcana themes for 2026, written by Kriti. An anchor for the year ahead.",
+    featured: true,
+  },
+];
 
 export default function Journal() {
   return (
@@ -43,59 +71,66 @@ export default function Journal() {
 
         <div className="grid md:grid-cols-12 gap-8">
           
-          {/* Poetry Section */}
-          <MotionSection delay={0.1} className="md:col-span-8 space-y-8">
-            <div className="border border-border bg-card/40 p-8 rounded glow-hover relative overflow-hidden">
-              <PenTool className="absolute top-8 right-8 text-primary/20 w-24 h-24 rotate-12" />
-              <h2 className="text-2xl font-serif text-primary mb-6">Published Poetry</h2>
-              <p className="text-muted-foreground mb-6 font-light">
-                thekosmictrinity is the author of 4 Hindi Poetry books exploring the depths of the human experience, love, loss, and spiritual awakening.
-              </p>
-              <div className="space-y-4">
-                {[1, 2, 3, 4].map((book) => (
-                  <div key={book} className="flex items-center justify-between p-4 border border-border/50 rounded bg-background/50 hover:border-primary/30 transition-colors">
-                    <div>
-                      <h4 className="font-serif text-foreground">Hindi Poetry Book Volume {book}</h4>
-                      <p className="text-xs text-muted-foreground mt-1">Available on Amazon</p>
-                    </div>
-                    <button className="text-xs tracking-widest uppercase text-primary border-b border-primary/30 pb-1">Buy</button>
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* Main Content */}
+          <div className="md:col-span-8 space-y-8">
 
-            {/* Recent Articles */}
-            <div className="border border-border bg-card/40 p-8 rounded glow-hover">
-              <div className="flex items-center gap-3 mb-8">
-                <BookOpen className="text-primary" size={24} />
-                <h2 className="text-2xl font-serif">Recent Transmissions</h2>
-              </div>
-              
-              <div className="space-y-8">
-                <article className="border-b border-border/50 pb-8">
-                  <span className="text-[10px] text-primary uppercase tracking-widest">Astrology</span>
-                  <h3 className="text-xl font-serif text-foreground mt-2 mb-3 hover:text-primary transition-colors cursor-pointer">
-                    Navigating the Pluto Return: Collective Transformation
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    As Pluto makes its monumental shift, we explore what it means for the collective unconscious and how to ground this volatile energy in our daily lives...
-                  </p>
-                  <button className="text-xs tracking-widest uppercase border-b border-foreground/30 pb-1 hover:border-primary hover:text-primary transition-colors">Read Full Article</button>
-                </article>
+            {/* Blog Articles */}
+            <MotionSection delay={0.1}>
+              <div className="border border-border bg-card/40 p-8 rounded glow-hover">
+                <div className="flex items-center gap-3 mb-8">
+                  <BookOpen className="text-primary" size={24} />
+                  <h2 className="text-2xl font-serif">Recent Transmissions</h2>
+                </div>
                 
-                <article>
-                  <span className="text-[10px] text-accent uppercase tracking-widest">Tarot</span>
-                  <h3 className="text-xl font-serif text-foreground mt-2 mb-3 hover:text-accent transition-colors cursor-pointer">
-                    The Tower Card is Not Your Enemy
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    Re-framing one of the most feared cards in the deck. Why sudden structural collapse is often the universe's greatest act of mercy...
-                  </p>
-                  <button className="text-xs tracking-widest uppercase border-b border-foreground/30 pb-1 hover:border-accent hover:text-accent transition-colors">Read Full Article</button>
-                </article>
+                <div className="space-y-8">
+                  {blogs.map((post, i) => (
+                    <article key={i} className={`pb-8 ${i < blogs.length - 1 ? "border-b border-border/50" : ""}`}>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-[10px] text-primary uppercase tracking-widest">{post.category}</span>
+                        {post.featured && (
+                          <span className="text-[9px] px-2 py-0.5 bg-primary/10 text-primary border border-primary/20 rounded uppercase tracking-widest">Featured</span>
+                        )}
+                      </div>
+                      <Link href={post.href}>
+                        <h3 className="text-xl font-serif text-foreground mt-1 mb-3 hover:text-primary transition-colors cursor-pointer leading-snug">
+                          {post.title}
+                        </h3>
+                      </Link>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                        {post.excerpt}
+                      </p>
+                      <Link href={post.href} className="inline-flex items-center gap-2 text-xs tracking-widest uppercase border-b border-foreground/30 pb-1 hover:border-primary hover:text-primary transition-colors">
+                        Read Full Article <ArrowRight size={10} />
+                      </Link>
+                    </article>
+                  ))}
+                </div>
               </div>
-            </div>
-          </MotionSection>
+            </MotionSection>
+
+            {/* Poetry Section */}
+            <MotionSection delay={0.2}>
+              <div className="border border-border bg-card/40 p-8 rounded glow-hover relative overflow-hidden">
+                <PenTool className="absolute top-8 right-8 text-primary/20 w-24 h-24 rotate-12" />
+                <h2 className="text-2xl font-serif text-primary mb-6">Published Poetry</h2>
+                <p className="text-muted-foreground mb-6 font-light">
+                  thekosmictrinity is the author of 4 Hindi Poetry books exploring the depths of the human experience, love, loss, and spiritual awakening.
+                </p>
+                <div className="space-y-4">
+                  {[1, 2, 3, 4].map((book) => (
+                    <div key={book} className="flex items-center justify-between p-4 border border-border/50 rounded bg-background/50 hover:border-primary/30 transition-colors">
+                      <div>
+                        <h4 className="font-serif text-foreground">Hindi Poetry Book Volume {book}</h4>
+                        <p className="text-xs text-muted-foreground mt-1">Available on Amazon</p>
+                      </div>
+                      <button className="text-xs tracking-widest uppercase text-primary border-b border-primary/30 pb-1">Buy</button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </MotionSection>
+
+          </div>
 
           {/* Resources Sidebar */}
           <MotionSection delay={0.3} className="md:col-span-4 space-y-8">
@@ -104,18 +139,30 @@ export default function Journal() {
                 <FileText className="text-primary" size={20} />
                 <h3 className="text-lg font-serif">Free Resources</h3>
               </div>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 <li>
-                  <a href="#" className="block p-3 border border-border bg-card/50 rounded hover:border-primary/50 transition-colors group">
-                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Beginner's Guide to Nodes</h4>
-                    <p className="text-xs text-muted-foreground mt-1">PDF Download (2.4 MB)</p>
-                  </a>
+                  <Link href="/journal/rising-sign" className="block p-3 border border-border bg-card/50 rounded hover:border-primary/50 transition-colors group">
+                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Unlock Your Rising Sign</h4>
+                    <p className="text-xs text-muted-foreground mt-1">Free Article · Astrology</p>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="block p-3 border border-border bg-card/50 rounded hover:border-primary/50 transition-colors group">
-                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Full Moon Release Ritual</h4>
-                    <p className="text-xs text-muted-foreground mt-1">PDF Download (1.1 MB)</p>
-                  </a>
+                  <Link href="/journal/elemental-magic" className="block p-3 border border-border bg-card/50 rounded hover:border-primary/50 transition-colors group">
+                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Elemental Magic Ritual Guide</h4>
+                    <p className="text-xs text-muted-foreground mt-1">Free Guide · Rituals</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/journal/tarot-yearbook" className="block p-3 border border-border bg-card/50 rounded hover:border-primary/50 transition-colors group">
+                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Tarot Year Book 2026</h4>
+                    <p className="text-xs text-muted-foreground mt-1">Free Guidebook · Soul Farm by Kriti</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/journal/summer-solstice" className="block p-3 border border-border bg-card/50 rounded hover:border-primary/50 transition-colors group">
+                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Summer Solstice Tarot Spread</h4>
+                    <p className="text-xs text-muted-foreground mt-1">Free Article · Cosmic Events</p>
+                  </Link>
                 </li>
               </ul>
 

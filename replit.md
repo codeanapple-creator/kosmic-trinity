@@ -1,6 +1,6 @@
-# [Project name]
+# Kosmic Trinity
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A spiritual astrology and tarot platform that helps users decode their cosmic blueprint through Dharma, Artha & Kaam.
 
 ## Run & Operate
 

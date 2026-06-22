@@ -1,5 +1,5 @@
 import { MotionSection, FadeIn } from "@/components/ui/motion-section";
-import colortheme from "@assets/colortheme_1777355912930.jpeg";
+import triveniSangam from "@assets/about_us_1782111118235.jpeg";
 
 const pillars = [
   {
@@ -51,9 +51,9 @@ export default function About() {
             <div className="lg:col-span-5 relative">
               <div className="sacred-border p-2 bg-card/30 backdrop-blur rounded">
                 <img
-                  src={colortheme}
-                  alt="Sacred Texture"
-                  className="w-full aspect-[4/5] object-cover rounded opacity-80"
+                  src={triveniSangam}
+                  alt="Triveni Sangam, Prayagraj"
+                  className="w-full aspect-[4/5] object-cover rounded"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent rounded" />
               </div>

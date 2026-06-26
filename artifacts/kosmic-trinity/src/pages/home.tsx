@@ -154,7 +154,7 @@ export default function Home() {
                   <Sparkles className="text-primary mb-6" size={32} />
                   <h3 className="text-2xl font-serif gold-gradient-text mb-4">Ancient Wisdom, Present Clarity</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    thekosmictrinity is built on the belief that the ancient philosophy of Dharma, Artha, and Kaam holds the most profound map of a human life. We use Western Astrology and Tarot not for prediction, but for precise soul-mapping and karmic clarity.
+                    thekosmictrinity is built on the belief that the ancient philosophy of Dharma, Artha, and Kaam holds the most profound map of a human life. We use ancient knowledge not for prediction, but for understanding the soul map and gaining clarity.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mt-4">
                     Guided by three sisters, every offering is an invitation to understand your unique blueprint — the purpose you chose, the patterns you carry, and the life you are meant to build.
@@ -236,7 +236,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-serif mb-4 group-hover:text-primary transition-colors">Artha</h3>
                   <p className="text-sm text-muted-foreground mb-6 flex-grow">
-                    Financial astrology and career alignment. Cultivate an abundance mindset and material stability.
+                    Cultivate an abundance mindset and material stability.
                   </p>
                   <span className="text-xs uppercase tracking-widest text-primary flex items-center gap-2 group-hover:gap-4 transition-all">
                     Explore
@@ -253,7 +253,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-serif mb-4 group-hover:text-primary transition-colors">Kaam</h3>
                   <p className="text-sm text-muted-foreground mb-6 flex-grow">
-                    Relationship readings, Synastry, and Couple Readings. Understand your soul contracts.
+                    Understand your relational dynamics, how your soul seeks and expresses love.
                   </p>
                   <span className="text-xs uppercase tracking-widest text-primary flex items-center gap-2 group-hover:gap-4 transition-all">
                     Explore

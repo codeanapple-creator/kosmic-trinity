@@ -83,11 +83,6 @@ export default function Dharma() {
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
                 Decode the deeper intention behind your birth — your tendencies, gifts brought from past lives, and karmic tasks for this life. Based on Astrology and Tarot, this guidebook is crafted personally for you and delivered as a PDF over email.
               </p>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Soul Blueprint</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Karmic Gifts</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">PDF via Email</span>
-              </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 3,333 &nbsp;·&nbsp; $33 &nbsp;·&nbsp; €33</p>
                 <Link href="/booking" className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors">
@@ -106,11 +101,6 @@ export default function Dharma() {
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
                 Understand repeating patterns and unfinished cycles that shape your journey, and uncover the purpose your soul has uniquely chosen for this life. A discussion around your embedded patterns and how they are leading you toward the Dharm your soul has chosen.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Pattern Recognition</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Soul Purpose</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Live via Zoom</span>
-              </div>
 
               {/* Two sub-options */}
               <div className="grid md:grid-cols-2 gap-4 mb-8">
@@ -146,11 +136,6 @@ export default function Dharma() {
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
                 A live 1:1 Astrology + Tarot based reading for checking transits, solar return themes, and understanding timelines — to check what to sow, reap and harvest in the current phase of your life. An invitation to align with your cosmic seasons consciously.
               </p>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Solar Return</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Transit Reading</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Live via Zoom</span>
-              </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 5,500 &nbsp;·&nbsp; $55 &nbsp;·&nbsp; €55</p>
                 <Link href="/booking" className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors">

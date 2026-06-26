@@ -89,11 +89,6 @@ export default function Artha() {
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
                 Identify what wealth means for your soul, the subconscious patterns influencing your financial flow, clarity on direction, decisions, and professional shifts — and work through energetic, psychological, and ancestral blocks around money.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Zoom Session</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">60 Minutes</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Wealth Patterns</span>
-              </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 8,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $85 / €85</span></p>
                 <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
@@ -116,11 +111,6 @@ export default function Artha() {
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
                 Discover strengths you may not be fully utilising yet — your tangible talents, your money element, and ways to use them for monetary benefits. A PDF reading based on your birth chart, designed to reveal the unique cosmic blueprint behind your earning and holding capacity.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">PDF Download</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Birth Chart</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Money Element</span>
-              </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $25 / €25</span></p>
                 <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
@@ -143,11 +133,6 @@ export default function Artha() {
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
                 Tarot and Oracle Cards-based reading to uncover solutions for financial issues, fields to monetise, and to resolve blockages and patterns around money concerns. 30-minute live session — no limit on questions within the stipulated timeframe.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Tarot Reading</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Oracle Cards</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">30 Minutes Live</span>
-              </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 3,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $35 / €35</span></p>
                 <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
@@ -173,12 +158,6 @@ export default function Artha() {
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
                 Under her mentorship, you get to organise your finances, identify gaps, simplify financial understanding, and design smoother workflows for both your personal and business use. This work is especially for homemakers, women entrepreneurs, small business owners, and anyone seeking better financial organisation and awareness — because material stability and spiritual growth are not separate paths. They are meant to strengthen each other.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">CA Expertise</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Women Entrepreneurs</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Financial Systems</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">30-Min Discovery Call</span>
-              </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-primary/70 text-sm font-light">discovery call</span></p>
                 <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"

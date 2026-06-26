@@ -127,7 +127,7 @@ function ProductCard({
               }
               className="px-5 py-2.5 bg-primary text-primary-foreground font-serif tracking-widest text-sm uppercase rounded shadow-lg flex items-center gap-2 hover:bg-primary/90 transition-colors"
             >
-              <ShoppingBag size={14} /> Buy Now
+              <ShoppingBag size={14} /> Enquire
             </button>
           </div>
         </div>
@@ -148,7 +148,7 @@ function ProductCard({
               }
               className="flex-1 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
             >
-              <ShoppingBag size={12} /> Buy Now
+              <ShoppingBag size={12} /> Enquire
             </button>
             <a
               href={WHATSAPP}
@@ -177,14 +177,13 @@ export default function Storefront() {
           <span className="text-primary font-serif text-xl mb-2 block">The Soul Store</span>
           <h1 className="text-4xl md:text-6xl font-serif gold-gradient-text mb-4">Storefront</h1>
           <p className="text-muted-foreground uppercase tracking-widest text-sm max-w-xl mx-auto">
-            Soulful Artworks · Folk Décor · Stationery · Handcrafted Gifts
+            Soulful · Folk Décor · Handcrafted
           </p>
         </MotionSection>
 
         <MotionSection delay={0.1} className="text-center mb-14">
           <p className="text-muted-foreground font-light max-w-xl mx-auto text-base leading-relaxed">
-            Every piece in the Soul Store is handcrafted by{" "}
-            <span className="text-foreground italic">@splash_your_soul</span> — painted with intention,
+            Every piece in the Soul Store is handcrafted with intention,
             designed to bring beauty, warmth, and sacred energy into your home.
           </p>
         </MotionSection>

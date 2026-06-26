@@ -23,7 +23,7 @@ const blogs = [
   },
   {
     href: "/journal/tarot-yearbook",
-    category: "Soul Farm by Kriti",
+    category: "Kosmic Journal",
     title: "The Tarot Year Book for 2026 — Themes, Timing & Inner Alignment",
     excerpt: "Calculate your Personal Year Tarot Card and discover the overarching theme life is inviting you into this year. All 21 Major Arcana themes for 2026, written by Kriti. An anchor for the year ahead.",
     featured: true,
@@ -155,7 +155,7 @@ export default function Journal() {
                 <li>
                   <Link href="/journal/tarot-yearbook" className="block p-3 border border-border bg-card/50 rounded hover:border-primary/50 transition-colors group">
                     <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Tarot Year Book 2026</h4>
-                    <p className="text-xs text-muted-foreground mt-1">Free Guidebook · Soul Farm by Kriti</p>
+                    <p className="text-xs text-muted-foreground mt-1">Free Guidebook · Kosmic Journal</p>
                   </Link>
                 </li>
                 <li>

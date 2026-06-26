@@ -29,10 +29,6 @@ export default function Kaam() {
           <div className="relative px-8 py-8 border border-accent/20 rounded bg-card/20 backdrop-blur">
             <div className="absolute -top-px left-1/2 -translate-x-1/2 w-20 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
             <div className="absolute -bottom-px left-1/2 -translate-x-1/2 w-20 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
-            <p className="font-serif text-lg md:text-xl text-accent leading-relaxed mb-3">
-              कामस्तदग्रे समवर्तताधि मनसो रेतः प्रथमं यदासीत्।<br />
-              सतो बन्धुमसति निरविन्दन् हृदि प्रतीष्या कवयो मनीषा।।
-            </p>
             <p className="text-primary/90 text-sm italic leading-relaxed mb-2">
               "In the beginning, Kama arose — the primal seed, the first impulse of the cosmic mind.<br />
               Sages, seeking within their hearts with wisdom, discovered the bond between existence and non-existence."
@@ -89,11 +85,6 @@ export default function Kaam() {
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
                 Understand relational dynamics, patterns leading to unresolved emotional loops, conflicts, your unique love language, deep desires, and your soul's chosen way to experience and embody love in close relationships.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Astrology-Based</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Tarot &amp; Oracle</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Couples Available</span>
-              </div>
 
               {/* Pricing table */}
               <div className="border border-accent/15 rounded divide-y divide-accent/10 mb-8">
@@ -135,12 +126,6 @@ export default function Kaam() {
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
                 Understand your children — their behavioural patterns, creative potentials, talents, hidden challenges, and aligned games and activities to support them better. An astrology-based consultation dedicated entirely to your child's cosmic blueprint.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Birth Chart</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Child Development</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Creative Potential</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">60-Minute Zoom</span>
-              </div>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-foreground font-serif text-lg">Rs. 8,500 &nbsp;<span className="text-muted-foreground text-sm font-light">/ $85 / €85</span></p>
                 <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
@@ -163,11 +148,6 @@ export default function Kaam() {
               <p className="text-muted-foreground leading-relaxed mb-8 font-light">
                 A mindful, creative session designed to help you reconnect with your inner world through the sacred act of making. Srijan — meaning creation — invites you to slow down, pick up a brush, a pen, or a piece of clay, and let your soul speak without words. No prior art experience needed. Just presence, intention, and the willingness to create.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8">
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Zen Art</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">40 Minutes</span>
-                <span className="px-3 py-1 bg-secondary text-xs rounded border border-accent/20 text-accent">Live via Zoom</span>
-              </div>
               <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors">
                 Book Srijan <ArrowRight size={12} />

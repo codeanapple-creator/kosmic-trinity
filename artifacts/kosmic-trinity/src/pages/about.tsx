@@ -8,7 +8,7 @@ const pillars = [
     color: "from-primary/10 to-primary/5",
     border: "border-primary/40",
     description:
-      "Soul direction, patterns, and purpose. Dharma is the thread that runs through your choices, your wounds, your gifts, and your becoming. Through astrology, tarot, and karmic mapping we help you see the shape of your soul's chosen lesson — and walk it consciously.",
+      "Soul direction, patterns, and purpose. Dharma is the thread that runs through your choices, your wounds, your gifts, and your becoming.",
   },
   {
     name: "Artha",

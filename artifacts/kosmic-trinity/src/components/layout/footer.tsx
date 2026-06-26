@@ -14,7 +14,7 @@ export function Footer() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,168,76,0.05)_0%,transparent_70%)] pointer-events-none" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           
           {/* Brand Col */}
           <div>
@@ -36,20 +36,6 @@ export function Footer() {
                 <Twitter size={18} />
               </a>
             </div>
-          </div>
-
-          {/* Links Col 1 */}
-          <div>
-            <h3 className="font-serif text-lg text-foreground mb-6 gold-gradient-text inline-block relative">
-              Cosmic Paths
-              <span className="absolute -bottom-2 left-0 w-1/2 h-[1px] bg-primary/50" />
-            </h3>
-            <ul className="space-y-3">
-              <li><Link href="/dharma" className="text-muted-foreground hover:text-primary transition-colors text-sm">Dharma Readings</Link></li>
-              <li><Link href="/artha" className="text-muted-foreground hover:text-primary transition-colors text-sm">Artha & Career</Link></li>
-              <li><Link href="/kaam" className="text-muted-foreground hover:text-primary transition-colors text-sm">Kaam & Synastry</Link></li>
-              <li><Link href="/abhivyakti" className="text-muted-foreground hover:text-primary transition-colors text-sm">Abhivyakti Mentorship</Link></li>
-            </ul>
           </div>
 
           {/* Links Col 2 */}

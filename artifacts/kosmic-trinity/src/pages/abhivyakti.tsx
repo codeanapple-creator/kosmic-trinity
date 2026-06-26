@@ -42,7 +42,7 @@ export default function Abhivyakti() {
               <p className="text-sm text-muted-foreground leading-relaxed mb-3 flex-grow">
                 Want to discuss your issues, get a POV on your situation, or simply need a non-judgmental space to think out loud? Kriti holds space for you — with warmth, clarity, and the depth of someone who has walked this path.
               </p>
-              <p className="text-xs text-accent/70 mb-8">Astrology · Tarot · Intuitive Guidance</p>
+              <p className="text-xs text-accent/70 mb-8">Intuitive Guidance</p>
               <a
                 href="https://wa.me/message/kosmictrinity"
                 target="_blank"

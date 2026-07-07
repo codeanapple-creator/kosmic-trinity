@@ -50,7 +50,7 @@ export default function Artha() {
             By definition, Artha encompasses economic prosperity, career, skills, and resources needed for livelihood — but its deeper purpose is to provide the material security needed to sustain oneself and family, and to perform duties (Dharma).
           </p>
           <p className="text-muted-foreground leading-relaxed text-base font-light">
-            Esoteric tools like Astrology and Tarot Cards assist by identifying your optimal career fields, your unique way of accumulating and enjoying wealth, discovering time windows of financial abundance or risk, and showing how to safely and righteously acquire resources. It ensures that you do not waste energy on the wrong professions, helping you build the security needed to fulfil your Kaam (desires) in a Dharmic, righteous way.
+            Esoteric tools like Astrology and Oracle Cards assist by identifying your optimal career fields, your unique way of accumulating and enjoying wealth, discovering time windows of financial abundance or risk, and showing how to safely and righteously acquire resources. It ensures that you do not waste energy on the wrong professions, helping you build the security needed to fulfil your Kaam (desires) in a Dharmic, righteous way.
           </p>
         </MotionSection>
 
@@ -127,11 +127,11 @@ export default function Artha() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
               <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
                 <h2 className="text-2xl font-serif text-foreground">Power of Pentacles</h2>
-                <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">Live · Tarot + Oracle</span>
+                <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">Live · Oracle Guidance</span>
               </div>
               <p className="text-primary text-xs uppercase tracking-widest mb-4">30 Minutes · No Question Limit · Financial Clarity</p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-                Tarot and Oracle Cards-based reading to uncover solutions for financial issues, fields to monetise, and to resolve blockages and patterns around money concerns. 30-minute live session — no limit on questions within the stipulated timeframe.
+                Oracle Cards-based reading to uncover solutions for financial issues, fields to monetise, and to resolve blockages and patterns around money concerns. 30-minute live session — no limit on questions within the stipulated timeframe.
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 3,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $35 / €35</span></p>

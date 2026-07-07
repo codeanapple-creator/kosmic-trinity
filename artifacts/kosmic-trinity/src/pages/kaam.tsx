@@ -100,7 +100,7 @@ export default function Kaam() {
                   </div>
                 </div>
                 <div className="px-5 py-4">
-                  <p className="text-xs text-accent uppercase tracking-widest mb-2">Tarot &amp; Oracle · 30-Minute Zoom</p>
+                  <p className="text-xs text-accent uppercase tracking-widest mb-2">Oracle · 30-Minute Zoom</p>
                   <p className="text-muted-foreground text-sm">
                     <span className="text-foreground font-serif">Rs. 3,500 / $35 / €35</span>
                   </p>

@@ -24,14 +24,14 @@ export default function SummerSolstice() {
         </FadeIn>
 
         <MotionSection>
-          <p className="text-primary uppercase tracking-[0.3em] text-xs mb-3">Cosmic Events · Tarot</p>
+          <p className="text-primary uppercase tracking-[0.3em] text-xs mb-3">Cosmic Events</p>
           <h1 className="text-3xl md:text-5xl font-serif gold-gradient-text mb-4 leading-tight">
             Summer Solstice: When the Sun Stands Still and the Soul Steps Forward
           </h1>
           <div className="w-16 h-px bg-primary/50 mb-8" />
         </MotionSection>
 
-        <div className="space-y-6 text-muted-foreground leading-relaxed font-light">
+        <div className="space-y-6 text-base text-muted-foreground leading-relaxed font-light">
 
           <FadeIn delay={0.1}>
             <p>

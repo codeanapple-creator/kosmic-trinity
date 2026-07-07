@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import { MotionSection, FadeIn } from "@/components/ui/motion-section";
@@ -128,9 +128,15 @@ function calcYearCard(dob: string): { num: number; card: typeof cards[0] } | nul
 export default function TarotYearbook() {
   const [dob, setDob] = useState("");
   const [result, setResult] = useState<ReturnType<typeof calcYearCard>>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
+
+  const scrollToResult = () => {
+    setTimeout(() => resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+  };
 
   const handleCalculate = () => {
     setResult(calcYearCard(dob));
+    scrollToResult();
   };
 
   return (
@@ -190,11 +196,11 @@ export default function TarotYearbook() {
               </div>
 
               {result && (
-                <div className="mt-8 p-6 border border-primary/30 rounded bg-background/50">
+                <div ref={resultRef} className="mt-8 p-6 border border-primary/30 rounded bg-background/50">
                   <p className="text-primary uppercase tracking-widest text-xs mb-2">Your 2026 Year Card</p>
                   <h3 className="text-2xl font-serif gold-gradient-text mb-1">{result.card.name}</h3>
                   <p className="text-primary/70 text-sm italic mb-4">{result.card.theme}</p>
-                  <div className="space-y-3 text-muted-foreground text-sm leading-relaxed font-light">
+                  <div className="space-y-3 text-muted-foreground text-base leading-relaxed font-light">
                     {result.card.content.split("\n\n").map((para, i) => (
                       <p key={i}>{para}</p>
                     ))}
@@ -241,7 +247,7 @@ export default function TarotYearbook() {
             {cards.map((card) => (
               <button
                 key={card.num}
-                onClick={() => setResult({ num: card.num, card })}
+                onClick={() => { setResult({ num: card.num, card }); scrollToResult(); }}
                 className="p-4 border border-primary/20 rounded bg-card/30 hover:border-primary/50 hover:bg-card/60 transition-all text-left group"
               >
                 <span className="text-xs text-primary/60 font-serif">{card.num}</span>
@@ -250,13 +256,13 @@ export default function TarotYearbook() {
               </button>
             ))}
           </div>
-          <p className="text-center text-xs text-muted-foreground/60 mt-4">Click any card to read its full theme above ↑</p>
+          <p className="text-center text-xs text-muted-foreground/60 mt-4">Click any card — the meaning will open above ↑</p>
         </FadeIn>
 
         <FadeIn delay={0.3}>
           <div className="mt-12 p-6 border border-primary/20 rounded bg-card/20 text-center">
             <p className="text-muted-foreground text-sm">
-              For deeper insights, personal Tarot readings and Astrology consultations, reach out to Kriti at{" "}
+              For deeper insights, personal readings and Astrology consultations, reach out to Kriti at{" "}
               <a href="https://www.instagram.com/soulfarmbykriti" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@soulfarmbykriti</a>
               {" "}or <a href="mailto:soulfarmbykriti@gmail.com" className="text-primary hover:underline">soulfarmbykriti@gmail.com</a>
             </p>

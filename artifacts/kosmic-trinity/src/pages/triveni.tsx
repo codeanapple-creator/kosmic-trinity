@@ -32,7 +32,7 @@ const timeline = [
   {
     month: "Month 2",
     title: "Integration",
-    description: "1:1 guided sessions weaving astrology, Tarot, and reflective practices to integrate the insights across Dharma, Artha, and Kaam.",
+    description: "1:1 guided sessions weaving astrology and reflective practices to integrate the insights across Dharma, Artha, and Kaam.",
   },
   {
     month: "Month 3",

@@ -47,8 +47,8 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 h-24 flex items-center justify-between">
         <Link href="/" className="flex flex-col items-center z-50" data-testid="link-home-logo">
-          <img src={transparentLogo} alt="Kosmic Trinity Logo" className="h-[200px] w-auto object-contain" />
-          <span className="text-[10px] uppercase tracking-[0.25em] text-primary/80 font-serif -mt-[70px]">Kosmic Trinity</span>
+          <img src={transparentLogo} alt="Kosmic Trinity Logo" className="h-[100px] md:h-[200px] w-auto object-contain" />
+          <span className="text-[10px] uppercase tracking-[0.25em] text-primary/80 font-serif -mt-[35px] md:-mt-[70px]">Kosmic Trinity</span>
         </Link>
 
         {/* Desktop Nav */}

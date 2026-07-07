@@ -17,15 +17,15 @@ const blogs = [
   },
   {
     href: "/journal/summer-solstice",
-    category: "Cosmic Events · Tarot",
+    category: "Cosmic Events",
     title: "Summer Solstice: When the Sun Stands Still and the Soul Steps Forward",
-    excerpt: "The longest day of the year is not just a geographical event — it is a cosmic spotlight on everything growing within you. Includes a 6-card Tarot spread to align with the Solstice energy.",
+    excerpt: "The longest day of the year is not just a geographical event — it is a cosmic spotlight on everything growing within you. Includes a 6-card spread to align with the Solstice energy.",
   },
   {
     href: "/journal/tarot-yearbook",
     category: "Kosmic Journal",
-    title: "The Tarot Year Book for 2026 — Themes, Timing & Inner Alignment",
-    excerpt: "Calculate your Personal Year Tarot Card and discover the overarching theme life is inviting you into this year. All 21 Major Arcana themes for 2026, written by Kriti. An anchor for the year ahead.",
+    title: "The Year Book for 2026 — Themes, Timing & Inner Alignment",
+    excerpt: "Calculate your Personal Year Card and discover the overarching theme life is inviting you into this year. All 21 Major Arcana themes for 2026, written by Kriti. An anchor for the year ahead.",
     featured: true,
   },
 ];
@@ -51,10 +51,10 @@ export default function Journal() {
             </div>
             <p className="text-primary text-xs uppercase tracking-widest mb-4">Learn & Serve · Personalised Coaching</p>
             <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-              Learn to access your own intuitive intelligence and read Tarot Cards beyond the obvious meanings. Learning this art will not only help you reveal your own purpose — it will also equip you to serve others in finding theirs. Taught as personalised 1:1 coaching. Full course details in the attached brochure.
+              Learn to access your own intuitive intelligence and read cards beyond the obvious meanings. Learning this art will not only help you reveal your own purpose — it will also equip you to serve others in finding theirs. Taught as personalised 1:1 coaching. Full course details in the attached brochure.
             </p>
             <div className="flex flex-wrap gap-3 mb-6">
-              <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Tarot Mastery</span>
+              <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Intuitive Mastery</span>
               <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">1:1 Coaching</span>
               <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Intuitive Intelligence</span>
             </div>
@@ -86,7 +86,7 @@ export default function Journal() {
                   {blogs.map((post, i) => (
                     <article key={i} className={`pb-8 ${i < blogs.length - 1 ? "border-b border-border/50" : ""}`}>
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-[10px] text-primary uppercase tracking-widest">{post.category}</span>
+                        <span className="text-[10px] text-foreground/50 uppercase tracking-widest">{post.category}</span>
                         {post.featured && (
                           <span className="text-[9px] px-2 py-0.5 bg-primary/10 text-primary border border-primary/20 rounded uppercase tracking-widest">Featured</span>
                         )}
@@ -96,7 +96,7 @@ export default function Journal() {
                           {post.title}
                         </h3>
                       </Link>
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      <p className="text-muted-foreground text-base leading-relaxed mb-4">
                         {post.excerpt}
                       </p>
                       <Link href={post.href} className="inline-flex items-center gap-2 text-xs tracking-widest uppercase border-b border-foreground/30 pb-1 hover:border-primary hover:text-primary transition-colors">

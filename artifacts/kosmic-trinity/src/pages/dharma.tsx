@@ -79,9 +79,9 @@ export default function Dharma() {
                 <h2 className="text-2xl font-serif text-foreground">Soul Calling Guidebook</h2>
                 <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">PDF · Digital</span>
               </div>
-              <p className="text-primary text-xs uppercase tracking-widest mb-4">Astrology + Tarot · Delivered via Email</p>
+              <p className="text-primary text-xs uppercase tracking-widest mb-4">Astrology · Delivered via Email</p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-                Decode the deeper intention behind your birth — your tendencies, gifts brought from past lives, and karmic tasks for this life. Based on Astrology and Tarot, this guidebook is crafted personally for you and delivered as a PDF over email.
+                Decode the deeper intention behind your birth — your tendencies, gifts brought from past lives, and karmic tasks for this life. Based on your birth chart and intuitive mapping, this guidebook is crafted personally for you and delivered as a PDF over email.
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 3,333 &nbsp;·&nbsp; $33 &nbsp;·&nbsp; €33</p>
@@ -111,9 +111,9 @@ export default function Dharma() {
                   <p className="text-primary font-serif">Rs. 8,500 &nbsp;·&nbsp; $85 &nbsp;·&nbsp; €85</p>
                 </div>
                 <div className="border border-accent/20 rounded p-5 bg-secondary/30">
-                  <p className="text-accent text-xs uppercase tracking-widest mb-1">Tarot-Based</p>
+                  <p className="text-accent text-xs uppercase tracking-widest mb-1">Intuitive Reading</p>
                   <p className="text-foreground font-serif text-base mb-1">30-Minute Session</p>
-                  <p className="text-muted-foreground text-xs font-light mb-3">Intuitive Tarot consultation on Zoom</p>
+                  <p className="text-muted-foreground text-xs font-light mb-3">Intuitive consultation on Zoom</p>
                   <p className="text-accent font-serif">Rs. 3,500 &nbsp;·&nbsp; $35 &nbsp;·&nbsp; €35</p>
                 </div>
               </div>
@@ -130,11 +130,11 @@ export default function Dharma() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
               <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
                 <h2 className="text-2xl font-serif text-foreground">Soulfarm Season Reading</h2>
-                <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">Live 1:1 · Astrology + Tarot</span>
+                <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">Live 1:1 · Astrology</span>
               </div>
               <p className="text-primary text-xs uppercase tracking-widest mb-4">Transits · Solar Return · Timelines</p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-                A live 1:1 Astrology + Tarot based reading for checking transits, solar return themes, and understanding timelines — to check what to sow, reap and harvest in the current phase of your life. An invitation to align with your cosmic seasons consciously.
+                A live 1:1 Astrology based reading for checking transits, solar return themes, and understanding timelines — to check what to sow, reap and harvest in the current phase of your life. An invitation to align with your cosmic seasons consciously.
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 5,500 &nbsp;·&nbsp; $55 &nbsp;·&nbsp; €55</p>

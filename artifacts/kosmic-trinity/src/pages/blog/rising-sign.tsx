@@ -37,7 +37,7 @@ export default function RisingSign() {
           <div className="w-16 h-px bg-primary/50 mb-8" />
         </MotionSection>
 
-        <div className="prose-kosmic space-y-6 text-muted-foreground leading-relaxed font-light">
+        <div className="prose-kosmic space-y-6 text-base text-muted-foreground leading-relaxed font-light">
 
           <FadeIn delay={0.1}>
             <p>

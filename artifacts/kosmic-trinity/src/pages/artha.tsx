@@ -37,17 +37,17 @@ export default function Artha() {
               "Goals are accomplished through effort, not mere wishes.<br />
               Deer do not enter the mouth of a sleeping lion."
             </p>
-            <p className="text-[11px] text-primary/60 uppercase tracking-widest">— Hitopadesha</p>
+            <p className="text-[11px] text-primary/60 uppercase tracking-widest">- Hitopadesha</p>
           </div>
         </MotionSection>
 
         {/* Philosophy */}
         <MotionSection delay={0.15} className="mb-10 max-w-3xl mx-auto">
           <p className="text-muted-foreground leading-relaxed text-lg font-light mb-5">
-            In the Hindu spiritual framework, Artha is one of the four essential pillars of human life — representing wealth, resources, structure, security, and material balance. Artha in Sanskrit means <span className="text-foreground italic">"meaning / value"</span>. It is not just money or gold but the value you derive from it.
+            In the Hindu spiritual framework, Artha is one of the four essential pillars of human life - representing wealth, resources, structure, security, and material balance. Artha in Sanskrit means "meaning / value". It is not just money or gold but the value you derive from it.
           </p>
           <p className="text-muted-foreground leading-relaxed text-base font-light mb-5">
-            By definition, Artha encompasses economic prosperity, career, skills, and resources needed for livelihood — but its deeper purpose is to provide the material security needed to sustain oneself and family, and to perform duties (Dharma).
+            By definition, Artha encompasses economic prosperity, career, skills, and resources needed for livelihood - but its deeper purpose is to provide the material security needed to sustain oneself and family, and to perform duties (Dharma).
           </p>
           <p className="text-muted-foreground leading-relaxed text-base font-light">
             Esoteric tools like Astrology and Oracle Cards assist by identifying your optimal career fields, your unique way of accumulating and enjoying wealth, discovering time windows of financial abundance or risk, and showing how to safely and righteously acquire resources. It ensures that you do not waste energy on the wrong professions, helping you build the security needed to fulfil your Kaam (desires) in a Dharmic, righteous way.
@@ -77,7 +77,7 @@ export default function Artha() {
 
         <div className="space-y-12">
 
-          {/* 1 — Samriddhi Session */}
+          {/* 1 - Samriddhi Session */}
           <MotionSection delay={0.3}>
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
@@ -87,7 +87,7 @@ export default function Artha() {
               </div>
               <p className="text-primary text-xs uppercase tracking-widest mb-4">60 Minutes · Astrology · Wealth &amp; Career</p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-                Identify what wealth means for your soul, the subconscious patterns influencing your financial flow, clarity on direction, decisions, and professional shifts — and work through energetic, psychological, and ancestral blocks around money.
+                Identify what wealth means for your soul, the subconscious patterns influencing your financial flow, clarity on direction, decisions, and professional shifts - and work through energetic, psychological, and ancestral blocks around money.
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 8,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $85 / €85</span></p>
@@ -99,17 +99,17 @@ export default function Artha() {
             </div>
           </MotionSection>
 
-          {/* 2 — SARTHAK */}
+          {/* 2 - SARTHAK */}
           <MotionSection delay={0.35}>
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
               <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
-                <h2 className="text-2xl font-serif text-foreground">SARTHAK — A Book of Money Magic</h2>
+                <h2 className="text-2xl font-serif text-foreground">SARTHAK - A Book of Money Magic</h2>
                 <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">PDF · Birth Chart</span>
               </div>
               <p className="text-primary text-xs uppercase tracking-widest mb-4">Digital Reading · Self-Paced · Personalised</p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-                Discover strengths you may not be fully utilising yet — your tangible talents, your money element, and ways to use them for monetary benefits. A PDF reading based on your birth chart, designed to reveal the unique cosmic blueprint behind your earning and holding capacity.
+                Discover strengths you may not be fully utilising yet - your tangible talents, your money element, and ways to use them for monetary benefits. A PDF reading based on your birth chart, designed to reveal the unique cosmic blueprint behind your earning and holding capacity.
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $25 / €25</span></p>
@@ -121,7 +121,7 @@ export default function Artha() {
             </div>
           </MotionSection>
 
-          {/* 3 — Power of Pentacles */}
+          {/* 3 - Power of Pentacles */}
           <MotionSection delay={0.4}>
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
@@ -131,7 +131,7 @@ export default function Artha() {
               </div>
               <p className="text-primary text-xs uppercase tracking-widest mb-4">30 Minutes · No Question Limit · Financial Clarity</p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-                Oracle Cards-based reading to uncover solutions for financial issues, fields to monetise, and to resolve blockages and patterns around money concerns. 30-minute live session — no limit on questions within the stipulated timeframe.
+                Oracle Cards-based reading to uncover solutions for financial issues, fields to monetise, and to resolve blockages and patterns around money concerns. 30-minute live session - no limit on questions within the stipulated timeframe.
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 3,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $35 / €35</span></p>
@@ -143,7 +143,7 @@ export default function Artha() {
             </div>
           </MotionSection>
 
-          {/* 4 — SHREE by Shruti */}
+          {/* 4 - SHREE by Shruti */}
           <MotionSection delay={0.45}>
             <div className="bg-card/30 backdrop-blur border border-primary/20 p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
@@ -153,10 +153,10 @@ export default function Artha() {
               </div>
               <p className="text-primary text-xs uppercase tracking-widest mb-4">Financial Structure · Money as Energy · 30-Min Call</p>
               <p className="text-muted-foreground leading-relaxed mb-4 font-light">
-                Our seasoned CA Shruti Gupta offers her expertise to individuals, families, and women-led businesses — bringing clarity and structure to their financial world. This session goes beyond accounting and works with money as <span className="text-foreground italic">energy</span>, helping you build systems that create ease, confidence, and sustainable growth.
+                Our seasoned CA Shruti Gupta offers her expertise to individuals, families, and women-led businesses - bringing clarity and structure to their financial world. This session goes beyond accounting and works with money as energy, helping you build systems that create ease, confidence, and sustainable growth.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-                Under her mentorship, you get to organise your finances, identify gaps, simplify financial understanding, and design smoother workflows for both your personal and business use. This work is especially for homemakers, women entrepreneurs, small business owners, and anyone seeking better financial organisation and awareness — because material stability and spiritual growth are not separate paths. They are meant to strengthen each other.
+                Under her mentorship, you get to organise your finances, identify gaps, simplify financial understanding, and design smoother workflows for both your personal and business use. This work is especially for homemakers, women entrepreneurs, small business owners, and anyone seeking better financial organisation and awareness - because material stability and spiritual growth are not separate paths. They are meant to strengthen each other.
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-primary/70 text-sm font-light">discovery call</span></p>

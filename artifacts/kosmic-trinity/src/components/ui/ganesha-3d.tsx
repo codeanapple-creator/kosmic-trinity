@@ -84,7 +84,7 @@ export function Ganesha3D({ size = 120 }: { size?: number }) {
   /* Tiny avatars in chat messages: PNG clipped to circle */
   if (isSmall) return <BodhiImage size={size} round />;
 
-  /* Check WebGL at render time — fall back instantly if unavailable */
+  /* Check WebGL at render time - fall back instantly if unavailable */
   if (typeof window === "undefined" || !hasWebGL()) {
     return <BodhiImage size={size} />;
   }
@@ -93,7 +93,7 @@ export function Ganesha3D({ size = 120 }: { size?: number }) {
 
   return (
     <ModelErrorBoundary fallback={fallback}>
-      {/* No border-radius, no overflow:hidden — character floats freely */}
+      {/* No border-radius, no overflow:hidden - character floats freely */}
       <div style={{ width: size, height: size, background: "transparent" }}>
         <Canvas
           style={{ width: "100%", height: "100%" }}

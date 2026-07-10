@@ -40,21 +40,21 @@ const products: Array<{
     images: [peacockDiya],
     tag: "Festive · Tealight Holders",
     description:
-      "A pair of hand-painted peacock-shaped tealight holders in deep indigo with feather detailing. Each peacock holds six pink tealight cups — perfect for pooja corners, gifting, and festive décor.",
+      "A pair of hand-painted peacock-shaped tealight holders in deep indigo with feather detailing. Each peacock holds six pink tealight cups - perfect for pooja corners, gifting, and festive décor.",
   },
   {
     id: 3,
-    name: "Floral Folk Wall Panel — Set of 2",
+    name: "Floral Folk Wall Panel - Set of 2",
     type: "Handpainted · Mirror Work",
     amountPaise: 250000,
     images: [wallPanelSet],
     tag: "Wall Décor · Set",
     description:
-      "A matching set of two oval-scalloped yellow wall panels with hand-sculpted 3D folk floral motifs, mirror-work inlay, and gold bead borders. Inspired by Rajasthani folk art — brilliant alone, stunning as a pair.",
+      "A matching set of two oval-scalloped yellow wall panels with hand-sculpted 3D folk floral motifs, mirror-work inlay, and gold bead borders. Inspired by Rajasthani folk art - brilliant alone, stunning as a pair.",
   },
   {
     id: 4,
-    name: "Floral Folk Wall Panel — Single",
+    name: "Floral Folk Wall Panel - Single",
     type: "Handpainted · Mirror Work",
     amountPaise: 150000,
     images: [wallPanelSingle],
@@ -70,7 +70,7 @@ const products: Array<{
     images: [quoteCalendar],
     tag: "Gift · Stationery",
     description:
-      "A spiral-bound desk calendar featuring original watercolour illustrations and handwritten soul quotes — one for every month. A thoughtful gift for anyone on a growth journey.",
+      "A spiral-bound desk calendar featuring original watercolour illustrations and handwritten soul quotes - one for every month. A thoughtful gift for anyone on a growth journey.",
   },
   {
     id: 6,
@@ -200,7 +200,7 @@ export default function Storefront() {
           <div className="border border-primary/20 bg-card/20 rounded p-8 max-w-lg mx-auto backdrop-blur">
             <p className="text-primary font-serif text-lg mb-2">Custom Orders Welcome</p>
             <p className="text-muted-foreground text-sm font-light mb-6 leading-relaxed">
-              Looking for personalised poetry gifts, custom artwork, or a bespoke décor piece? Reach out on WhatsApp — every order is a conversation.
+              Looking for personalised poetry gifts, custom artwork, or a bespoke décor piece? Reach out on WhatsApp - every order is a conversation.
             </p>
             <a
               href={WHATSAPP}

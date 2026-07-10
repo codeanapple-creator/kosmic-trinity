@@ -7,24 +7,24 @@ const blogs = [
     href: "/journal/rising-sign",
     category: "Astrology",
     title: "Stop Fixating at Your Sun Sign, Unlock Your Rising Sign First",
-    excerpt: "Beyond horoscopes and mercury retrograde memes — your Rising Sign (Ascendant) is the first lens astrologers read. Discover what it is, how to find it, and why it explains more about you than your Sun Sign ever could.",
+    excerpt: "Beyond horoscopes and mercury retrograde memes - your Rising Sign (Ascendant) is the first lens astrologers read. Discover what it is, how to find it, and why it explains more about you than your Sun Sign ever could.",
   },
   {
     href: "/journal/elemental-magic",
     category: "Rituals & Magic",
     title: "Harnessing the Elemental Magic for Manifestation & Release",
-    excerpt: "Fire, Earth, Air, Water — the four elements are fundamental forces that govern the flow of energy in your life. Learn how to use them intentionally in your rituals to manifest desires and release what no longer serves you.",
+    excerpt: "Fire, Earth, Air, Water - the four elements are fundamental forces that govern the flow of energy in your life. Learn how to use them intentionally in your rituals to manifest desires and release what no longer serves you.",
   },
   {
     href: "/journal/summer-solstice",
     category: "Cosmic Events",
     title: "Summer Solstice: When the Sun Stands Still and the Soul Steps Forward",
-    excerpt: "The longest day of the year is not just a geographical event — it is a cosmic spotlight on everything growing within you. Includes a 6-card spread to align with the Solstice energy.",
+    excerpt: "The longest day of the year is not just a geographical event - it is a cosmic spotlight on everything growing within you. Includes a 6-card spread to align with the Solstice energy.",
   },
   {
     href: "/journal/tarot-yearbook",
     category: "Kosmic Journal",
-    title: "The Year Book for 2026 — Themes, Timing & Inner Alignment",
+    title: "The Year Book for 2026 - Themes, Timing & Inner Alignment",
     excerpt: "Calculate your Personal Year Card and discover the overarching theme life is inviting you into this year. All 21 Major Arcana themes for 2026, written by Kriti. An anchor for the year ahead.",
     featured: true,
   },
@@ -41,17 +41,17 @@ export default function Journal() {
           <p className="text-muted-foreground uppercase tracking-widest text-sm">Musings, Poetry, Courses & Free Resources</p>
         </MotionSection>
 
-        {/* Let's Tango with Tarot — Course */}
+        {/* Let's Tango with Intuition - Course */}
         <MotionSection delay={0.05} className="mb-12">
           <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
             <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
-              <h2 className="text-2xl font-serif text-foreground">Let's Tango with Tarot</h2>
+              <h2 className="text-2xl font-serif text-foreground">Let's Tango with Intuition</h2>
               <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">Course · 1:1 Coaching</span>
             </div>
             <p className="text-primary text-xs uppercase tracking-widest mb-4">Learn & Serve · Personalised Coaching</p>
             <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-              Learn to access your own intuitive intelligence and read cards beyond the obvious meanings. Learning this art will not only help you reveal your own purpose — it will also equip you to serve others in finding theirs. Taught as personalised 1:1 coaching. Full course details in the attached brochure.
+              Learn to access your own intuitive intelligence and read cards beyond the obvious meanings. Learning this art will not only help you reveal your own purpose - it will also equip you to serve others in finding theirs. Taught as personalised 1:1 coaching. Full course details in the attached brochure.
             </p>
             <div className="flex flex-wrap gap-3 mb-6">
               <span className="px-3 py-1 bg-secondary text-xs rounded border border-primary/20 text-primary">Intuitive Mastery</span>
@@ -154,13 +154,13 @@ export default function Journal() {
                 </li>
                 <li>
                   <Link href="/journal/tarot-yearbook" className="block p-3 border border-border bg-card/50 rounded hover:border-primary/50 transition-colors group">
-                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Tarot Year Book 2026</h4>
+                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Year Book 2026</h4>
                     <p className="text-xs text-muted-foreground mt-1">Free Guidebook · Kosmic Journal</p>
                   </Link>
                 </li>
                 <li>
                   <Link href="/journal/summer-solstice" className="block p-3 border border-border bg-card/50 rounded hover:border-primary/50 transition-colors group">
-                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Summer Solstice Tarot Spread</h4>
+                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Summer Solstice Card Spread</h4>
                     <p className="text-xs text-muted-foreground mt-1">Free Article · Cosmic Events</p>
                   </Link>
                 </li>

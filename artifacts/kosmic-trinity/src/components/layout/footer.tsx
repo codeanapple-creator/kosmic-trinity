@@ -23,7 +23,7 @@ export function Footer() {
             </Link>
             <p className="text-sm leading-relaxed -mt-2"
                style={{ color: "rgba(201,168,76,0.85)" }}>
-              A sacred digital atelier where astrology, tarot, Reiki, and karmic wisdom meet poetic articulation and scientific clarity.
+              A sacred digital atelier where astrology, intuitive guidance, Reiki, and karmic wisdom meet poetic articulation and scientific clarity.
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors p-2 rounded-full border border-transparent hover:border-primary/30 hover:bg-primary/5">
@@ -71,7 +71,7 @@ export function Footer() {
                 <p className="text-xs text-muted-foreground relative z-10 italic">
                   "The stars speak in whispers, but the soul hears them as roaring oceans."
                 </p>
-                <p className="text-[10px] text-primary uppercase tracking-widest mt-2 relative z-10">— thekosmictrinity</p>
+                <p className="text-[10px] text-primary uppercase tracking-widest mt-2 relative z-10">- thekosmictrinity</p>
               </div>
             </div>
           </div>

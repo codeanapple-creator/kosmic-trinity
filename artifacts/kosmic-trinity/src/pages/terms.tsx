@@ -2,7 +2,7 @@ import { MotionSection } from "@/components/ui/motion-section";
 import { Link } from "wouter";
 
 const termsOfUse = [
-  { num: "1", title: "Services Scope", body: "The Website provides astrology readings, tarot consultations, intuitive guidance, energy work, digital content, and physical products for informational, educational, and self-development purposes only." },
+  { num: "1", title: "Services Scope", body: "The Website provides astrology readings, intuitive guidance, energy work, digital content, and physical products for informational, educational, and self-development purposes only." },
   { num: "2", title: "Eligibility", body: "You represent and warrant that you are at least 18 years of age, or accessing the Website under the supervision of a parent or legal guardian in accordance with applicable laws." },
   { num: "3", title: "No Professional Relationship", body: "Use of this Website or Services does not create any medical, legal, financial, therapeutic, or advisory relationship." },
   { num: "4", title: "User Responsibility", body: "You agree that your use of the Services is voluntary and at your sole risk. You assume full responsibility for any decisions, actions, or outcomes resulting from your use of the Services." },
@@ -16,7 +16,7 @@ const termsOfUse = [
 
 const privacyPolicy = [
   { num: "1", title: "Information We Collect", body: "We may collect and process: personal details (name, email, contact information); birth details including date, time, and place of birth for astrological analysis; any additional personal or situational information voluntarily shared during consultations; and payment-related information processed via secure third-party providers." },
-  { num: "2", title: "Purpose of Collection", body: "Your information is collected strictly for providing astrology, tarot, and related Services; personalizing calculations, interpretations, and tools; communication and service delivery; and internal record-keeping and service improvement." },
+  { num: "2", title: "Purpose of Collection", body: "Your information is collected strictly for providing astrology, intuitive readings, and related Services; personalizing calculations, interpretations, and tools; communication and service delivery; and internal record-keeping and service improvement." },
   { num: "3", title: "Data Confidentiality", body: "All personal data, including birth details and consultation information, is treated as strictly confidential. We do not sell, rent, share, or disclose your personal information to any third party for marketing, commercial, or external use. Disclosure may only occur if required by law, or to trusted service providers strictly for operational purposes and under confidentiality obligations." },
   { num: "4", title: "Data Security", body: "We implement reasonable technical and organizational safeguards. However, no system can guarantee absolute security." },
   { num: "5", title: "Third-Party Services", body: "Third-party platforms used for payments, bookings, or communication operate under their own policies. We are not responsible for their practices." },

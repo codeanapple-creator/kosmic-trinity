@@ -37,7 +37,7 @@ const timeline = [
   {
     month: "Month 3",
     title: "Embodiment",
-    description: "Designing your unique life architecture — how to use your gifts in service, align your work with your soul, and step fully into your purpose.",
+    description: "Designing your unique life architecture - how to use your gifts in service, align your work with your soul, and step fully into your purpose.",
   },
 ];
 
@@ -69,14 +69,14 @@ export default function Triveni() {
             <p className="text-muted-foreground text-sm italic leading-relaxed mb-2">
               "Bathing at the Triveni confluence is the highest path to liberation."
             </p>
-            <p className="text-[11px] text-primary/60 uppercase tracking-widest">— Ancient Wisdom</p>
+            <p className="text-[11px] text-primary/60 uppercase tracking-widest">- Ancient Wisdom</p>
           </div>
         </MotionSection>
 
         {/* Intro */}
         <MotionSection delay={0.15} className="mb-12 text-center max-w-2xl mx-auto">
           <p className="text-muted-foreground leading-relaxed text-lg font-light">
-            Just as three sacred rivers converge at Prayagraj to create something greater than each alone, Triveni weaves together Dharma, Artha, and Kaam — guided by the thread of astrology — into a single, integrated 3-month container. Discover your gifts. Use them. Serve others through them.
+            Just as three sacred rivers converge at Prayagraj to create something greater than each alone, Triveni weaves together Dharma, Artha, and Kaam - guided by the thread of astrology - into a single, integrated 3-month container. Discover your gifts. Use them. Serve others through them.
           </p>
         </MotionSection>
 
@@ -109,10 +109,10 @@ export default function Triveni() {
             <h2 className="text-2xl font-serif mb-6 text-foreground">What Triveni Offers</h2>
             <div className="space-y-4">
               {[
-                "A full natal chart reading across Dharma, Artha & Kaam — decoded in one integrated lens",
+                "A full natal chart reading across Dharma, Artha & Kaam - decoded in one integrated lens",
                 "1:1 personal guidance from Kriti across the 3-month container",
                 "Practical tools to integrate all three pillars into your daily life",
-                "Astrology-backed timing — know when to move, when to wait, when to serve",
+                "Astrology-backed timing - know when to move, when to wait, when to serve",
                 "Support to discover your unique gifts and channel them in service of others",
               ].map((item) => (
                 <div key={item} className="flex gap-3 items-start">

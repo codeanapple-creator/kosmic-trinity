@@ -46,7 +46,7 @@ export default function Disclaimer() {
         <MotionSection delay={0.1} className="mb-12">
           <div className="bg-card/30 backdrop-blur border border-primary/20 rounded-lg p-8 md:p-12">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-light">
-              The content, services, and materials provided on this website — including but not limited to astrology readings, tarot consultations, intuitive guidance, energy work, and all related communications (collectively, the "Services") — are intended solely for <span className="text-foreground font-medium">informational, educational, and self-development purposes</span>.
+              The content, services, and materials provided on this website, including but not limited to astrology readings, intuitive guidance, energy work, and all related communications (collectively, the "Services"), are intended solely for informational, educational, and self-development purposes.
             </p>
           </div>
         </MotionSection>

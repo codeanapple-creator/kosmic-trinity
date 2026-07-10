@@ -17,7 +17,7 @@ export default function Dharma() {
           </p>
         </MotionSection>
 
-        {/* Shloka — BG 3.35 */}
+        {/* Shloka - BG 3.35 */}
         <MotionSection delay={0.1} className="max-w-2xl mx-auto text-center mb-14">
           <div className="relative px-8 py-8 border border-primary/20 rounded bg-card/20 backdrop-blur">
             <div className="absolute -top-px left-1/2 -translate-x-1/2 w-20 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
@@ -30,23 +30,23 @@ export default function Dharma() {
               "It is far better to perform one's own prescribed duty, even though it may be faulty,<br />
               than another's duty perfectly. To follow another's path is dangerous."
             </p>
-            <p className="text-[11px] text-primary/60 uppercase tracking-widest">— Bhagavad Gita 3.35</p>
+            <p className="text-[11px] text-primary/60 uppercase tracking-widest">- Bhagavad Gita 3.35</p>
           </div>
         </MotionSection>
 
         {/* Intro */}
         <MotionSection delay={0.15} className="mb-6 text-center max-w-2xl mx-auto">
           <p className="text-muted-foreground leading-relaxed text-lg font-light mb-4">
-            There is a difference between what you are good at and what you are meant to embody as your purpose. Vedic philosophy upholds Dharm to be the highest of all — because that is what helps a soul fulfil her desires, ambitions, and responsibilities righteously, while maintaining order in the world.
+            There is a difference between what you are good at and what you are meant to embody as your purpose. Vedic philosophy upholds Dharm to be the highest of all - because that is what helps a soul fulfil her desires, ambitions, and responsibilities righteously, while maintaining order in the world.
           </p>
           <p className="text-muted-foreground leading-relaxed text-base font-light">
-            Yet often, in trying to maintain that order, we forget that each soul has her own Dharma. And no — it is not a job title or a role to perform. It is the quiet, persistent call of your deepest nature.
+            Yet often, in trying to maintain that order, we forget that each soul has her own Dharma. And no - it is not a job title or a role to perform. It is the quiet, persistent call of your deepest nature.
           </p>
         </MotionSection>
 
         <MotionSection delay={0.18} className="mb-12 max-w-2xl mx-auto">
           <div className="bg-secondary/40 border border-border rounded p-6">
-            <p className="text-muted-foreground text-sm font-light mb-3">In this space, you can explore ways to discover —</p>
+            <p className="text-muted-foreground text-sm font-light mb-3">In this space, you can explore ways to discover -</p>
             <ul className="space-y-2">
               {[
                 "Your natural inclinations and inner conflicts",
@@ -71,7 +71,7 @@ export default function Dharma() {
 
         <div className="space-y-12">
 
-          {/* 1 — Soul Calling Guidebook */}
+          {/* 1 - Soul Calling Guidebook */}
           <MotionSection delay={0.25}>
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
@@ -81,7 +81,7 @@ export default function Dharma() {
               </div>
               <p className="text-primary text-xs uppercase tracking-widest mb-4">Astrology · Delivered via Email</p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-                Decode the deeper intention behind your birth — your tendencies, gifts brought from past lives, and karmic tasks for this life. Based on your birth chart and intuitive mapping, this guidebook is crafted personally for you and delivered as a PDF over email.
+                Decode the deeper intention behind your birth - your tendencies, gifts brought from past lives, and karmic tasks for this life. Based on your birth chart and intuitive mapping, this guidebook is crafted personally for you and delivered as a PDF over email.
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 3,333 &nbsp;·&nbsp; $33 &nbsp;·&nbsp; €33</p>
@@ -92,7 +92,7 @@ export default function Dharma() {
             </div>
           </MotionSection>
 
-          {/* 2 — Swadharm Session */}
+          {/* 2 - Swadharm Session */}
           <MotionSection delay={0.35}>
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full" />
@@ -124,7 +124,7 @@ export default function Dharma() {
             </div>
           </MotionSection>
 
-          {/* 3 — SOULFARM SEASON Reading */}
+          {/* 3 - SOULFARM SEASON Reading */}
           <MotionSection delay={0.45}>
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
@@ -134,7 +134,7 @@ export default function Dharma() {
               </div>
               <p className="text-primary text-xs uppercase tracking-widest mb-4">Transits · Solar Return · Timelines</p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-                A live 1:1 Astrology based reading for checking transits, solar return themes, and understanding timelines — to check what to sow, reap and harvest in the current phase of your life. An invitation to align with your cosmic seasons consciously.
+                A live 1:1 Astrology based reading for checking transits, solar return themes, and understanding timelines - to check what to sow, reap and harvest in the current phase of your life. An invitation to align with your cosmic seasons consciously.
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 5,500 &nbsp;·&nbsp; $55 &nbsp;·&nbsp; €55</p>

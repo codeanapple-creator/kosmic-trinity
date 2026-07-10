@@ -35,12 +35,12 @@ export default function Home() {
               {/* Tight bright core glow */}
               <div className="absolute inset-[-10%] rounded-full bg-primary/40 blur-[30px] animate-[halo-pulse_3s_ease-in-out_infinite]" />
 
-              {/* Halo rings — now brighter */}
+              {/* Halo rings - now brighter */}
               <div className="absolute inset-[-8%] rounded-full border border-primary/50 shadow-[0_0_12px_4px_rgba(201,168,76,0.4)] animate-[halo-pulse_5s_ease-in-out_infinite_0.5s]" />
               <div className="absolute inset-[-18%] rounded-full border border-primary/25 shadow-[0_0_8px_2px_rgba(201,168,76,0.2)] animate-[halo-pulse_7s_ease-in-out_infinite_1.5s]" />
               <div className="absolute inset-[-28%] rounded-full border border-primary/10 animate-[halo-pulse_9s_ease-in-out_infinite_2s]" />
 
-              {/* Orbital ring 1 — tilted 20° */}
+              {/* Orbital ring 1 - tilted 20° */}
               <div
                 className="absolute inset-0 rounded-full border border-primary/30"
                 style={{ transform: "rotateX(70deg) rotateZ(20deg)", animation: "cosmic-spin 18s linear infinite" }}
@@ -52,7 +52,7 @@ export default function Home() {
                 />
               </div>
 
-              {/* Orbital ring 2 — tilted 60° opposite */}
+              {/* Orbital ring 2 - tilted 60° opposite */}
               <div
                 className="absolute inset-0 rounded-full border border-accent/30"
                 style={{ transform: "rotateX(70deg) rotateZ(-50deg)", animation: "cosmic-spin-reverse 24s linear infinite" }}
@@ -63,7 +63,7 @@ export default function Home() {
                 />
               </div>
 
-              {/* Orbital ring 3 — equatorial */}
+              {/* Orbital ring 3 - equatorial */}
               <div
                 className="absolute inset-[8%] rounded-full border border-primary/20"
                 style={{ transform: "rotateX(70deg) rotateZ(90deg)", animation: "cosmic-spin 30s linear infinite" }}
@@ -100,7 +100,7 @@ export default function Home() {
                   alt="Glowing Lotus"
                   className="w-full h-full object-cover rounded-full border-2 border-primary/80 shadow-[0_0_20px_6px_rgba(201,168,76,0.6),0_0_60px_20px_rgba(201,168,76,0.35),0_0_100px_40px_rgba(201,168,76,0.15)] animate-[pulse-glow_3s_ease-in-out_infinite]"
                 />
-                {/* Overlay to kill the white areas — multiply darkens whites to background */}
+                {/* Overlay to kill the white areas - multiply darkens whites to background */}
                 <div className="absolute inset-0 rounded-full bg-background/60 mix-blend-multiply pointer-events-none" />
                 {/* Vignette that fades edges into the dark background */}
                 <div
@@ -157,7 +157,7 @@ export default function Home() {
                     thekosmictrinity is built on the belief that the ancient philosophy of Dharma, Artha, and Kaam holds the most profound map of a human life. We use ancient knowledge not for prediction, but for understanding the soul map and gaining clarity.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mt-4">
-                    Guided by three sisters, every offering is an invitation to understand your unique blueprint — the purpose you chose, the patterns you carry, and the life you are meant to build.
+                    Guided by three sisters, every offering is an invitation to understand your unique blueprint - the purpose you chose, the patterns you carry, and the life you are meant to build.
                   </p>
                 </div>
               </div>

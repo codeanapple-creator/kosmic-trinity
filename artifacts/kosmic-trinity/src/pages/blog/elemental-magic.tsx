@@ -29,16 +29,16 @@ const elements = [
     name: "Fire",
     emoji: "🔥",
     essence: "Energy, drive, passion. Action, transformation and bold changes.",
-    science: "Thermal Energy & Combustion — Fire rituals create a sense of closure, reducing emotional attachment through visual destruction.",
-    manifestation: ["Write a wish on paper and place it near a candle or diya daily.", "Flame gazing — visualize desires manifesting.", "Charge an object in sunlight with focused intention. Keep it as a charm.", "Cooking with intention, stirring clockwise for attraction.", "Burn bay leaves with written desires and let the smoke carry them."],
+    science: "Thermal Energy & Combustion - Fire rituals create a sense of closure, reducing emotional attachment through visual destruction.",
+    manifestation: ["Write a wish on paper and place it near a candle or diya daily.", "Flame gazing - visualize desires manifesting.", "Charge an object in sunlight with focused intention. Keep it as a charm.", "Cooking with intention, stirring clockwise for attraction.", "Burn bay leaves with written desires and let the smoke carry them."],
     release: ["Write fears on paper and burn them safely.", "Burn herbs (like rosemary or sage) to release stagnant energy.", "Stand under sunlight, imagining worries dissolving in its warmth.", "Flame gazing with cleansing intention before bedtime."],
   },
   {
     name: "Water",
     emoji: "💧",
     essence: "Emotion, intuition and healing. Emotional release and spiritual growth.",
-    science: "Dr. Masaru Emoto's experiments suggest water molecules change structure based on emotions and intentions. Water is a universal solvent — it dissolves impurities physically and energetic imprints symbolically.",
-    manifestation: ["Speak affirmations into a glass of water and drink it.", "Place a written wish under a bowl of water overnight.", "Moon water charging.", "Drink structured water — visualize desires while stirring clockwise."],
+    science: "Dr. Masaru Emoto's experiments suggest water molecules change structure based on emotions and intentions. Water is a universal solvent - it dissolves impurities physically and energetic imprints symbolically.",
+    manifestation: ["Speak affirmations into a glass of water and drink it.", "Place a written wish under a bowl of water overnight.", "Moon water charging.", "Drink structured water - visualize desires while stirring clockwise."],
     release: ["Take a shower visualizing negativity washing away.", "Write worries on dissolvable paper and place them in water.", "Cry intentionally to release emotional burdens.", "Place saltwater in a bowl to absorb negativity, then discard."],
   },
   {
@@ -86,10 +86,10 @@ export default function ElementalMagic() {
           <FadeIn delay={0.1}>
             <h2 className="text-2xl font-serif text-foreground mb-4">What Are Elements?</h2>
             <p>
-              In nature, the elements — Fire, Earth, Air and Water — are fundamental forces that govern the flow of energy in our lives via different mediums. Each element has a unique influence on your personality, emotional state and even your ability to manifest desires or release old patterns.
+              In nature, the elements - Fire, Earth, Air and Water - are fundamental forces that govern the flow of energy in our lives via different mediums. Each element has a unique influence on your personality, emotional state and even your ability to manifest desires or release old patterns.
             </p>
             <p className="mt-4">
-              Our five senses are a channel to harness our 6th Sense — our intuition better. A woman's body is a special conduit to use the elemental energy in her daily life for better vitality and cleansing. This is why elements of nature have an important role when we perform rituals to work with the subconscious mind and even higher energy dimensions.
+              Our five senses are a channel to harness our 6th Sense - our intuition better. A woman's body is a special conduit to use the elemental energy in her daily life for better vitality and cleansing. This is why elements of nature have an important role when we perform rituals to work with the subconscious mind and even higher energy dimensions.
             </p>
             <p className="mt-4">
               In astrology, all 12 Zodiac Signs are classified into these four elements, and our Birth-Charts can help us pinpoint which exclusive elemental energy is unique to us. Awareness about your own dominant element(s) can make the rituals more personal and impactful.
@@ -110,7 +110,7 @@ export default function ElementalMagic() {
                 </div>
                 <div className="p-3 rounded border border-orange-500/30 bg-orange-900/5">
                   <p className="text-orange-400 font-medium">Eclipses</p>
-                  <p className="text-xs mt-1">Release Only — NO Manifestations</p>
+                  <p className="text-xs mt-1">Release Only - NO Manifestations</p>
                 </div>
               </div>
             </div>
@@ -136,15 +136,15 @@ export default function ElementalMagic() {
               <div className="p-4 border border-primary/20 rounded bg-card/30">
                 <p className="text-primary font-serif text-sm uppercase tracking-widest mb-2">For Manifestations</p>
                 <div className="space-y-2 text-sm">
-                  <p><span className="text-foreground font-medium">House 11</span> — Social circles, gains, desires and wishes. Perfect for manifesting new ideas, goals, and lucky connections.</p>
-                  <p><span className="text-foreground font-medium">House 9</span> — Higher learning, luck, philosophies, and expansion. Manifest personal growth and rewire new beliefs.</p>
+                  <p>House 11 - Social circles, gains, desires and wishes. Perfect for manifesting new ideas, goals, and lucky connections.</p>
+                  <p>House 9 - Higher learning, luck, philosophies, and expansion. Manifest personal growth and rewire new beliefs.</p>
                 </div>
               </div>
               <div className="p-4 border border-primary/20 rounded bg-card/30">
                 <p className="text-primary font-serif text-sm uppercase tracking-widest mb-2">For Release</p>
                 <div className="space-y-2 text-sm">
-                  <p><span className="text-foreground font-medium">House 8</span> — Transformation, deep emotional healing, and letting go. Release deeply rooted patterns.</p>
-                  <p><span className="text-foreground font-medium">House 12</span> — Endings, the subconscious, and spirituality. Ideal for releasing past emotional baggage.</p>
+                  <p>House 8 - Transformation, deep emotional healing, and letting go. Release deeply rooted patterns.</p>
+                  <p>House 12 - Endings, the subconscious, and spirituality. Ideal for releasing past emotional baggage.</p>
                 </div>
               </div>
             </div>
@@ -154,7 +154,7 @@ export default function ElementalMagic() {
           </FadeIn>
 
           <FadeIn delay={0.3}>
-            <h2 className="text-2xl font-serif text-foreground mt-12 mb-6">The Four Elements — Rituals & Tools</h2>
+            <h2 className="text-2xl font-serif text-foreground mt-12 mb-6">The Four Elements - Rituals & Tools</h2>
             <div className="space-y-8">
               {elements.map((el) => (
                 <div key={el.name} className={`border rounded-lg overflow-hidden ${elementColors[el.name].split(" ").slice(1).join(" ")}`}>

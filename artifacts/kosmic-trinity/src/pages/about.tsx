@@ -16,7 +16,7 @@ const pillars = [
     color: "from-amber-900/20 to-amber-900/5",
     border: "border-amber-500/40",
     description:
-      "Money, work, and building wealth. Artha is not greed — it is the sacred right of every soul to thrive. We decode your relationship with abundance through your chart, your blocks, and your unique money blueprint, so prosperity becomes a spiritual practice, not a chase.",
+      "Money, work, and building wealth. Artha is not greed - it is the sacred right of every soul to thrive. We decode your relationship with abundance through your chart, your blocks, and your unique money blueprint, so prosperity becomes a spiritual practice, not a chase.",
   },
   {
     name: "Kaam",
@@ -24,7 +24,7 @@ const pillars = [
     color: "from-rose-900/20 to-rose-900/5",
     border: "border-rose-700/40",
     description:
-      "Emotional world, connections, desires, and expressions. Kaam is the full spectrum of your feeling life — love, longing, creativity, and self-expression. We explore your relational patterns, Venus story, and emotional inheritance so you can love freely, create boldly, and desire without shame.",
+      "Emotional world, connections, desires, and expressions. Kaam is the full spectrum of your feeling life - love, longing, creativity, and self-expression. We explore your relational patterns, Venus story, and emotional inheritance so you can love freely, create boldly, and desire without shame.",
   },
 ];
 
@@ -63,22 +63,22 @@ export default function About() {
             {/* Story Text */}
             <div className="lg:col-span-7 space-y-6">
               <p className="text-muted-foreground leading-relaxed text-base font-light">
-                We are three sisters from <span className="text-foreground font-medium">Prayagraj</span> — the city where the Ganga, Yamuna, and the invisible Saraswati converge. We grew up at the Triveni Sangam, watching three rivers become one sacred body of water. That image never left us.
+                We are three sisters from Prayagraj - the city where the Ganga, Yamuna, and the invisible Saraswati converge. We grew up at the Triveni Sangam, watching three rivers become one sacred body of water. That image never left us.
               </p>
               <p className="text-muted-foreground leading-relaxed text-base font-light">
-                Each of us followed a different current. One moved toward the <span className="text-primary font-medium">psyche and spirit</span> — drawn to the invisible architectures of the soul, astrology, and the language of symbols. Another was pulled toward <span className="text-primary font-medium">wealth and money energy</span> — fascinated by how abundance flows, blocks, and transforms. The third fell into <span className="text-primary font-medium">art and aesthetics</span> — poetry, craft, beauty, and the emotional worlds people carry inside them.
+                Each of us followed a different current. One moved toward psyche and spirit - drawn to the invisible architectures of the soul, astrology, and the language of symbols. Another was pulled toward wealth and money energy - fascinated by how abundance flows, blocks, and transforms. The third fell into art and aesthetics - poetry, craft, beauty, and the emotional worlds people carry inside them.
               </p>
               <p className="text-muted-foreground leading-relaxed text-base font-light">
-                We were different rivers. And then — like the Sangam — we met again.
+                We were different rivers. And then - like the Sangam - we met again.
               </p>
               <p className="text-muted-foreground leading-relaxed text-base font-light">
-                <span className="text-foreground font-medium">Kosmic Trinity</span> is what happens when three distinct streams of wisdom — soul-reading, abundance-mapping, and emotional-creative intelligence — flow together. We are not one voice. We are a confluence.
+                Kosmic Trinity is what happens when three distinct streams of wisdom - soul-reading, abundance-mapping, and emotional-creative intelligence - flow together. We are not one voice. We are a confluence.
               </p>
             </div>
           </div>
         </MotionSection>
 
-        {/* Three Pillars — What We Do */}
+        {/* Three Pillars - What We Do */}
         <MotionSection delay={0.2} className="mb-20">
           <div className="text-center mb-10">
             <p className="text-primary uppercase tracking-[0.3em] text-xs mb-3">What We Do</p>
@@ -115,7 +115,7 @@ export default function About() {
                 YOU are the confluence.
               </h2>
               <p className="relative z-10 text-muted-foreground leading-relaxed text-base mb-4 font-light">
-                Every soul who comes to Kosmic Trinity carries their own Triveni within them — the river of purpose, the river of abundance, and the river of feeling. Our work is simply to stand at that inner Sangam with you, and help you see where your three rivers flow.
+                Every soul who comes to Kosmic Trinity carries their own Triveni within them - the river of purpose, the river of abundance, and the river of feeling. Our work is simply to stand at that inner Sangam with you, and help you see where your three rivers flow.
               </p>
               <p className="relative z-10 text-foreground font-serif text-lg mt-6 leading-relaxed">
                 Welcome Seeker. Ready to take a holy dip?

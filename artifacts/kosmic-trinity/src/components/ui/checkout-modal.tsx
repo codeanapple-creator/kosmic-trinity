@@ -202,7 +202,7 @@ export default function CheckoutModal({ item, onClose }: Props) {
                 <p className="text-[11px] text-muted-foreground mt-1.5">UPI · NetBanking · Indian Debit/Credit Cards</p>
               )}
               {method === "stripe" && (
-                <p className="text-[11px] text-muted-foreground mt-1.5">Visa · Mastercard · Amex — all currencies</p>
+                <p className="text-[11px] text-muted-foreground mt-1.5">Visa · Mastercard · Amex - all currencies</p>
               )}
             </div>
           )}

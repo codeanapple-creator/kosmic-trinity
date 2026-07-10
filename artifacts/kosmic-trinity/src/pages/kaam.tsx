@@ -4,8 +4,8 @@ import { ArrowRight } from "lucide-react";
 
 const explores = [
   "Why do you attract certain relational dynamics? Patterns of conflict, distance, or longing, and ways to rewire them.",
-  "Your creative potential — your soul's chosen methods of experiencing joy and creativity.",
-  "Exploring the immense potential of your most beautiful creation — your children.",
+  "Your creative potential - your soul's chosen methods of experiencing joy and creativity.",
+  "Exploring the immense potential of your most beautiful creation - your children.",
   "Soulful creations as artwork, poetry, and décor items to express your love to your loved ones.",
   "Reflective journals, digital workbooks, and esoteric tools to aid your manifestations.",
 ];
@@ -24,26 +24,26 @@ export default function Kaam() {
           </p>
         </MotionSection>
 
-        {/* Shloka — Nasadiya Sukta, Rig Veda */}
+        {/* Shloka - Nasadiya Sukta, Rig Veda */}
         <MotionSection delay={0.1} className="max-w-2xl mx-auto text-center mb-14">
           <div className="relative px-8 py-8 border border-accent/20 rounded bg-card/20 backdrop-blur">
             <div className="absolute -top-px left-1/2 -translate-x-1/2 w-20 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
             <div className="absolute -bottom-px left-1/2 -translate-x-1/2 w-20 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
             <p className="text-primary/90 text-sm italic leading-relaxed mb-2">
-              "In the beginning, Kama arose — the primal seed, the first impulse of the cosmic mind.<br />
+              "In the beginning, Kama arose - the primal seed, the first impulse of the cosmic mind.<br />
               Sages, seeking within their hearts with wisdom, discovered the bond between existence and non-existence."
             </p>
-            <p className="text-[11px] text-accent/60 uppercase tracking-widest">— Nasadiya Sukta, Rig Veda</p>
+            <p className="text-[11px] text-accent/60 uppercase tracking-widest">- Nasadiya Sukta, Rig Veda</p>
           </div>
         </MotionSection>
 
         {/* Philosophy */}
         <MotionSection delay={0.15} className="mb-10 max-w-3xl mx-auto">
           <p className="text-muted-foreground leading-relaxed text-lg font-light mb-5">
-            This verse from the Rig Veda's Nasadiya Sukta (Hymn of Creation) reveals that in the beginning, <span className="text-foreground italic">Kama</span> — the primal desire, the cosmic will — arose as the very first seed of creation. The entire material world was born out of a profound, spiritual urge to create.
+            This verse from the Rig Veda's Nasadiya Sukta (Hymn of Creation) reveals that in the beginning, Kama - the primal desire, the cosmic will - arose as the very first seed of creation. The entire material world was born out of a profound, spiritual urge to create.
           </p>
           <p className="text-muted-foreground leading-relaxed text-base font-light mb-5">
-            Kaam has been sadly reduced to romance and sensory pleasures. But its very essence is the sacred, primal spark of desire that serves as the ultimate catalyst for both human connection and artistic expression. It is a powerful energy — the vital heartbeat of relationships, transforming simple companionship into deep, soulful intimacy. Simultaneously, it functions as the ultimate muse for creative potential, channelling raw passion to turn abstract thoughts into tangible reality.
+            Kaam has been sadly reduced to romance and sensory pleasures. But its very essence is the sacred, primal spark of desire that serves as the ultimate catalyst for both human connection and artistic expression. It is a powerful energy - the vital heartbeat of relationships, transforming simple companionship into deep, soulful intimacy. Simultaneously, it functions as the ultimate muse for creative potential, channelling raw passion to turn abstract thoughts into tangible reality.
           </p>
           <p className="text-muted-foreground leading-relaxed text-base font-light">
             By recognising Kaam as a spiritual drive rather than a purely physical impulse, we unlock a balanced force that fuels resilient bonds and inspires boundless creation.
@@ -73,7 +73,7 @@ export default function Kaam() {
 
         <div className="space-y-12">
 
-          {/* 1 — Sayujya Session */}
+          {/* 1 - Sayujya Session */}
           <MotionSection delay={0.3}>
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full" />
@@ -91,10 +91,10 @@ export default function Kaam() {
                 <div className="px-5 py-4">
                   <p className="text-xs text-accent uppercase tracking-widest mb-2">Astrology-Based · 60-Minute Zoom</p>
                   <div className="flex flex-wrap gap-x-8 gap-y-1">
-                    <p className="text-muted-foreground text-sm">Couples (2 birth charts) —
+                    <p className="text-muted-foreground text-sm">Couples (2 birth charts) -
                       <span className="text-foreground font-serif ml-2">Rs. 16,000 / $160 / €160</span>
                     </p>
-                    <p className="text-muted-foreground text-sm">Individual (1 birth chart) —
+                    <p className="text-muted-foreground text-sm">Individual (1 birth chart) -
                       <span className="text-foreground font-serif ml-2">Rs. 8,500 / $85 / €85</span>
                     </p>
                   </div>
@@ -114,7 +114,7 @@ export default function Kaam() {
             </div>
           </MotionSection>
 
-          {/* 2 — Santati Session */}
+          {/* 2 - Santati Session */}
           <MotionSection delay={0.4}>
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
@@ -124,7 +124,7 @@ export default function Kaam() {
               </div>
               <p className="text-primary text-xs uppercase tracking-widest mb-4">Astrology · 1:1 · 60 Minutes · Child Development</p>
               <p className="text-muted-foreground leading-relaxed mb-6 font-light">
-                Understand your children — their behavioural patterns, creative potentials, talents, hidden challenges, and aligned games and activities to support them better. An astrology-based consultation dedicated entirely to your child's cosmic blueprint.
+                Understand your children - their behavioural patterns, creative potentials, talents, hidden challenges, and aligned games and activities to support them better. An astrology-based consultation dedicated entirely to your child's cosmic blueprint.
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-foreground font-serif text-lg">Rs. 8,500 &nbsp;<span className="text-muted-foreground text-sm font-light">/ $85 / €85</span></p>
@@ -136,7 +136,7 @@ export default function Kaam() {
             </div>
           </MotionSection>
 
-          {/* 3 — SRIJAN BY SMRITI */}
+          {/* 3 - SRIJAN BY SMRITI */}
           <MotionSection delay={0.5}>
             <div className="bg-card/30 backdrop-blur border border-accent/30 p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full" />
@@ -146,7 +146,7 @@ export default function Kaam() {
               </div>
               <p className="text-accent text-xs uppercase tracking-widest mb-4">A Zen Art Session by Smriti · 40 Minutes · Zoom</p>
               <p className="text-muted-foreground leading-relaxed mb-8 font-light">
-                A mindful, creative session designed to help you reconnect with your inner world through the sacred act of making. Srijan — meaning creation — invites you to slow down, pick up a brush, a pen, or a piece of clay, and let your soul speak without words. No prior art experience needed. Just presence, intention, and the willingness to create.
+                A mindful, creative session designed to help you reconnect with your inner world through the sacred act of making. Srijan - meaning creation - invites you to slow down, pick up a brush, a pen, or a piece of clay, and let your soul speak without words. No prior art experience needed. Just presence, intention, and the willingness to create.
               </p>
               <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors">

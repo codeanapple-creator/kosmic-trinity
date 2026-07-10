@@ -44,22 +44,22 @@ export default function RisingSign() {
               Astrology is having its moment. Beyond horoscopes in the daily paper and trendy memes about Mercury retrograde, more and more people are discovering the nuance and insight their birth charts can offer.
             </p>
             <p className="mt-4">
-              You may already know your sun sign — what most people mean when they talk about their "zodiac sign." But the other two pillars of your chart, the Moon sign and the Rising sign, are equally fascinating and crucial to explore. Together, they make the <span className="text-foreground font-medium">BIG THREE</span> of your chart and say a lot about your personality. So, what exactly is a rising sign? How do you find yours? Let's take a closer look at why your ascendant holds such an important place in your astrological portrait.
+              You may already know your sun sign - what most people mean when they talk about their "zodiac sign." But the other two pillars of your chart, the Moon sign and the Rising sign, are equally fascinating and crucial to explore. Together, they make the big three of your chart and say a lot about your personality. So, what exactly is a rising sign? How do you find yours? Let's take a closer look at why your ascendant holds such an important place in your astrological portrait.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.15}>
             <h2 className="text-2xl font-serif text-foreground mt-10 mb-4">What Is a Rising Sign?</h2>
             <p>
-              Your rising sign, also called your "ascendant," is the zodiac sign that was rising on the eastern horizon at the exact moment of your birth. Imagine standing outside at dawn during that precise moment — whichever constellation was appearing over the skyline becomes your ascendant.
+              Your rising sign, also called your "ascendant," is the zodiac sign that was rising on the eastern horizon at the exact moment of your birth. Imagine standing outside at dawn during that precise moment - whichever constellation was appearing over the skyline becomes your ascendant.
             </p>
             <p className="mt-4">
               Your sun sign, moon sign, and rising sign each contribute something unique to your astrological identity. Here's how they differ:
             </p>
             <ul className="mt-4 space-y-3 border-l-2 border-primary/30 pl-6">
-              <li><span className="text-foreground font-medium">Your sun sign</span> reflects your essential nature. The "real you", The "Aatma."</li>
-              <li><span className="text-foreground font-medium">Your moon sign</span> speaks to your inner emotional world and unconscious desires.</li>
-              <li><span className="text-foreground font-medium">Your rising sign</span> shapes the external layer — how you approach new situations, interact socially, and the energy you project to strangers and acquaintances.</li>
+              <li>Your sun sign reflects your essential nature. The "real you", The "Aatma."</li>
+              <li>Your moon sign speaks to your inner emotional world and unconscious desires.</li>
+              <li>Your rising sign shapes the external layer - how you approach new situations, interact socially, and the energy you project to strangers and acquaintances.</li>
             </ul>
             <p className="mt-4">
               In many ways, the ascendant acts like a filter between you and the outside world, influencing both how you perceive life and how others perceive you.
@@ -75,7 +75,7 @@ export default function RisingSign() {
 
             <h3 className="text-lg font-serif text-primary mt-6 mb-2">First Impressions & Social Interactions</h3>
             <p>
-              Your ascendant shapes the aura people sense when they first meet you. Some astrologers refer to it as a kind of "mask." For example, someone with Capricorn rising may come across as serious and professional, even if their Sun sign is Sagittarius — a sign often associated with wisdom, exploration and zest for life. Together, these combinations create a much more layered and nuanced personality.
+              Your ascendant shapes the aura people sense when they first meet you. Some astrologers refer to it as a kind of "mask." For example, someone with Capricorn rising may come across as serious and professional, even if their Sun sign is Sagittarius - a sign often associated with wisdom, exploration and zest for life. Together, these combinations create a much more layered and nuanced personality.
             </p>
 
             <h3 className="text-lg font-serif text-primary mt-6 mb-2">Physical Appearance</h3>
@@ -113,7 +113,7 @@ export default function RisingSign() {
 
           <FadeIn delay={0.3}>
             <h2 className="text-2xl font-serif text-foreground mt-10 mb-6">A Bird's Eye View of All 12 Rising Signs</h2>
-            <p className="mb-6">Every rising sign carries its own distinct energy and style. This is a general overview of what the world sees in you and your projections —</p>
+            <p className="mb-6">Every rising sign carries its own distinct energy and style. This is a general overview of what the world sees in you and your projections -</p>
             <div className="grid sm:grid-cols-2 gap-3">
               {risingSigns.map((item) => (
                 <div key={item.sign} className="p-4 border border-primary/20 rounded bg-card/30 hover:border-primary/40 transition-colors">
@@ -136,7 +136,7 @@ export default function RisingSign() {
                   Your ascendant is one of the foundational pieces of your astrological identity. It shapes how others perceive you and influences the way you step into new experiences. Most of the generic horoscopes you read on the Internet actually take the rising sign as a base.
                 </p>
                 <p>
-                  Exploring your rising sign opens the door to a deeper layer of self-understanding beyond just your sun sign. When you calculate your full natal chart, you may begin to see yourself through an entirely new lens — one that feels richer, more nuanced, and uniquely your own.
+                  Exploring your rising sign opens the door to a deeper layer of self-understanding beyond just your sun sign. When you calculate your full natal chart, you may begin to see yourself through an entirely new lens - one that feels richer, more nuanced, and uniquely your own.
                 </p>
               </div>
             </div>

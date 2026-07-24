@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Loader2, X, CreditCard, Smartphone, IndianRupee } from "lucide-react";
+import { Loader2, X, CreditCard, IndianRupee } from "lucide-react";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 const API = `${BASE}/api`;
@@ -26,7 +26,7 @@ function formatPrice(paise: number, currency: string) {
 
 async function handleCCAvenue(
   item: CheckoutItem,
-  formData: { name: string; email: string },
+  formData: { name: string; email: string; phone: string },
   currency: string
 ) {
   const res = await fetch(`${API}/ccavenue/initiate`, {
@@ -38,6 +38,7 @@ async function handleCCAvenue(
       currency,
       clientEmail: formData.email,
       clientName: formData.name,
+      clientPhone: formData.phone,
       itemType: item.type,
     }),
   });
@@ -67,7 +68,7 @@ async function handleCCAvenue(
 
 async function handleStripe(
   item: CheckoutItem,
-  formData: { name: string; email: string },
+  formData: { name: string; email: string; phone: string },
   currency: string
 ) {
   const res = await fetch(`${API}/booking/create-checkout`, {
@@ -87,7 +88,7 @@ async function handleStripe(
 }
 
 export default function CheckoutModal({ item, onClose }: Props) {
-  const [form, setForm] = useState({ name: "", email: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "" });
   const [method, setMethod] = useState<"ccavenue" | "stripe">("ccavenue");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -128,7 +129,7 @@ export default function CheckoutModal({ item, onClose }: Props) {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-5">
+        <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
             <label className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5 block">Your Name</label>
             <input
@@ -140,6 +141,7 @@ export default function CheckoutModal({ item, onClose }: Props) {
               className="w-full px-4 py-2.5 bg-background border border-border rounded text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/60 transition-colors"
             />
           </div>
+
           <div>
             <label className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5 block">Email Address</label>
             <input
@@ -148,6 +150,18 @@ export default function CheckoutModal({ item, onClose }: Props) {
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               placeholder="your@email.com"
+              className="w-full px-4 py-2.5 bg-background border border-border rounded text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/60 transition-colors"
+            />
+          </div>
+
+          <div>
+            <label className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5 block">Phone Number</label>
+            <input
+              type="tel"
+              required
+              value={form.phone}
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              placeholder="+91 98765 43210"
               className="w-full px-4 py-2.5 bg-background border border-border rounded text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/60 transition-colors"
             />
           </div>

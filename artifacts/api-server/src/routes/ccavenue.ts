@@ -15,7 +15,7 @@ function getCCavenueUrl(): string {
 // Step 1: Frontend calls this to get encrypted request params for CCAvenue form POST
 router.post('/ccavenue/initiate', (req, res) => {
   try {
-    const { serviceName, amount, currency, clientEmail, clientName, itemType } = req.body;
+    const { serviceName, amount, currency, clientEmail, clientName, clientPhone, itemType } = req.body;
 
     if (!serviceName || !amount || !clientEmail || !clientName) {
       res.status(400).json({ error: 'Missing required fields' }); return;
@@ -34,6 +34,7 @@ router.post('/ccavenue/initiate', (req, res) => {
 
     // CCAvenue expects amount in rupees (not paise)
     const amountInRupees = (Number(amount) / 100).toFixed(2);
+    const phone = (clientPhone || '9999999999').replace(/\D/g, '').slice(0, 15) || '9999999999';
 
     const requestParams = new URLSearchParams({
       merchant_id: merchantId,
@@ -43,8 +44,15 @@ router.post('/ccavenue/initiate', (req, res) => {
       redirect_url: `${baseUrl}/api/ccavenue/response`,
       cancel_url: `${baseUrl}/api/ccavenue/response`,
       language: 'EN',
+      // Billing details — all required by CCAvenue
       billing_name: clientName,
       billing_email: clientEmail,
+      billing_tel: phone,
+      billing_address: 'India',
+      billing_city: 'India',
+      billing_state: 'India',
+      billing_zip: '000000',
+      billing_country: 'India',
       // merchant_param fields carry booking metadata through the CCAvenue round-trip
       merchant_param1: serviceName,
       merchant_param2: itemType || 'service',

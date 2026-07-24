@@ -20,7 +20,8 @@ export default function BookingSuccess() {
   const params = new URLSearchParams(search);
 
   const stripeSessionId = params.get("session_id");
-  const isRazorpay = params.get("payment") === "razorpay";
+  const paymentMethod = params.get("payment"); // "razorpay" | "ccavenue" | null (stripe)
+  const isClientSidePayment = paymentMethod === "razorpay" || paymentMethod === "ccavenue";
 
   const [status, setStatus] = useState<"loading" | "success" | "error">("loading");
   const [data, setData] = useState<{
@@ -34,7 +35,7 @@ export default function BookingSuccess() {
   }>({});
 
   useEffect(() => {
-    if (isRazorpay) {
+    if (isClientSidePayment) {
       setData({
         itemName: params.get("item") ?? undefined,
         itemType: "service",

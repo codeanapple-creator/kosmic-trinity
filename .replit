@@ -30,3 +30,8 @@ externalPort = 80
 [[ports]]
 localPort = 25407
 externalPort = 3000
+
+[userenv]
+
+[userenv.shared]
+CCAVENUE_MODE = "test"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Loader2, X, CreditCard, Smartphone } from "lucide-react";
+import { Loader2, X, CreditCard, Smartphone, IndianRupee } from "lucide-react";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 const API = `${BASE}/api`;
@@ -24,114 +24,89 @@ function formatPrice(paise: number, currency: string) {
   }).format(paise / 100);
 }
 
-declare global {
-  interface Window {
-    Razorpay: any;
-  }
+async function handleCCAvenue(
+  item: CheckoutItem,
+  formData: { name: string; email: string },
+  currency: string
+) {
+  const res = await fetch(`${API}/ccavenue/initiate`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      serviceName: item.name,
+      amount: item.amountPaise,
+      currency,
+      clientEmail: formData.email,
+      clientName: formData.name,
+      itemType: item.type,
+    }),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error ?? "Could not initiate payment");
+
+  // Build and auto-submit a hidden form to CCAvenue's hosted payment page
+  const payForm = document.createElement("form");
+  payForm.method = "POST";
+  payForm.action = data.ccavenueUrl;
+
+  const encInput = document.createElement("input");
+  encInput.type = "hidden";
+  encInput.name = "encRequest";
+  encInput.value = data.encryptedData;
+  payForm.appendChild(encInput);
+
+  const accInput = document.createElement("input");
+  accInput.type = "hidden";
+  accInput.name = "access_code";
+  accInput.value = data.accessCode;
+  payForm.appendChild(accInput);
+
+  document.body.appendChild(payForm);
+  payForm.submit();
 }
 
-function loadRazorpayScript(): Promise<boolean> {
-  return new Promise((resolve) => {
-    if (window.Razorpay) { resolve(true); return; }
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.onload = () => resolve(true);
-    script.onerror = () => resolve(false);
-    document.body.appendChild(script);
+async function handleStripe(
+  item: CheckoutItem,
+  formData: { name: string; email: string },
+  currency: string
+) {
+  const res = await fetch(`${API}/booking/create-checkout`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      serviceName: item.name,
+      amount: item.amountPaise,
+      currency: currency.toLowerCase(),
+      clientEmail: formData.email,
+      clientName: formData.name,
+    }),
   });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error ?? "Could not create checkout");
+  if (data.url) window.location.href = data.url;
 }
 
 export default function CheckoutModal({ item, onClose }: Props) {
   const [form, setForm] = useState({ name: "", email: "" });
-  const [method, setMethod] = useState<"razorpay" | "stripe">("razorpay");
+  const [method, setMethod] = useState<"ccavenue" | "stripe">("ccavenue");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const currency = item.currency ?? "INR";
   const isINR = currency.toUpperCase() === "INR";
 
-  async function handleRazorpay() {
-    const loaded = await loadRazorpayScript();
-    if (!loaded) { setError("Could not load Razorpay. Please try again."); return; }
-
-    const res = await fetch(`${API}/razorpay/create-order`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        itemName: item.name,
-        itemType: item.type,
-        amountPaise: item.amountPaise,
-        currency,
-        clientEmail: form.email,
-        clientName: form.name,
-      }),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error ?? "Could not create order");
-
-    return new Promise<void>((resolve, reject) => {
-      const rzp = new window.Razorpay({
-        key: data.keyId,
-        amount: data.amount,
-        currency: data.currency,
-        order_id: data.orderId,
-        name: "The Kosmic Trinity",
-        description: item.name,
-        prefill: { name: form.name, email: form.email },
-        theme: { color: "#C9A84C" },
-        handler: async (response: any) => {
-          const vRes = await fetch(`${API}/razorpay/verify`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_signature: response.razorpay_signature,
-            }),
-          });
-          const vData = await vRes.json();
-          if (vData.success) {
-            window.location.href = `/booking/success?payment=razorpay&item=${encodeURIComponent(item.name)}&name=${encodeURIComponent(form.name)}&email=${encodeURIComponent(form.email)}&amount=${item.amountPaise}&currency=${currency}`;
-            resolve();
-          } else {
-            reject(new Error(vData.error ?? "Payment verification failed"));
-          }
-        },
-        modal: { ondismiss: () => reject(new Error("cancelled")) },
-      });
-      rzp.open();
-    });
-  }
-
-  async function handleStripe() {
-    const res = await fetch(`${API}/booking/create-checkout`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        serviceName: item.name,
-        amount: item.amountPaise,
-        currency: currency.toLowerCase(),
-        clientEmail: form.email,
-        clientName: form.name,
-      }),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error ?? "Could not create checkout");
-    if (data.url) window.location.href = data.url;
-  }
-
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError("");
     try {
-      if (method === "razorpay") {
-        await handleRazorpay();
+      if (method === "ccavenue") {
+        await handleCCAvenue(item, form, currency);
       } else {
-        await handleStripe();
+        await handleStripe(item, form, currency);
       }
     } catch (err: any) {
-      if (err.message !== "cancelled") setError(err.message);
+      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -183,11 +158,11 @@ export default function CheckoutModal({ item, onClose }: Props) {
               <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
-                  onClick={() => setMethod("razorpay")}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded border text-sm transition-all ${method === "razorpay" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted-foreground hover:border-primary/40"}`}
+                  onClick={() => setMethod("ccavenue")}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded border text-sm transition-all ${method === "ccavenue" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted-foreground hover:border-primary/40"}`}
                 >
-                  <Smartphone size={14} />
-                  UPI / NetBanking
+                  <IndianRupee size={14} />
+                  UPI / Cards
                 </button>
                 <button
                   type="button"
@@ -195,11 +170,11 @@ export default function CheckoutModal({ item, onClose }: Props) {
                   className={`flex items-center gap-2 px-4 py-2.5 rounded border text-sm transition-all ${method === "stripe" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted-foreground hover:border-primary/40"}`}
                 >
                   <CreditCard size={14} />
-                  International Card
+                  International
                 </button>
               </div>
-              {method === "razorpay" && (
-                <p className="text-[11px] text-muted-foreground mt-1.5">UPI · NetBanking · Indian Debit/Credit Cards</p>
+              {method === "ccavenue" && (
+                <p className="text-[11px] text-muted-foreground mt-1.5">UPI · NetBanking · Credit / Debit Cards · Wallets</p>
               )}
               {method === "stripe" && (
                 <p className="text-[11px] text-muted-foreground mt-1.5">Visa · Mastercard · Amex - all currencies</p>
@@ -223,7 +198,7 @@ export default function CheckoutModal({ item, onClose }: Props) {
           </div>
 
           <p className="text-[11px] text-muted-foreground text-center leading-relaxed">
-            Secured by {!isINR || method === "stripe" ? "Stripe" : "Razorpay"}.
+            Secured by {!isINR || method === "stripe" ? "Stripe" : "CCAvenue"}.
             {item.type === "service" ? " A calendar link will be sent after payment." : " We'll confirm your order within 24 hrs."}
           </p>
         </form>

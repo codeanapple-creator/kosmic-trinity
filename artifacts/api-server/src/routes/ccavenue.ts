@@ -29,7 +29,7 @@ router.post('/ccavenue/initiate', (req, res) => {
       res.status(500).json({ error: 'CCAvenue credentials not configured' }); return;
     }
 
-    const baseUrl = `https://${process.env.REPLIT_DOMAINS?.split(',')[0]}`;
+    const baseUrl = process.env.SITE_URL ?? `https://${process.env.REPLIT_DOMAINS?.split(',')[0]}`;
     const orderId = `KT-${Date.now()}-${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
 
     // CCAvenue expects amount in rupees (not paise)

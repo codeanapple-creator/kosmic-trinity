@@ -17,7 +17,7 @@ router.post('/booking/create-checkout', async (req, res) => {
 
     const stripe = await getUncachableStripeClient();
 
-    const baseUrl = `https://${process.env.REPLIT_DOMAINS?.split(',')[0]}`;
+    const baseUrl = process.env.SITE_URL ?? `https://${process.env.REPLIT_DOMAINS?.split(',')[0]}`;
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],

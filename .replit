@@ -35,3 +35,4 @@ externalPort = 3000
 
 [userenv.shared]
 CCAVENUE_MODE = "test"
+SITE_URL = "https://kosmictrinity.in"

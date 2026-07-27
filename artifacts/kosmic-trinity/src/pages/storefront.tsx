@@ -26,7 +26,7 @@ const products: Array<{
     id: 1,
     name: "Ganesha Mandala Plate",
     type: "Handpainted · Folk Art",
-    amountPaise: 250000,
+    amountPaise: 100,
     images: [ganeshPlate, ganeshDetail],
     tag: "Wall Décor",
     description:
@@ -36,7 +36,7 @@ const products: Array<{
     id: 2,
     name: "Peacock Diya Set",
     type: "Handpainted · Set of 2",
-    amountPaise: 200000,
+    amountPaise: 100,
     images: [peacockDiya],
     tag: "Festive · Tealight Holders",
     description:
@@ -46,7 +46,7 @@ const products: Array<{
     id: 3,
     name: "Floral Folk Wall Panel - Set of 2",
     type: "Handpainted · Mirror Work",
-    amountPaise: 250000,
+    amountPaise: 100,
     images: [wallPanelSet],
     tag: "Wall Décor · Set",
     description:
@@ -56,7 +56,7 @@ const products: Array<{
     id: 4,
     name: "Floral Folk Wall Panel - Single",
     type: "Handpainted · Mirror Work",
-    amountPaise: 150000,
+    amountPaise: 100,
     images: [wallPanelSingle],
     tag: "Wall Décor",
     description:
@@ -66,7 +66,7 @@ const products: Array<{
     id: 5,
     name: "Quote Desk Calendar",
     type: "Illustrated · Stationery",
-    amountPaise: 100000,
+    amountPaise: 100,
     images: [quoteCalendar],
     tag: "Gift · Stationery",
     description:
@@ -76,7 +76,7 @@ const products: Array<{
     id: 6,
     name: "OM Mandala Wall Sculpture",
     type: "Handpainted · Large Format",
-    amountPaise: 300000,
+    amountPaise: 100,
     images: [omMandala],
     tag: "Statement Piece",
     description:

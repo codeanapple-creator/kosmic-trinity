@@ -16,7 +16,7 @@ const SERVICES: Array<{
     name: "Samriddhi Session",
     path: "Artha",
     description: "Wealth astrology reading - career, abundance blocks, business timing and financial direction.",
-    amountPaise: 850000,
+    amountPaise: 100,
     currency: "INR",
   },
   {
@@ -24,7 +24,7 @@ const SERVICES: Array<{
     name: "SARTHAK PDF Report",
     path: "Artha",
     description: "Comprehensive written birth chart analysis delivered as a detailed PDF within 5–7 days.",
-    amountPaise: 250000,
+    amountPaise: 100,
     currency: "INR",
   },
   {
@@ -32,7 +32,7 @@ const SERVICES: Array<{
     name: "Power of Pentacles",
     path: "Artha",
     description: "Oracle session focused on practical prosperity - money mindset, career clarity, and next steps.",
-    amountPaise: 350000,
+    amountPaise: 100,
     currency: "INR",
   },
   {
@@ -40,7 +40,7 @@ const SERVICES: Array<{
     name: "SHREE by Shruti",
     path: "Artha",
     description: "Financial planning session with CA Shruti Gupta - tax, investments, and wealth strategy aligned with your astrology.",
-    amountPaise: 250000,
+    amountPaise: 100,
     currency: "INR",
   },
   {
@@ -48,7 +48,7 @@ const SERVICES: Array<{
     name: "Sayujya Session - Couples",
     path: "Kaam",
     description: "Two-chart compatibility reading - relational dynamics, love language, karmic bonds. 60-minute Zoom.",
-    amountPaise: 1600000,
+    amountPaise: 100,
     currency: "INR",
   },
   {
@@ -56,7 +56,7 @@ const SERVICES: Array<{
     name: "Sayujya Session - Individual",
     path: "Kaam",
     description: "Your relationship astrology - love patterns, attachment, and soul's approach to intimacy. 60-minute Zoom.",
-    amountPaise: 850000,
+    amountPaise: 100,
     currency: "INR",
   },
   {
@@ -64,7 +64,7 @@ const SERVICES: Array<{
     name: "Sayujya Oracle Reading",
     path: "Kaam",
     description: "Oracle focus on relationships - current dynamics, hidden patterns, and next steps. 30-minute Zoom.",
-    amountPaise: 350000,
+    amountPaise: 100,
     currency: "INR",
   },
   {
@@ -72,7 +72,7 @@ const SERVICES: Array<{
     name: "Santati Session",
     path: "Kaam",
     description: "Child's birth chart reading - creative potential, talents, challenges, aligned activities. For children up to age 10.",
-    amountPaise: 850000,
+    amountPaise: 100,
     currency: "INR",
   },
   {
@@ -80,7 +80,7 @@ const SERVICES: Array<{
     name: "Karmic Blueprint Reading",
     path: "Dharma",
     description: "Natal chart through an evolutionary lens - karmic loops, North/South Nodes, past life echoes.",
-    amountPaise: 850000,
+    amountPaise: 100,
     currency: "INR",
   },
   {
@@ -88,7 +88,7 @@ const SERVICES: Array<{
     name: "Soul Print Reading",
     path: "Dharma",
     description: "Card archetypes combined with your astrological signature - symbolic mapping of your soul's language.",
-    amountPaise: 850000,
+    amountPaise: 100,
     currency: "INR",
   },
   {
@@ -96,7 +96,7 @@ const SERVICES: Array<{
     name: "Current Transits & Life Direction",
     path: "Dharma",
     description: "Progressions, solar returns, and timing cycles - navigate transitions with grace.",
-    amountPaise: 850000,
+    amountPaise: 100,
     currency: "INR",
   },
 ];

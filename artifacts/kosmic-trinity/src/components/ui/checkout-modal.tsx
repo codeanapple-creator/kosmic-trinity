@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Loader2, X, CreditCard, IndianRupee } from "lucide-react";
+import { Loader2, X, IndianRupee } from "lucide-react";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 const API = `${BASE}/api`;
@@ -66,46 +66,19 @@ async function handleCCAvenue(
   payForm.submit();
 }
 
-async function handleStripe(
-  item: CheckoutItem,
-  formData: { name: string; email: string; phone: string },
-  currency: string
-) {
-  const res = await fetch(`${API}/booking/create-checkout`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      serviceName: item.name,
-      amount: item.amountPaise,
-      currency: currency.toLowerCase(),
-      clientEmail: formData.email,
-      clientName: formData.name,
-    }),
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error ?? "Could not create checkout");
-  if (data.url) window.location.href = data.url;
-}
-
 export default function CheckoutModal({ item, onClose }: Props) {
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
-  const [method, setMethod] = useState<"ccavenue" | "stripe">("ccavenue");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const currency = item.currency ?? "INR";
-  const isINR = currency.toUpperCase() === "INR";
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError("");
     try {
-      if (method === "ccavenue") {
-        await handleCCAvenue(item, form, currency);
-      } else {
-        await handleStripe(item, form, currency);
-      }
+      await handleCCAvenue(item, form, currency);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -166,35 +139,10 @@ export default function CheckoutModal({ item, onClose }: Props) {
             />
           </div>
 
-          {isINR && (
-            <div>
-              <label className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2 block">Payment Method</label>
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  onClick={() => setMethod("ccavenue")}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded border text-sm transition-all ${method === "ccavenue" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted-foreground hover:border-primary/40"}`}
-                >
-                  <IndianRupee size={14} />
-                  UPI / Cards
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setMethod("stripe")}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded border text-sm transition-all ${method === "stripe" ? "border-primary bg-primary/10 text-primary" : "border-border text-muted-foreground hover:border-primary/40"}`}
-                >
-                  <CreditCard size={14} />
-                  International
-                </button>
-              </div>
-              {method === "ccavenue" && (
-                <p className="text-[11px] text-muted-foreground mt-1.5">UPI · NetBanking · Credit / Debit Cards · Wallets</p>
-              )}
-              {method === "stripe" && (
-                <p className="text-[11px] text-muted-foreground mt-1.5">Visa · Mastercard · Amex - all currencies</p>
-              )}
-            </div>
-          )}
+          <div className="flex items-center gap-2 px-3 py-2.5 bg-primary/5 border border-primary/20 rounded text-xs text-primary">
+            <IndianRupee size={13} />
+            UPI · NetBanking · Credit / Debit Cards · Wallets
+          </div>
 
           {error && (
             <p className="text-sm text-red-400 bg-red-900/20 border border-red-500/20 rounded px-3 py-2">{error}</p>
@@ -212,7 +160,7 @@ export default function CheckoutModal({ item, onClose }: Props) {
           </div>
 
           <p className="text-[11px] text-muted-foreground text-center leading-relaxed">
-            Secured by {!isINR || method === "stripe" ? "Stripe" : "CCAvenue"}.
+            Secured by CCAvenue.
             {item.type === "service" ? " A calendar link will be sent after payment." : " We'll confirm your order within 24 hrs."}
           </p>
         </form>

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { MotionSection } from "@/components/ui/motion-section";
-import { ArrowRight, ShoppingBag } from "lucide-react";
-import CheckoutModal, { type CheckoutItem } from "@/components/ui/checkout-modal";
+import { ArrowRight, MessageCircle } from "lucide-react";
 
 import ganeshPlate from "@assets/20250903_084431_1779269733076.jpg";
 import ganeshDetail from "@assets/20250903_084417_1779269733047.jpg";
@@ -11,13 +10,13 @@ import wallPanelSingle from "@assets/20251010_083736_1779269733080.jpg";
 import quoteCalendar from "@assets/IMG-20240813-WA0008_1779269733081.jpg";
 import omMandala from "@assets/IMG-20251014-WA0009_1779269733082.jpg";
 
-const WHATSAPP = "https://wa.me/message/kosmictrinity";
+const WHATSAPP = "https://wa.me/919818991159";
 
 const products: Array<{
   id: number;
   name: string;
   type: string;
-  amountPaise: number;
+  price: string;
   images: string[];
   tag: string;
   description: string;
@@ -26,7 +25,7 @@ const products: Array<{
     id: 1,
     name: "Ganesha Mandala Plate",
     type: "Handpainted · Folk Art",
-    amountPaise: 100,
+    price: "Rs. 2,500",
     images: [ganeshPlate, ganeshDetail],
     tag: "Wall Décor",
     description:
@@ -36,7 +35,7 @@ const products: Array<{
     id: 2,
     name: "Peacock Diya Set",
     type: "Handpainted · Set of 2",
-    amountPaise: 100,
+    price: "Rs. 2,000",
     images: [peacockDiya],
     tag: "Festive · Tealight Holders",
     description:
@@ -46,7 +45,7 @@ const products: Array<{
     id: 3,
     name: "Floral Folk Wall Panel - Set of 2",
     type: "Handpainted · Mirror Work",
-    amountPaise: 100,
+    price: "Rs. 2,500",
     images: [wallPanelSet],
     tag: "Wall Décor · Set",
     description:
@@ -56,7 +55,7 @@ const products: Array<{
     id: 4,
     name: "Floral Folk Wall Panel - Single",
     type: "Handpainted · Mirror Work",
-    amountPaise: 100,
+    price: "Rs. 1,500",
     images: [wallPanelSingle],
     tag: "Wall Décor",
     description:
@@ -66,7 +65,7 @@ const products: Array<{
     id: 5,
     name: "Quote Desk Calendar",
     type: "Illustrated · Stationery",
-    amountPaise: 100,
+    price: "Rs. 1,000",
     images: [quoteCalendar],
     tag: "Gift · Stationery",
     description:
@@ -76,7 +75,7 @@ const products: Array<{
     id: 6,
     name: "OM Mandala Wall Sculpture",
     type: "Handpainted · Large Format",
-    amountPaise: 100,
+    price: "Rs. 3,000",
     images: [omMandala],
     tag: "Statement Piece",
     description:
@@ -84,25 +83,17 @@ const products: Array<{
   },
 ];
 
-function formatPrice(paise: number) {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumFractionDigits: 0,
-  }).format(paise / 100);
-}
-
 function ProductCard({
   product,
   delay,
-  onBuy,
 }: {
   product: (typeof products)[0];
   delay: number;
-  onBuy: (item: CheckoutItem) => void;
 }) {
   const [hovered, setHovered] = React.useState(false);
   const showSecond = hovered && product.images.length > 1;
+
+  const enquireUrl = `${WHATSAPP}?text=${encodeURIComponent(`Hi! I'm interested in the ${product.name}. Could you share more details?`)}`;
 
   return (
     <MotionSection delay={delay}>
@@ -121,42 +112,34 @@ function ProductCard({
             {product.tag}
           </span>
           <div className="absolute inset-0 bg-background/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-            <button
-              onClick={() =>
-                onBuy({ name: product.name, type: "product", amountPaise: product.amountPaise, currency: "INR" })
-              }
+            <a
+              href={enquireUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-2.5 bg-primary text-primary-foreground font-serif tracking-widest text-sm uppercase rounded shadow-lg flex items-center gap-2 hover:bg-primary/90 transition-colors"
             >
-              <ShoppingBag size={14} /> Enquire
-            </button>
+              <MessageCircle size={14} /> Enquire Now
+            </a>
           </div>
         </div>
 
         <div className="p-6 flex flex-col flex-grow">
           <div className="flex justify-between items-start mb-2">
             <span className="text-[10px] uppercase tracking-widest text-primary">{product.type}</span>
-            <span className="font-serif text-lg text-foreground">{formatPrice(product.amountPaise)}</span>
+            <span className="font-serif text-lg text-foreground">{product.price}</span>
           </div>
           <h3 className="text-xl font-serif mb-3 text-foreground group-hover:text-primary transition-colors leading-snug">
             {product.name}
           </h3>
           <p className="text-sm text-muted-foreground font-light leading-relaxed flex-grow">{product.description}</p>
-          <div className="mt-6 flex items-center gap-3">
-            <button
-              onClick={() =>
-                onBuy({ name: product.name, type: "product", amountPaise: product.amountPaise, currency: "INR" })
-              }
-              className="flex-1 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
-            >
-              <ShoppingBag size={12} /> Enquire
-            </button>
+          <div className="mt-6">
             <a
-              href={WHATSAPP}
+              href={enquireUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 py-2 border border-primary/40 text-primary font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/10 transition-colors flex items-center justify-center gap-2"
+              className="w-full py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
             >
-              Enquire <ArrowRight size={10} />
+              <MessageCircle size={12} /> Enquire Now
             </a>
           </div>
         </div>
@@ -166,8 +149,6 @@ function ProductCard({
 }
 
 export default function Storefront() {
-  const [checkoutItem, setCheckoutItem] = useState<CheckoutItem | null>(null);
-
   return (
     <div className="w-full pt-32 pb-24 relative min-h-screen">
       <div className="star-bg" />
@@ -192,7 +173,7 @@ export default function Storefront() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, idx) => (
-            <ProductCard key={product.id} product={product} delay={idx * 0.08} onBuy={setCheckoutItem} />
+            <ProductCard key={product.id} product={product} delay={idx * 0.08} />
           ))}
         </div>
 
@@ -213,10 +194,6 @@ export default function Storefront() {
           </div>
         </MotionSection>
       </div>
-
-      {checkoutItem && (
-        <CheckoutModal item={checkoutItem} onClose={() => setCheckoutItem(null)} />
-      )}
     </div>
   );
 }

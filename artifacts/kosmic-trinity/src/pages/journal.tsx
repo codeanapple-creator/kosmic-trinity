@@ -1,6 +1,6 @@
 import { MotionSection, FadeIn } from "@/components/ui/motion-section";
 import { Link } from "wouter";
-import { BookOpen, FileText, PenTool, ArrowRight } from "lucide-react";
+import { BookOpen, FileText, ArrowRight } from "lucide-react";
 
 const blogs = [
   {
@@ -108,27 +108,6 @@ export default function Journal() {
               </div>
             </MotionSection>
 
-            {/* Poetry Section */}
-            <MotionSection delay={0.2}>
-              <div className="border border-border bg-card/40 p-8 rounded glow-hover relative overflow-hidden">
-                <PenTool className="absolute top-8 right-8 text-primary/20 w-24 h-24 rotate-12" />
-                <h2 className="text-2xl font-serif text-primary mb-6">Published Poetry</h2>
-                <p className="text-muted-foreground mb-6 font-light">
-                  thekosmictrinity is the author of 4 Hindi Poetry books exploring the depths of the human experience, love, loss, and spiritual awakening.
-                </p>
-                <div className="space-y-4">
-                  {[1, 2, 3, 4].map((book) => (
-                    <div key={book} className="flex items-center justify-between p-4 border border-border/50 rounded bg-background/50 hover:border-primary/30 transition-colors">
-                      <div>
-                        <h4 className="font-serif text-foreground">Hindi Poetry Book Volume {book}</h4>
-                        <p className="text-xs text-muted-foreground mt-1">Available on Amazon</p>
-                      </div>
-                      <button className="text-xs tracking-widest uppercase text-primary border-b border-primary/30 pb-1">Buy</button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </MotionSection>
 
           </div>
 

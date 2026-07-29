@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { MotionSection } from "@/components/ui/motion-section";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
+import CheckoutModal, { type CheckoutItem } from "@/components/ui/checkout-modal";
 
 const explores = [
   "Why do you attract certain relational dynamics? Patterns of conflict, distance, or longing, and ways to rewire them.",
@@ -11,6 +13,12 @@ const explores = [
 ];
 
 export default function Kaam() {
+  const [checkoutItem, setCheckoutItem] = useState<CheckoutItem | null>(null);
+
+  function book(name: string, amountPaise: number) {
+    setCheckoutItem({ name, type: "service", amountPaise, currency: "INR" });
+  }
+
   return (
     <div className="w-full pt-32 pb-24 relative min-h-screen">
       <div className="star-bg" />
@@ -87,30 +95,45 @@ export default function Kaam() {
               </p>
 
               {/* Pricing table */}
-              <div className="border border-accent/15 rounded divide-y divide-accent/10 mb-8">
+              <div className="border border-accent/15 rounded divide-y divide-accent/10 mb-6">
                 <div className="px-5 py-4">
-                  <p className="text-xs text-accent uppercase tracking-widest mb-2">Astrology-Based · 60-Minute Zoom</p>
-                  <div className="flex flex-wrap gap-x-8 gap-y-1">
-                    <p className="text-muted-foreground text-sm">Couples (2 birth charts) -
-                      <span className="text-foreground font-serif ml-2">Rs. 16,000 / $160 / €160</span>
-                    </p>
-                    <p className="text-muted-foreground text-sm">Individual (1 birth chart) -
-                      <span className="text-foreground font-serif ml-2">Rs. 8,500 / $85 / €85</span>
-                    </p>
+                  <p className="text-xs text-accent uppercase tracking-widest mb-3">Astrology-Based · 60-Minute Zoom</p>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <div>
+                      <p className="text-muted-foreground text-sm mb-1">Couples (2 birth charts)</p>
+                      <p className="text-foreground font-serif mb-3">Rs. 16,000 / $160 / €160</p>
+                      <button
+                        onClick={() => book("Sayujya Session – Couples (Astrology, 60 min)", 100)}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors"
+                      >
+                        Book Now <ArrowRight size={12} />
+                      </button>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground text-sm mb-1">Individual (1 birth chart)</p>
+                      <p className="text-foreground font-serif mb-3">Rs. 8,500 / $85 / €85</p>
+                      <button
+                        onClick={() => book("Sayujya Session – Individual (Astrology, 60 min)", 100)}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors"
+                      >
+                        Book Now <ArrowRight size={12} />
+                      </button>
+                    </div>
                   </div>
                 </div>
                 <div className="px-5 py-4">
-                  <p className="text-xs text-accent uppercase tracking-widest mb-2">Oracle · 30-Minute Zoom</p>
-                  <p className="text-muted-foreground text-sm">
-                    <span className="text-foreground font-serif">Rs. 3,500 / $35 / €35</span>
-                  </p>
+                  <p className="text-xs text-accent uppercase tracking-widest mb-3">Oracle · 30-Minute Zoom</p>
+                  <div className="flex items-center justify-between flex-wrap gap-3">
+                    <p className="text-foreground font-serif">Rs. 3,500 / $35 / €35</p>
+                    <button
+                      onClick={() => book("Sayujya Oracle Reading (30 min)", 100)}
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-accent text-accent hover:bg-accent/10 font-serif tracking-wider uppercase text-xs rounded transition-colors"
+                    >
+                      Book Now <ArrowRight size={12} />
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors">
-                Book Sayujya <ArrowRight size={12} />
-              </a>
             </div>
           </MotionSection>
 
@@ -128,15 +151,17 @@ export default function Kaam() {
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-foreground font-serif text-lg">Rs. 8,500 &nbsp;<span className="text-muted-foreground text-sm font-light">/ $85 / €85</span></p>
-                <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary/10 font-serif tracking-wider uppercase text-xs rounded transition-colors">
+                <button
+                  onClick={() => book("Santati Session", 100)}
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary/10 font-serif tracking-wider uppercase text-xs rounded transition-colors"
+                >
                   Book Santati <ArrowRight size={12} />
-                </a>
+                </button>
               </div>
             </div>
           </MotionSection>
 
-          {/* 3 - SRIJAN BY SMRITI */}
+          {/* 3 - Srijan by Smriti */}
           <MotionSection delay={0.5}>
             <div className="bg-card/30 backdrop-blur border border-accent/30 p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full" />
@@ -148,8 +173,12 @@ export default function Kaam() {
               <p className="text-muted-foreground leading-relaxed mb-8 font-light">
                 A mindful, creative session designed to help you reconnect with your inner world through the sacred act of making. Srijan - meaning creation - invites you to slow down, pick up a brush, a pen, or a piece of clay, and let your soul speak without words. No prior art experience needed. Just presence, intention, and the willingness to create.
               </p>
-              <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors">
+              <a
+                href="https://wa.me/message/kosmictrinity"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors"
+              >
                 Book Srijan <ArrowRight size={12} />
               </a>
             </div>
@@ -164,6 +193,10 @@ export default function Kaam() {
           </Link>
         </MotionSection>
       </div>
+
+      {checkoutItem && (
+        <CheckoutModal item={checkoutItem} onClose={() => setCheckoutItem(null)} />
+      )}
     </div>
   );
 }

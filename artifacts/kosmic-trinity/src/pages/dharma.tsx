@@ -1,8 +1,16 @@
+import { useState } from "react";
 import { MotionSection } from "@/components/ui/motion-section";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
+import CheckoutModal, { type CheckoutItem } from "@/components/ui/checkout-modal";
 
 export default function Dharma() {
+  const [checkoutItem, setCheckoutItem] = useState<CheckoutItem | null>(null);
+
+  function book(name: string, amountPaise: number) {
+    setCheckoutItem({ name, type: "service", amountPaise, currency: "INR" });
+  }
+
   return (
     <div className="w-full pt-32 pb-24 relative min-h-screen">
       <div className="star-bg" />
@@ -85,9 +93,12 @@ export default function Dharma() {
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 3,333 &nbsp;·&nbsp; $33 &nbsp;·&nbsp; €33</p>
-                <Link href="/booking" className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors">
+                <button
+                  onClick={() => book("Soul Calling Guidebook", 100)}
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"
+                >
                   Get the Guidebook <ArrowRight size={12} />
-                </Link>
+                </button>
               </div>
             </div>
           </MotionSection>
@@ -108,23 +119,31 @@ export default function Dharma() {
                   <p className="text-primary text-xs uppercase tracking-widest mb-1">Astrology-Based</p>
                   <p className="text-foreground font-serif text-base mb-1">60-Minute Session</p>
                   <p className="text-muted-foreground text-xs font-light mb-3">Deep natal chart consultation on Zoom</p>
-                  <p className="text-primary font-serif">Rs. 8,500 &nbsp;·&nbsp; $85 &nbsp;·&nbsp; €85</p>
+                  <p className="text-primary font-serif mb-4">Rs. 8,500 &nbsp;·&nbsp; $85 &nbsp;·&nbsp; €85</p>
+                  <button
+                    onClick={() => book("Swadharm Session – Astrology-Based (60 min)", 100)}
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"
+                  >
+                    Book Now <ArrowRight size={12} />
+                  </button>
                 </div>
                 <div className="border border-accent/20 rounded p-5 bg-secondary/30">
                   <p className="text-accent text-xs uppercase tracking-widest mb-1">Intuitive Reading</p>
                   <p className="text-foreground font-serif text-base mb-1">30-Minute Session</p>
                   <p className="text-muted-foreground text-xs font-light mb-3">Intuitive consultation on Zoom</p>
-                  <p className="text-accent font-serif">Rs. 3,500 &nbsp;·&nbsp; $35 &nbsp;·&nbsp; €35</p>
+                  <p className="text-accent font-serif mb-4">Rs. 3,500 &nbsp;·&nbsp; $35 &nbsp;·&nbsp; €35</p>
+                  <button
+                    onClick={() => book("Swadharm Session – Intuitive Reading (30 min)", 100)}
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-accent text-accent hover:bg-accent/10 font-serif tracking-wider uppercase text-xs rounded transition-colors"
+                  >
+                    Book Now <ArrowRight size={12} />
+                  </button>
                 </div>
               </div>
-
-              <Link href="/booking" className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-accent text-accent hover:bg-accent/10 font-serif tracking-wider uppercase text-xs rounded transition-colors">
-                Book Swadharm Session <ArrowRight size={12} />
-              </Link>
             </div>
           </MotionSection>
 
-          {/* 3 - SOULFARM SEASON Reading */}
+          {/* 3 - Soulfarm Season Reading */}
           <MotionSection delay={0.45}>
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
@@ -138,9 +157,12 @@ export default function Dharma() {
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 5,500 &nbsp;·&nbsp; $55 &nbsp;·&nbsp; €55</p>
-                <Link href="/booking" className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors">
+                <button
+                  onClick={() => book("Soulfarm Season Reading", 100)}
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"
+                >
                   Book Now <ArrowRight size={12} />
-                </Link>
+                </button>
               </div>
             </div>
           </MotionSection>
@@ -154,6 +176,10 @@ export default function Dharma() {
           </Link>
         </MotionSection>
       </div>
+
+      {checkoutItem && (
+        <CheckoutModal item={checkoutItem} onClose={() => setCheckoutItem(null)} />
+      )}
     </div>
   );
 }

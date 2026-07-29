@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { MotionSection } from "@/components/ui/motion-section";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
+import CheckoutModal, { type CheckoutItem } from "@/components/ui/checkout-modal";
 
 const explores = [
   "Your relationship with receiving and holding wealth",
@@ -11,6 +13,12 @@ const explores = [
 ];
 
 export default function Artha() {
+  const [checkoutItem, setCheckoutItem] = useState<CheckoutItem | null>(null);
+
+  function book(name: string, amountPaise: number) {
+    setCheckoutItem({ name, type: "service", amountPaise, currency: "INR" });
+  }
+
   return (
     <div className="w-full pt-32 pb-24 relative min-h-screen">
       <div className="star-bg" />
@@ -91,10 +99,12 @@ export default function Artha() {
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 8,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $85 / €85</span></p>
-                <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors">
+                <button
+                  onClick={() => book("Samriddhi Session", 100)}
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"
+                >
                   Book Now <ArrowRight size={12} />
-                </a>
+                </button>
               </div>
             </div>
           </MotionSection>
@@ -104,7 +114,7 @@ export default function Artha() {
             <div className="bg-card/30 backdrop-blur border border-border p-8 md:p-12 rounded glow-hover relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
               <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
-                <h2 className="text-2xl font-serif text-foreground">SARTHAK - A Book of Money Magic</h2>
+                <h2 className="text-2xl font-serif text-foreground">SARTHAK – A Book of Money Magic</h2>
                 <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-[10px] uppercase tracking-widest rounded shrink-0">PDF · Birth Chart</span>
               </div>
               <p className="text-primary text-xs uppercase tracking-widest mb-4">Digital Reading · Self-Paced · Personalised</p>
@@ -113,10 +123,12 @@ export default function Artha() {
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $25 / €25</span></p>
-                <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary/10 font-serif tracking-wider uppercase text-xs rounded transition-colors">
+                <button
+                  onClick={() => book("SARTHAK – A Book of Money Magic", 100)}
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary/10 font-serif tracking-wider uppercase text-xs rounded transition-colors"
+                >
                   Get SARTHAK <ArrowRight size={12} />
-                </a>
+                </button>
               </div>
             </div>
           </MotionSection>
@@ -135,10 +147,12 @@ export default function Artha() {
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 3,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $35 / €35</span></p>
-                <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors">
+                <button
+                  onClick={() => book("Power of Pentacles", 100)}
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"
+                >
                   Book Now <ArrowRight size={12} />
-                </a>
+                </button>
               </div>
             </div>
           </MotionSection>
@@ -160,10 +174,12 @@ export default function Artha() {
               </p>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-primary/70 text-sm font-light">discovery call</span></p>
-                <a href="https://wa.me/message/kosmictrinity" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary/10 font-serif tracking-wider uppercase text-xs rounded transition-colors">
+                <button
+                  onClick={() => book("SHREE by Shruti", 100)}
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary/10 font-serif tracking-wider uppercase text-xs rounded transition-colors"
+                >
                   Unlock your SHREE <ArrowRight size={12} />
-                </a>
+                </button>
               </div>
             </div>
           </MotionSection>
@@ -177,6 +193,10 @@ export default function Artha() {
           </Link>
         </MotionSection>
       </div>
+
+      {checkoutItem && (
+        <CheckoutModal item={checkoutItem} onClose={() => setCheckoutItem(null)} />
+      )}
     </div>
   );
 }

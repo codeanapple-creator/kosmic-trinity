@@ -1,15 +1,25 @@
 import { Router } from 'express';
 import { ccavenueEncrypt, ccavenueDecrypt } from '../ccavenueClient.js';
 import { sendBookingConfirmation } from '../mailer.js';
+import { db } from '@workspace/db';
+import { bookingsTable } from '@workspace/db/schema';
+import { eq } from 'drizzle-orm';
 
 const router = Router();
-
-const GOOGLE_CALENDAR_BOOKING_URL = 'https://calendar.google.com/calendar/appointments';
 
 function getCCavenueUrl(): string {
   return process.env.CCAVENUE_MODE === 'production'
     ? 'https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction'
     : 'https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction';
+}
+
+function generateBookingId(): string {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let id = 'KT-';
+  for (let i = 0; i < 8; i++) {
+    id += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return id;
 }
 
 // Step 1: Frontend calls this to get encrypted request params for CCAvenue form POST
@@ -32,7 +42,6 @@ router.post('/ccavenue/initiate', (req, res) => {
     const baseUrl = process.env.SITE_URL ?? `https://${process.env.REPLIT_DOMAINS?.split(',')[0]}`;
     const orderId = `KT-${Date.now()}-${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
 
-    // CCAvenue expects amount in rupees (not paise)
     const amountInRupees = (Number(amount) / 100).toFixed(2);
     const phone = (clientPhone || '9999999999').replace(/\D/g, '').slice(0, 15) || '9999999999';
 
@@ -44,7 +53,6 @@ router.post('/ccavenue/initiate', (req, res) => {
       redirect_url: `${baseUrl}/api/ccavenue/response`,
       cancel_url: `${baseUrl}/api/ccavenue/response`,
       language: 'EN',
-      // Billing details — all required by CCAvenue
       billing_name: clientName,
       billing_email: clientEmail,
       billing_tel: phone,
@@ -58,6 +66,7 @@ router.post('/ccavenue/initiate', (req, res) => {
       merchant_param2: itemType || 'service',
       merchant_param3: clientName,
       merchant_param4: clientEmail,
+      merchant_param5: phone,
     });
 
     const encryptedData = ccavenueEncrypt(requestParams.toString(), workingKey);
@@ -74,8 +83,8 @@ router.post('/ccavenue/initiate', (req, res) => {
   }
 });
 
-// Step 2: CCAvenue POSTs back here after payment (redirect_url / cancel_url)
-// This is a server-side handler — CCAvenue posts form data, we decrypt and redirect the browser.
+// Step 2: CCAvenue POSTs back here after payment
+// Verifies server-side, saves booking to DB, redirects to /thank-you
 router.post('/ccavenue/response', async (req, res) => {
   try {
     const { encResp } = req.body as { encResp?: string };
@@ -94,46 +103,74 @@ router.post('/ccavenue/response', async (req, res) => {
     const decrypted = ccavenueDecrypt(encResp, workingKey);
     const params = new URLSearchParams(decrypted);
 
-    const orderStatus = params.get('order_status');
-    const serviceName = params.get('merchant_param1') || '';
-    const itemType = params.get('merchant_param2') || 'service';
-    const clientName = params.get('merchant_param3') || '';
-    const clientEmail = params.get('merchant_param4') || '';
-    const amount = params.get('amount') || '0';
-    const currency = params.get('currency') || 'INR';
-    const orderId = params.get('order_id') || '';
+    const orderStatus   = params.get('order_status');
+    const serviceName   = params.get('merchant_param1') || '';
+    const clientName    = params.get('merchant_param3') || '';
+    const clientEmail   = params.get('merchant_param4') || '';
+    const phone         = params.get('merchant_param5') || '';
+    const amount        = params.get('amount') || '0';
+    const currency      = params.get('currency') || 'INR';
+    const orderId       = params.get('order_id') || '';
+    const trackingId    = params.get('tracking_id') || '';
 
     req.log.info({ orderStatus, orderId, clientEmail }, 'CCAvenue payment response');
 
     if (orderStatus === 'Success') {
       const amountPaise = Math.round(parseFloat(amount) * 100);
 
-      if (clientEmail && clientName && serviceName) {
-        await sendBookingConfirmation({
-          clientName,
-          clientEmail,
+      // Idempotency: check if booking already exists for this orderId
+      const [existing] = await db
+        .select()
+        .from(bookingsTable)
+        .where(eq(bookingsTable.orderId, orderId));
+
+      let bookingId: string;
+
+      if (existing) {
+        // Already processed — just redirect to thank-you
+        bookingId = existing.bookingId;
+        req.log.info({ bookingId, orderId }, 'Duplicate CCAvenue callback — reusing existing booking');
+      } else {
+        // Create new booking record
+        bookingId = generateBookingId();
+
+        await db.insert(bookingsTable).values({
+          bookingId,
+          orderId,
+          customerName: clientName,
+          customerEmail: clientEmail,
+          phone: phone || null,
           serviceName,
-          calendarLink: GOOGLE_CALENDAR_BOOKING_URL,
-          amount: amountPaise,
-          currency,
-        }).catch((err: Error) => {
-          req.log.warn({ err }, 'Email send error (non-fatal)');
+          paymentStatus: 'SUCCESS',
+          paymentAmount: amountPaise,
+          paymentCurrency: currency,
+          paymentTransactionId: trackingId || null,
+          paymentDate: new Date(),
+          bookingStatus: 'pending_birth_details',
         });
+
+        req.log.info({ bookingId, orderId }, 'Booking created');
+
+        // Send initial payment confirmation email (non-fatal)
+        if (clientEmail && clientName && serviceName) {
+          await sendBookingConfirmation({
+            clientName,
+            clientEmail,
+            serviceName,
+            calendarLink: 'https://kosmictrinity.in/thank-you?ref=' + bookingId,
+            amount: amountPaise,
+            currency,
+          }).catch((err: Error) => {
+            req.log.warn({ err }, 'Payment confirmation email failed (non-fatal)');
+          });
+        }
       }
 
-      res.redirect(
-        `/booking/success?payment=ccavenue` +
-        `&item=${encodeURIComponent(serviceName)}` +
-        `&name=${encodeURIComponent(clientName)}` +
-        `&email=${encodeURIComponent(clientEmail)}` +
-        `&amount=${amountPaise}` +
-        `&currency=${encodeURIComponent(currency)}` +
-        `&order_id=${encodeURIComponent(orderId)}`
-      );
+      res.redirect(`/thank-you?ref=${encodeURIComponent(bookingId)}`);
+
     } else if (orderStatus === 'Aborted') {
       res.redirect('/booking?cancelled=1');
     } else {
-      // Failure — redirect back to booking with error hint
       res.redirect(`/booking?error=payment_failed&order=${encodeURIComponent(orderId)}`);
     }
   } catch (err: any) {

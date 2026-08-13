@@ -65,6 +65,88 @@ export async function sendBookingConfirmation(params: {
   await transporter.sendMail(mailToClient);
 }
 
+export async function sendBookingConfirmedEmail(params: {
+  clientName: string;
+  clientEmail: string;
+  serviceName: string;
+  bookingId: string;
+  dateOfBirth: string;
+  birthTime: string;
+  birthPlace: string;
+  calendarLink: string | null;
+  amount: number;
+  currency: string;
+}) {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASSWORD,
+    },
+  });
+
+  const formattedAmount = new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: params.currency.toUpperCase(),
+    maximumFractionDigits: 0,
+  }).format(params.amount / 100);
+
+  const calendarBtn = params.calendarLink
+    ? `<a href="${params.calendarLink}" style="display:inline-block;margin-top:12px;padding:12px 24px;background:#C9A84C;color:#1a0508;text-decoration:none;border-radius:4px;font-weight:bold;">Add to Google Calendar</a>`
+    : '<p style="color:#aaa;">Your session time will be confirmed shortly via email.</p>';
+
+  const mailToKosmic = {
+    from: `"Kosmic Trinity Bookings" <${process.env.GMAIL_USER}>`,
+    to: 'kosmictrinity@gmail.com',
+    subject: `Birth Details Received – ${params.bookingId} – ${params.clientName}`,
+    html: `
+      <div style="font-family:Georgia,serif;background:#1a0508;color:#f5e8c8;padding:32px;border-radius:8px;">
+        <h2 style="color:#C9A84C;">Birth Details Submitted ✦</h2>
+        <table style="width:100%;border-collapse:collapse;margin-top:16px;">
+          <tr><td style="padding:8px 0;color:#aaa;">Booking ID</td><td style="padding:8px 0;color:#C9A84C;">${params.bookingId}</td></tr>
+          <tr><td style="padding:8px 0;color:#aaa;">Client</td><td style="padding:8px 0;">${params.clientName} &lt;${params.clientEmail}&gt;</td></tr>
+          <tr><td style="padding:8px 0;color:#aaa;">Service</td><td style="padding:8px 0;">${params.serviceName}</td></tr>
+          <tr><td style="padding:8px 0;color:#aaa;">Amount Paid</td><td style="padding:8px 0;color:#C9A84C;">${formattedAmount}</td></tr>
+          <tr><td style="padding:8px 0;color:#aaa;">Date of Birth</td><td style="padding:8px 0;">${params.dateOfBirth}</td></tr>
+          <tr><td style="padding:8px 0;color:#aaa;">Birth Time</td><td style="padding:8px 0;">${params.birthTime}</td></tr>
+          <tr><td style="padding:8px 0;color:#aaa;">Birth Place</td><td style="padding:8px 0;">${params.birthPlace}</td></tr>
+        </table>
+        ${params.calendarLink ? `<p style="margin-top:16px;color:#aaa;">Calendar event: <a href="${params.calendarLink}" style="color:#C9A84C;">${params.calendarLink}</a></p>` : '<p style="margin-top:16px;color:#e88;">Calendar event could not be created automatically — please retry from admin dashboard.</p>'}
+      </div>
+    `,
+  };
+
+  const mailToClient = {
+    from: `"Kosmic Trinity" <${process.env.GMAIL_USER}>`,
+    to: params.clientEmail,
+    subject: `Your KosmicTrinity Session is Confirmed — ${params.bookingId}`,
+    html: `
+      <div style="font-family:Georgia,serif;background:#1a0508;color:#f5e8c8;padding:32px;border-radius:8px;">
+        <h2 style="color:#C9A84C;">Your Session is Confirmed ✦</h2>
+        <p>Dear ${params.clientName},</p>
+        <p>Thank you for completing your booking. Your birth details have been received and your KosmicTrinity session is confirmed.</p>
+        <table style="width:100%;border-collapse:collapse;margin-top:16px;">
+          <tr><td style="padding:8px 0;color:#aaa;">Booking ID</td><td style="padding:8px 0;color:#C9A84C;">${params.bookingId}</td></tr>
+          <tr><td style="padding:8px 0;color:#aaa;">Service</td><td style="padding:8px 0;">${params.serviceName}</td></tr>
+          <tr><td style="padding:8px 0;color:#aaa;">Amount Paid</td><td style="padding:8px 0;">${formattedAmount}</td></tr>
+          <tr><td style="padding:8px 0;color:#aaa;">Date of Birth</td><td style="padding:8px 0;">${params.dateOfBirth}</td></tr>
+          <tr><td style="padding:8px 0;color:#aaa;">Birth Time</td><td style="padding:8px 0;">${params.birthTime}</td></tr>
+          <tr><td style="padding:8px 0;color:#aaa;">Birth Place</td><td style="padding:8px 0;">${params.birthPlace}</td></tr>
+        </table>
+        <div style="margin-top:24px;">${calendarBtn}</div>
+        <p style="margin-top:32px;color:#aaa;font-size:13px;">
+          Questions? Reply to this email or reach us at kosmictrinity@gmail.com.<br/>
+          With cosmic love,<br/>
+          <strong>The Kosmic Trinity</strong>
+        </p>
+      </div>
+    `,
+  };
+
+  await transporter.sendMail(mailToKosmic);
+  await transporter.sendMail(mailToClient);
+}
+
 export async function sendOrderConfirmation(params: {
   clientName: string;
   clientEmail: string;

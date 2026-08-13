@@ -22,6 +22,9 @@ import Disclaimer from "@/pages/disclaimer";
 import Terms from "@/pages/terms";
 import Booking from "@/pages/booking";
 import BookingSuccess from "@/pages/booking-success";
+import ThankYou from "@/pages/thank-you";
+import BookingConfirmed from "@/pages/booking-confirmed";
+import AdminBookings from "@/pages/admin/bookings";
 import RisingSign from "@/pages/blog/rising-sign";
 import ElementalMagic from "@/pages/blog/elemental-magic";
 import SummerSolstice from "@/pages/blog/summer-solstice";
@@ -57,6 +60,9 @@ function Router() {
           <Route path="/terms" component={Terms} />
           <Route path="/booking" component={Booking} />
           <Route path="/booking/success" component={BookingSuccess} />
+          <Route path="/thank-you" component={ThankYou} />
+          <Route path="/booking-confirmed" component={BookingConfirmed} />
+          <Route path="/admin/bookings" component={AdminBookings} />
           <Route path="/journal/rising-sign" component={RisingSign} />
           <Route path="/journal/elemental-magic" component={ElementalMagic} />
           <Route path="/journal/summer-solstice" component={SummerSolstice} />

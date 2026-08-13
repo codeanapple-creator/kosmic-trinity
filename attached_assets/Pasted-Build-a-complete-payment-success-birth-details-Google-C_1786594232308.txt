@@ -1,0 +1,570 @@
+Build a complete **payment-success → birth-details → Google Calendar booking** workflow for the **KosmicTrinity** website.
+
+## Objective
+
+When a customer successfully completes payment, they should NOT immediately be sent to the normal homepage.
+
+Instead, the customer should be redirected to a dedicated **Thank You / Booking Details** page where they enter their birth details.
+
+After the customer submits the birth details successfully, the system should generate/provide a **Google Calendar booking link** for their KosmicTrinity session.
+
+The entire flow must be reliable, secure, mobile-friendly, and production-ready.
+
+---
+
+## 1. Payment Success Flow
+
+Assume the website already uses **CCAvenue** for payment processing.
+
+Flow:
+
+1. Customer selects a KosmicTrinity session.
+2. Customer proceeds to CCAvenue payment.
+3. Customer completes payment.
+4. CCAvenue sends the payment response to the backend.
+5. Backend verifies that the payment was genuinely successful.
+6. Store the successful transaction in the database.
+7. Generate a unique booking/order reference.
+8. Redirect the customer to:
+
+`/thank-you`
+
+Do NOT consider a client-side redirect alone as proof of successful payment.
+
+The backend must verify the payment response before allowing the customer to proceed.
+
+---
+
+# 2. Thank You Page
+
+Create a beautiful page:
+
+### "Thank You for Your Booking!"
+
+Display:
+
+"Your payment has been received successfully."
+
+"To prepare your KosmicTrinity session, please enter your birth details below."
+
+Show the customer's:
+
+* Name
+* Email
+* Order/Booking ID
+* Payment status: Successful
+
+Then display the birth-details form.
+
+---
+
+# 3. Birth Details Form
+
+Create the following fields:
+
+### Full Name
+
+Text field
+
+Required
+
+### Date of Birth
+
+Date picker
+
+Required
+
+### Birth Time
+
+Time picker
+
+Required
+
+Allow accurate time entry including:
+
+* Hour
+* Minutes
+* AM/PM
+
+Clearly mention:
+
+"Please enter your birth time as accurately as possible."
+
+### Birth Place
+
+Text field
+
+Required
+
+Example:
+
+"Jaipur, Rajasthan, India"
+
+Preferably implement Google Places/Maps autocomplete if an API key is available.
+
+Store:
+
+* City
+* State
+* Country
+* Latitude
+* Longitude
+
+if location autocomplete is implemented.
+
+---
+
+# 4. Form Validation
+
+Do not allow submission if:
+
+* Name is empty
+* Date of birth is missing
+* Birth time is missing
+* Birth place is missing
+
+Show friendly validation messages.
+
+Example:
+
+"Please enter your exact birth time."
+
+"Please enter your place of birth."
+
+Do not expose technical errors to the customer.
+
+---
+
+# 5. Database
+
+Create a booking collection/table containing at least:
+
+* bookingId
+* orderId
+* customerName
+* customerEmail
+* phone
+* paymentStatus
+* paymentAmount
+* paymentTransactionId
+* paymentDate
+* dateOfBirth
+* birthTime
+* birthPlace
+* birthCity
+* birthState
+* birthCountry
+* latitude
+* longitude
+* googleCalendarEventId
+* googleCalendarEventLink
+* bookingStatus
+* createdAt
+* updatedAt
+
+Use the existing project database if one already exists.
+
+Do not create a second database unnecessarily.
+
+---
+
+# 6. Google Calendar Integration
+
+After the birth-details form is successfully submitted:
+
+1. Validate the booking.
+2. Confirm that paymentStatus = SUCCESS.
+3. Create the Google Calendar event using the Google Calendar API.
+4. Save the generated event ID in the database.
+5. Save the Google Calendar event link.
+6. Show the customer the booking confirmation.
+
+IMPORTANT:
+
+Do not expose Google API credentials, service-account credentials, client secrets, or access tokens in frontend code.
+
+All Google Calendar API operations must happen securely on the backend.
+
+---
+
+# 7. Calendar Event
+
+Create an event such as:
+
+**Title:**
+
+"KosmicTrinity Session – [Customer Name]"
+
+**Description:**
+
+"KosmicTrinity Session
+
+Booking ID: [bookingId]
+
+Customer: [Name]
+
+Date of Birth: [DOB]
+
+Birth Time: [Birth Time]
+
+Birth Place: [Birth Place]
+
+Payment Status: Confirmed"
+
+Include the customer's email as an attendee if the Google Calendar configuration supports this.
+
+---
+
+# 8. IMPORTANT — Session Timing
+
+Do not randomly create a calendar time.
+
+The application should use the actual KosmicTrinity session availability.
+
+Create a configurable admin setting for:
+
+* Session date
+* Session start time
+* Session duration
+* Time zone
+* Available slots
+
+Default time zone:
+
+`Asia/Kolkata`
+
+If the business already has a session/slot-selection system, use that existing slot instead of creating a new one.
+
+---
+
+# 9. Prevent Double Booking
+
+This is extremely important.
+
+Before creating a Google Calendar event:
+
+1. Check whether the booking already has a Google Calendar event.
+2. If an event already exists, do NOT create another event.
+3. Return the existing calendar link.
+
+This makes the process idempotent.
+
+For example:
+
+If the customer refreshes `/thank-you` or submits the form twice, the system must NOT create two calendar events.
+
+Use:
+
+`bookingId`
+
+or
+
+`paymentTransactionId`
+
+as a unique identifier.
+
+---
+
+# 10. Confirmation Page
+
+After successful submission, redirect to:
+
+`/booking-confirmed`
+
+Display:
+
+### "Your KosmicTrinity Session is Confirmed!"
+
+Show:
+
+✓ Payment Successful
+
+✓ Birth Details Received
+
+✓ Calendar Booking Created
+
+Display:
+
+**Booking ID:** KT-XXXXXXXX
+
+Then provide a prominent button:
+
+### "Add to Google Calendar"
+
+The button should open the generated Google Calendar event.
+
+Also display:
+
+"We've successfully created your KosmicTrinity calendar booking."
+
+---
+
+# 11. Email Confirmation
+
+After the calendar event is successfully created, send a confirmation email.
+
+Subject:
+
+"Your KosmicTrinity Session is Confirmed"
+
+Email should contain:
+
+* Customer name
+* Booking ID
+* Session date
+* Session time
+* Payment confirmation
+* KosmicTrinity session details
+* Google Calendar link
+
+Add a clear button:
+
+**Add to Google Calendar**
+
+If email functionality already exists in the project, reuse it.
+
+Otherwise implement email sending through a secure transactional email provider.
+
+---
+
+# 12. Error Handling
+
+If payment is successful but the customer closes the browser before entering birth details:
+
+The booking must remain saved.
+
+When the customer returns using their booking link, they should be able to complete the birth details.
+
+If birth details are saved but Google Calendar creation fails:
+
+Do NOT lose the customer's data.
+
+Show:
+
+"We received your birth details, but we're temporarily unable to create your calendar booking. Your information has been saved and our system will retry automatically."
+
+Implement a retry mechanism.
+
+---
+
+# 13. Admin Dashboard
+
+Create an admin booking dashboard.
+
+Admin should be able to see:
+
+| Booking | Customer | Payment | Birth Details | Calendar | Status    |
+| ------- | -------- | ------- | ------------- | -------- | --------- |
+| KT-001  | Customer | Paid    | Complete      | Created  | Confirmed |
+
+Admin actions:
+
+* View booking
+* View birth details
+* View payment information
+* View Google Calendar event
+* Resend confirmation email
+* Retry calendar creation
+* Cancel booking
+* Update session time
+* Export bookings
+
+---
+
+# 14. Security
+
+Implement:
+
+* Server-side payment verification
+* Authentication for admin pages
+* Authorization checks
+* Input validation
+* Rate limiting
+* CSRF protection where applicable
+* Secure environment variables
+* No API secrets in frontend
+* Database validation
+* Unique booking IDs
+* Idempotent payment processing
+* Idempotent Google Calendar event creation
+
+Never trust:
+
+* Query parameters
+* Frontend payment status
+* Frontend booking status
+* Frontend calendar event IDs
+
+---
+
+# 15. Environment Variables
+
+Create a `.env.example` containing placeholders for required credentials.
+
+For example:
+
+CCAVENUE credentials
+
+Google Calendar credentials
+
+Database credentials
+
+Email provider credentials
+
+Never hard-code real secrets into the repository.
+
+---
+
+# 16. Recommended Routes
+
+Implement routes similar to:
+
+`/payment/success`
+
+`/thank-you`
+
+`/api/booking/birth-details`
+
+`/api/calendar/create`
+
+`/booking-confirmed`
+
+`/admin/bookings`
+
+Use the existing application's architecture if these routes already exist.
+
+---
+
+# 17. User Experience
+
+The complete customer journey should feel seamless:
+
+**Payment**
+
+↓
+
+**Payment Verified**
+
+↓
+
+**Thank You**
+
+↓
+
+**Enter Birth Details**
+
+↓
+
+**Submit**
+
+↓
+
+**Google Calendar Event Created**
+
+↓
+
+**Booking Confirmed**
+
+↓
+
+**Add to Google Calendar**
+
+↓
+
+**Confirmation Email**
+
+---
+
+# 18. UI Design
+
+Make the Thank You and Confirmation pages premium and calming, suitable for the KosmicTrinity brand.
+
+Use:
+
+* Elegant typography
+* Spacious layout
+* Soft gradients
+* Premium cards
+* Clear form labels
+* Mobile-first responsive design
+* Progress indicator
+
+Example progress indicator:
+
+**1. Payment ✓ → 2. Birth Details → 3. Confirmation**
+
+Use subtle animations but keep the experience professional.
+
+---
+
+# 19. Important Technical Requirement
+
+Before writing new code, inspect the existing Replit project.
+
+Identify:
+
+* Existing frontend framework
+* Existing backend
+* Existing database
+* Existing CCAvenue integration
+* Existing authentication
+* Existing email system
+* Existing booking/session system
+
+Do NOT unnecessarily replace the existing architecture.
+
+Modify and extend the current system.
+
+Reuse existing components and APIs wherever possible.
+
+---
+
+# 20. CCAvenue Integration
+
+If CCAvenue payment integration already exists:
+
+* Find the existing payment initiation code.
+* Find the CCAvenue response/callback handler.
+* Verify the payment response server-side.
+* Update the booking/payment record.
+* Redirect only after successful verification.
+
+Handle:
+
+* Successful payment
+* Failed payment
+* Cancelled payment
+* Duplicate callbacks
+* Repeated payment notifications
+
+Payment callbacks must be idempotent.
+
+---
+
+# 21. Final Acceptance Test
+
+The implementation is complete only when this entire test works:
+
+1. Customer purchases a KosmicTrinity session.
+2. Customer pays through CCAvenue.
+3. Backend verifies successful payment.
+4. Customer reaches `/thank-you`.
+5. Customer enters:
+
+   * Name
+   * Date of birth
+   * Birth time
+   * Birth place
+6. Customer submits.
+7. Data is saved.
+8. Google Calendar event is created.
+9. Calendar event ID and link are saved.
+10. Customer reaches confirmation page.
+11. Customer sees "Add to Google Calendar".
+12. Confirmation email is sent.
+13. Refreshing the page does NOT create another calendar event.
+14. Submitting the form twice does NOT create duplicate events.
+15. Admin can see the complete booking.
+16. If Google Calendar temporarily fails, the booking remains safe and can be retried.
+
+Build this as a **production-ready feature**, not a mockup or demonstration. After implementation, test the complete payment → birth details → Google Calendar flow and clearly report any configuration values or API credentials that still need to be added in Replit Secrets.

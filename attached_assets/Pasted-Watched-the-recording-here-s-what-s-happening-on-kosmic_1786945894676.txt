@@ -1,0 +1,42 @@
+Watched the recording — here's what's happening: on **kosmictrinity.in**, opened inside Instagram's in-app browser on Android, the browser tab shows a perpetual loading spinner that never resolves, and when the hamburger menu is tapped, the mobile nav (Home / About Us / Dharma / Artha / Kaam / Storefront / Journal / Abhivyakti / Triveni) flickers — opening and collapsing to blank repeatedly on its own instead of staying open. This doesn't look like a one-off tap issue; it reads as a render loop that's specific to Android's browser chrome (its address bar/nav bar hiding and showing on scroll fires resize events differently than desktop or iOS).
+
+Here's a prompt you can paste into your Replit AI agent:
+
+```
+There's a bug on our site (kosmictrinity.in) that only happens on Android devices 
+(reproduced in the Instagram in-app browser on Android) — it works fine on desktop 
+and iOS, so please scope any fix to Android only and don't change behavior elsewhere.
+
+Symptoms:
+1. The browser tab's loading indicator spins indefinitely and never resolves to "loaded."
+2. When the mobile hamburger menu is tapped, the nav overlay (Home, About Us, Dharma, 
+   Artha, Kaam, Storefront, Journal, Abhivyakti, Triveni) flickers rapidly — it opens, 
+   then collapses to a blank overlay, then reopens, repeating on its own instead of 
+   staying open until the user closes it.
+
+This looks like a render/resize loop that's only triggered on Android. Likely causes 
+to check:
+- Any `window.resize` or `visualViewport` listener that recalculates menu open/close 
+  state or layout height — on Android, the browser's address bar and system nav bar 
+  show/hide on scroll, which fires resize events much more aggressively than iOS/desktop. 
+  If the menu's open state (or a height value it depends on) gets reset or recalculated 
+  on every resize without checking whether the resize is "real" (e.g. comparing to a 
+  debounced/previous width instead of raw height), it can cause this open/close loop.
+- Use of `100vh` instead of `100dvh`/`100svh` for full-height elements — `100vh` on 
+  Android Chrome/WebView doesn't account for the dynamically hiding browser chrome and 
+  can cause continuous layout shifts that retrigger effects.
+- A `useEffect` (or equivalent) with a dependency that changes every render on Android 
+  specifically (e.g. depending on `window.innerHeight` or a viewport object recreated 
+  each render), causing an infinite re-render loop.
+- Any animated background (canvas/particles/JS animation) or polling/interval/fetch 
+  that never completes, which could explain why the page never leaves the "loading" 
+  state in the browser chrome — check for unresolved promises, missing cleanup on 
+  unmount, or a `requestAnimationFrame`/`setInterval` loop that isn't Android-guarded.
+
+Please investigate and fix the flickering/loading-loop issue on Android specifically, 
+verify the mobile menu opens and stays open until the user taps close or a nav link, 
+and confirm the browser's loading indicator resolves normally after the page loads. 
+Do not alter desktop or iOS behavior, styling, or existing functionality while fixing this.
+```
+
+Paste that into the Replit Agent chat and it should have enough context (symptom + concrete technical leads) to track down and fix the Android-only bug without touching your desktop/iOS behavior.

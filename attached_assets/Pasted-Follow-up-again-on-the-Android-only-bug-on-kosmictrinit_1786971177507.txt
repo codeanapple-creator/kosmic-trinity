@@ -1,0 +1,35 @@
+Follow-up again on the Android-only bug on kosmictrinity.in (prior commits 22bb0bb 
+and 07bdd07 addressed a menu flicker and a menu/chat-widget overlap — both of those 
+now appear fixed). One symptom has persisted unchanged through both of those fixes:
+
+The browser tab's loading indicator (the spinner next to the URL bar in Chrome/the 
+Instagram in-app browser on Android) spins continuously and never resolves to 
+"loaded," for as long as the page is left open — reproduced consistently across three 
+separate screen recordings, including one over 70 seconds long with no interaction 
+other than scrolling and opening/closing the chat widget. This does not reproduce on 
+desktop. Since guessing at resize-loop or z-index causes hasn't fixed this in two 
+prior attempts, please actually instrument and observe this rather than guessing 
+again:
+
+1. Reproduce on a real Android device or an Android emulator (Chrome DevTools' mobile 
+   viewport emulation on desktop is not sufficient — this needs to be tested on 
+   actual Android Chrome or the Android WebView used by in-app browsers like 
+   Instagram's, since the bug is specific to that environment).
+2. Use chrome://inspect from a desktop Chrome connected to the Android device (via 
+   USB debugging) to get real remote DevTools on the page as loaded on Android. Check:
+   - The Network tab: is there a request that never completes (pending indefinitely), 
+     e.g. a hung fetch/XHR to an API, an analytics/tracking pixel, a web font, or the 
+     chat widget's backend?
+   - The Performance/timeline tab: is there a `requestAnimationFrame` loop, 
+     `setInterval`, or continuous re-render that never lets the browser consider the 
+     page "idle"?
+   - Application tab: is a service worker registered and stuck in an installing/
+     waiting state, or repeatedly failing and retrying?
+3. Identify the actual specific cause from what you observe in DevTools (not a 
+   hypothesis) before writing a fix, and note in the commit message what you found 
+   was actually causing it.
+4. After the fix, verify on the same real Android device/emulator that the loading 
+   spinner actually resolves within a few seconds of page load, by watching it 
+   yourself — not just that the build succeeds.
+
+Do not change desktop or iOS behavior.

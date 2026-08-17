@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import logoPath from "@assets/thekosmictrinitygold_1777355949969.png";
 import { useTransparentLogo } from "@/hooks/use-transparent-logo";
+import { useOverlay } from "@/contexts/overlay-context";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -19,24 +20,33 @@ const navLinks = [
 
 export function Navbar() {
   const [location] = useLocation();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { activeOverlay, toggleOverlay, closeOverlay } = useOverlay();
+  const mobileMenuOpen = activeOverlay === "nav";
   const transparentLogo = useTransparentLogo(logoPath);
 
+  // Passive scroll listener — { passive: true } lets Android scroll freely
   useEffect(() => {
+    let isScrolled = false;
+    const header = document.getElementById("kt-header");
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const scrolled = window.scrollY > 20;
+      if (scrolled !== isScrolled) {
+        isScrolled = scrolled;
+        if (header) {
+          header.dataset.scrolled = String(scrolled);
+        }
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
+  // Close nav overlay on route change
   useEffect(() => {
-    setMobileMenuOpen(false);
+    closeOverlay();
   }, [location]);
 
-  // Lock body scroll when menu is open — prevents Android resize-event loops
+  // Lock body scroll on Android when menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -53,18 +63,27 @@ export function Navbar() {
 
   return (
     <>
+      {/*
+        id="kt-header" lets the scroll handler toggle data-scrolled without
+        triggering a React re-render — avoiding an isScrolled state that
+        would re-render the header (and the overlay) on every scroll event,
+        which caused stutter on Android. CSS targets [data-scrolled="true"].
+      */}
       <header
-        className={cn(
-          "fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent",
-          isScrolled
-            ? "bg-background/95 backdrop-blur-md border-border/30 shadow-md"
-            : "bg-transparent py-2"
-        )}
+        id="kt-header"
+        data-scrolled="false"
+        className="kt-header fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent"
       >
         <div className="container mx-auto px-4 h-24 flex items-center justify-between">
           <Link href="/" className="flex flex-col items-center z-50" data-testid="link-home-logo">
-            <img src={transparentLogo} alt="Kosmic Trinity Logo" className="h-[100px] md:h-[200px] w-auto object-contain" />
-            <span className="text-[10px] uppercase tracking-[0.25em] text-primary/80 font-serif -mt-[35px] md:-mt-[70px]">Kosmic Trinity</span>
+            <img
+              src={transparentLogo}
+              alt="Kosmic Trinity Logo"
+              className="h-[100px] md:h-[200px] w-auto object-contain"
+            />
+            <span className="text-[10px] uppercase tracking-[0.25em] text-primary/80 font-serif -mt-[35px] md:-mt-[70px]">
+              Kosmic Trinity
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -87,13 +106,21 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Mobile Menu Toggle
-              — must be z-[70] (above the overlay at z-[60]) with position:relative so z-index applies
-              — touch-action:manipulation removes the 300ms delay on Android WebViews             */}
+          {/*
+            Mobile toggle button.
+            — position: relative + z-[70] so z-index applies (z-index needs
+              a positioned element) and puts the button ABOVE the nav overlay
+              (z-[60]) and above the chat button (z-[75] would be above, but
+              toggle button is inside the header stacking context).
+            — touch-action: manipulation removes the 300 ms tap delay on
+              Android WebViews / Instagram in-app browser.
+            — Functional prev-state toggle prevents stale-closure race on
+              rapid double-taps.
+          */}
           <button
             className="lg:hidden p-2 text-foreground relative z-[70]"
             style={{ touchAction: "manipulation" }}
-            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            onClick={() => toggleOverlay("nav")}
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
             data-testid="button-mobile-menu"
@@ -103,17 +130,18 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Nav Overlay
-          Rendered as a sibling of <header>, NOT inside it, so it gets its own
-          page-level stacking context. z-[60] puts it above header (z-50) but
-          below the toggle button (z-[70]).
-          — No backdrop-blur: GPU-intensive on Android WebView, causes compositor
-            stutter and can keep the browser loading indicator spinning.
-          — pointer-events-none when closed so underlying elements receive touches.
-          — visibility:hidden also applied via the class so screen readers skip it.  */}
+      {/*
+        Mobile Nav Overlay — rendered as a Fragment sibling of <header>,
+        NOT inside it, giving it its own page-level stacking context.
+        z-[60]: above header (z-50) but below the toggle button (z-[70]).
+        No backdrop-blur: GPU-intensive on Android, can prevent paint-complete.
+        pointer-events-none + invisible when closed: cleanly suppresses all
+        touch events so underlying content receives taps normally.
+      */}
       <div
         className={cn(
-          "fixed inset-0 bg-background z-[60] flex flex-col items-center justify-center transition-opacity duration-300 lg:hidden",
+          "fixed inset-0 bg-background z-[60] flex flex-col items-center justify-center",
+          "transition-opacity duration-300 lg:hidden",
           mobileMenuOpen
             ? "opacity-100 pointer-events-auto visible"
             : "opacity-0 pointer-events-none invisible"
@@ -127,11 +155,13 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
+              style={{ touchAction: "manipulation" }}
               className={cn(
                 "text-xl font-serif tracking-widest transition-colors",
-                location === link.href ? "gold-gradient-text" : "text-foreground hover:text-primary"
+                location === link.href
+                  ? "gold-gradient-text"
+                  : "text-foreground hover:text-primary"
               )}
-              style={{ touchAction: "manipulation" }}
             >
               {link.label}
             </Link>

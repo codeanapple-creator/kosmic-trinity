@@ -1,0 +1,46 @@
+Follow-up on the previous Android fix (commit 22bb0bb, "resolve mobile menu flicker 
+loop and perpetual loading spinner") — this is STILL broken on Android, but now shows 
+a related, more specific problem. Reproduced on kosmictrinity.in in the Instagram 
+in-app browser on Android (works fine on desktop/iOS, so scope any fix to Android/mobile 
+only and don't change desktop behavior).
+
+Symptoms now:
+1. The "Bodhi" AI chat widget and the hamburger navigation menu are not mutually 
+   exclusive. If the chat widget is open and the user then taps the hamburger menu, 
+   the nav menu opens ON TOP of the chat widget instead of closing it first — both 
+   overlays render simultaneously, stacked and overlapping, producing a garbled UI 
+   (the chat widget's purple message bubble is visible bleeding through/behind the 
+   nav menu list). There's also a stray close (✕) button and a loading spinner icon 
+   that appear detached, floating mid-screen, disconnected from their intended 
+   position/parent container.
+2. The browser tab's loading indicator STILL spins indefinitely for the entire time 
+   the page is open and never resolves to "loaded" — this was supposedly part of the 
+   previous fix but is still happening.
+
+Please fix both:
+
+A) Make the hamburger menu and the chat widget mutually exclusive overlays on mobile/
+   Android: opening one should close the other automatically (e.g. a single shared 
+   "which overlay is open" state, or an onOpen handler for each that explicitly closes 
+   the other). Check how each is currently toggled — if they're independent 
+   useState/boolean flags in separate components with no shared coordination, that's 
+   the likely cause of the stacking. Also check z-index and fixed/absolute positioning 
+   on both overlays — the floating detached ✕ and spinner suggest a positioning 
+   context (e.g. a missing `position: relative` on a parent, or a portal/z-index 
+   conflict) that only breaks on Android's viewport behavior.
+
+B) Track down why the page never leaves the browser's "loading" state on Android. 
+   Since the earlier fix targeted a resize-loop theory and didn't resolve this, look 
+   elsewhere: check for any unresolved fetch/XHR/promise (e.g. an API call to the 
+   Bodhi chat backend, analytics beacon, or font/asset load) that never resolves or 
+   rejects, any `requestAnimationFrame`/`setInterval` loop without a proper Android 
+   guard, or a service worker registration that hangs. Use Chrome remote debugging 
+   (chrome://inspect) or the Network/Performance tab against an Android device (or 
+   emulate a mobile viewport + throttled/typical mobile conditions in desktop 
+   DevTools) to find what's actually keeping the tab in a loading state, rather than 
+   guessing.
+
+Please verify the fix on an actual Android device or Android emulator this time 
+(not just tested on desktop responsive mode), since the previous fix passed review 
+but did not actually resolve the issue in real Android usage. Do not alter desktop 
+or iOS behavior while fixing this.

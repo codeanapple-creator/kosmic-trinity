@@ -13,9 +13,36 @@
     <meta name="twitter:title" content="Kosmic Trinity" />
     <meta name="twitter:description" content="Kosmic Trinity — built on Replit. Update this description to reflect the app." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!--
+      Google Fonts — Cinzel + Lato (the two fonts this site actually uses).
+      Loaded non-blocking with rel="preload" + onload swap so they never
+      stall the page-load event. Android WebViews (incl. Instagram in-app
+      browser) keep their loading indicator spinning for every pending
+      stylesheet request; making fonts async fixes the perpetual spinner.
+
+      The previous index.html loaded Inter (not used) as a blocking stylesheet
+      AND index.css had a render-blocking @import for Cinzel/Lato — two
+      separate external requests both counting against page-load completion.
+      Both are replaced by this single async preload.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Non-blocking font load: preload → swap to stylesheet on load -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <!-- Fallback for browsers that don't support preload (rare, but safe) -->
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>

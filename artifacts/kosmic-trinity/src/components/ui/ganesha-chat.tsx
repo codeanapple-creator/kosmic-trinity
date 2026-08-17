@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { X, Send, Sparkles } from "lucide-react";
 import bodhiImg from "../../assets/bodhi_nobg.png";
+import { useOverlay } from "@/contexts/overlay-context";
 
 type Message = { from: "ganesha" | "user"; text: string };
 
@@ -166,17 +167,19 @@ function renderText(text: string) {
 }
 
 export function GaneshaChat() {
-  const [open, setOpen] = useState(false);
+  const { activeOverlay, toggleOverlay } = useOverlay();
+  const open = activeOverlay === "chat";
+
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   function handleOpen() {
-    if (!open && messages.length === 0) {
+    if (activeOverlay !== "chat" && messages.length === 0) {
       setMessages([getOpeningMessage()]);
     }
-    setOpen((o) => !o);
+    toggleOverlay("chat");
   }
 
   useEffect(() => {
@@ -186,13 +189,11 @@ export function GaneshaChat() {
   function send() {
     const trimmed = input.trim();
     if (!trimmed) return;
-    const userMsg: Message = { from: "user", text: trimmed };
-    setMessages((m) => [...m, userMsg]);
+    setMessages((m) => [...m, { from: "user", text: trimmed }]);
     setInput("");
     setTyping(true);
     setTimeout(() => {
-      const reply: Message = { from: "ganesha", text: pickResponse(trimmed) };
-      setMessages((m) => [...m, reply]);
+      setMessages((m) => [...m, { from: "ganesha", text: pickResponse(trimmed) }]);
       setTyping(false);
     }, 900 + Math.random() * 600);
   }
@@ -203,11 +204,19 @@ export function GaneshaChat() {
 
   return (
     <>
-      {/* Floating toggle button */}
+      {/*
+        Chat toggle button.
+        z-[75]: ABOVE the nav overlay (z-[60]) and nav button (z-[70]) so the
+        chat button is always tappable. On Android, a user tapping it while the
+        nav is open will close the nav and open the chat (mutual exclusivity
+        via OverlayContext.toggleOverlay).
+        touch-action: manipulation — removes 300 ms tap delay on Android WebView.
+      */}
       <button
         onClick={handleOpen}
-        aria-label="Open Bodhi wisdom chat"
-        className="fixed bottom-6 right-6 z-50 w-20 h-20 rounded-full
+        aria-label={open ? "Close Bodhi wisdom chat" : "Open Bodhi wisdom chat"}
+        style={{ touchAction: "manipulation" }}
+        className="fixed bottom-6 right-6 z-[75] w-20 h-20 rounded-full
           flex items-center justify-center overflow-hidden
           bg-background border-2 border-primary/70
           shadow-[0_0_22px_rgba(201,168,76,0.55)]
@@ -227,10 +236,16 @@ export function GaneshaChat() {
         )}
       </button>
 
-      {/* Chat window */}
+      {/*
+        Chat window.
+        z-[65]: above the nav overlay (z-[60]) but below the nav toggle button
+        (z-[70]) and chat button (z-[75]).
+        Rendered conditionally (not just hidden) so it's fully removed from the
+        DOM — and from Android's compositing layer tree — when closed.
+      */}
       {open && (
         <div
-          className="fixed bottom-28 right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)]
+          className="fixed bottom-28 right-6 z-[65] w-[340px] max-w-[calc(100vw-2rem)]
             bg-background border border-primary/40 rounded-lg shadow-[0_0_40px_rgba(201,168,76,0.2)]
             flex flex-col overflow-hidden"
           style={{ height: "480px" }}

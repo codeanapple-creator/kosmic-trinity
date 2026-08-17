@@ -1,5 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
+/* Google Fonts are now loaded non-blocking via index.html <link rel="preload">.
+   The @import here was render-blocking and kept Android WebViews in a loading
+   state indefinitely — removed. Fonts still apply via the HTML preload. */
 @import "tailwindcss";
+
+/* Header scroll state — driven by a data attribute toggled imperatively in the
+   Navbar useEffect (no React re-render on every scroll event, which caused
+   continuous repaints on Android). */
+#kt-header[data-scrolled="true"] {
+  background: hsl(var(--background) / 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: hsl(var(--border) / 0.3);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+#kt-header[data-scrolled="false"] {
+  background: transparent;
+  border-bottom-color: transparent;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 

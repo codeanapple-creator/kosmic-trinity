@@ -174,7 +174,7 @@ export default function Kaam() {
                 A mindful, creative session designed to help you reconnect with your inner world through the sacred act of making. Srijan - meaning creation - invites you to slow down, pick up a brush, a pen, or a piece of clay, and let your soul speak without words. No prior art experience needed. Just presence, intention, and the willingness to create.
               </p>
               <a
-                href="https://wa.me/message/kosmictrinity"
+                href="https://wa.me/4915213716432"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors"

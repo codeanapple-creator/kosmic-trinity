@@ -331,3 +331,45 @@
   border-color: hsl(var(--primary));
   transform: translateY(-2px);
 }
+
+/* ── Mobile performance (< 768px) ─────────────────────────────────────────────
+   Eliminates the main sources of scroll jank / GPU compositing thrash on
+   Android: continuously-animated backgrounds, backdrop-filter blur layers,
+   and background-attachment:fixed (causes full-page repaint every scroll frame).
+   Desktop (≥ 768px) is completely unaffected.
+   ─────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Stop the scrolling star-field — it's a fixed 200%×200% animated layer */
+  .star-bg {
+    animation: none;
+  }
+
+  /* background-attachment:fixed causes a full repaint on every scroll frame
+     on Android Chrome / WebView — switch to scroll instead */
+  body {
+    background-attachment: scroll;
+  }
+
+  /* Disable backdrop-filter blur on all elements.
+     Each blurred element forces the GPU to composite a separate layer;
+     on scroll Android repaints all of them every frame → jank/flicker. */
+  .backdrop-blur,
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* The scrolled navbar also applies backdrop-filter via data attribute CSS */
+  #kt-header[data-scrolled="true"] {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Disable glow-hover lift transform — reduces layout recalculation on touch */
+  .glow-hover:hover {
+    transform: none;
+  }
+}

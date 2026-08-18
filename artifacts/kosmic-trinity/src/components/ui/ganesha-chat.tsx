@@ -395,7 +395,7 @@ export function GaneshaChat() {
           shadow-[0_0_22px_rgba(201,168,76,0.55)]
           hover:shadow-[0_0_36px_rgba(201,168,76,0.85)]
           transition-all duration-300 hover:scale-105
-          animate-[pulse-glow_4s_ease-in-out_infinite]"
+          md:animate-[pulse-glow_4s_ease-in-out_infinite]"
       >
         {open ? (
           <X size={20} className="text-primary" />

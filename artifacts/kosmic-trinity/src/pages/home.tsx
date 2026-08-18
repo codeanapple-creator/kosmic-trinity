@@ -25,84 +25,94 @@ export default function Home() {
             {/* ── Cosmic Orb ── */}
             <div className="relative w-56 h-56 md:w-72 md:h-72 flex items-center justify-center">
 
-              {/* Outermost wide bloom */}
-              <div className="absolute inset-[-60%] rounded-full bg-primary/20 blur-[80px] animate-[halo-pulse_4s_ease-in-out_infinite]" />
-              <div className="absolute inset-[-45%] rounded-full bg-primary/25 blur-[60px] animate-[halo-pulse_5s_ease-in-out_infinite_0.8s]" />
+              {/*
+                Desktop-only: all the continuously-animated GPU layers.
+                hidden = display:none on mobile (< 768px) → zero compositing cost.
+                md:contents = display:contents on desktop → children position
+                relative to the orb container as if this wrapper didn't exist.
+              */}
+              <div className="hidden md:contents">
+                {/* Outermost wide bloom */}
+                <div className="absolute inset-[-60%] rounded-full bg-primary/20 blur-[80px] animate-[halo-pulse_4s_ease-in-out_infinite]" />
+                <div className="absolute inset-[-45%] rounded-full bg-primary/25 blur-[60px] animate-[halo-pulse_5s_ease-in-out_infinite_0.8s]" />
 
-              {/* Mid rose bloom */}
-              <div className="absolute inset-[-30%] rounded-full bg-accent/15 blur-[50px] animate-[halo-pulse_6s_ease-in-out_infinite_1.2s]" />
+                {/* Mid rose bloom */}
+                <div className="absolute inset-[-30%] rounded-full bg-accent/15 blur-[50px] animate-[halo-pulse_6s_ease-in-out_infinite_1.2s]" />
 
-              {/* Tight bright core glow */}
-              <div className="absolute inset-[-10%] rounded-full bg-primary/40 blur-[30px] animate-[halo-pulse_3s_ease-in-out_infinite]" />
+                {/* Tight bright core glow */}
+                <div className="absolute inset-[-10%] rounded-full bg-primary/40 blur-[30px] animate-[halo-pulse_3s_ease-in-out_infinite]" />
 
-              {/* Halo rings - now brighter */}
-              <div className="absolute inset-[-8%] rounded-full border border-primary/50 shadow-[0_0_12px_4px_rgba(201,168,76,0.4)] animate-[halo-pulse_5s_ease-in-out_infinite_0.5s]" />
-              <div className="absolute inset-[-18%] rounded-full border border-primary/25 shadow-[0_0_8px_2px_rgba(201,168,76,0.2)] animate-[halo-pulse_7s_ease-in-out_infinite_1.5s]" />
-              <div className="absolute inset-[-28%] rounded-full border border-primary/10 animate-[halo-pulse_9s_ease-in-out_infinite_2s]" />
+                {/* Halo rings */}
+                <div className="absolute inset-[-8%] rounded-full border border-primary/50 shadow-[0_0_12px_4px_rgba(201,168,76,0.4)] animate-[halo-pulse_5s_ease-in-out_infinite_0.5s]" />
+                <div className="absolute inset-[-18%] rounded-full border border-primary/25 shadow-[0_0_8px_2px_rgba(201,168,76,0.2)] animate-[halo-pulse_7s_ease-in-out_infinite_1.5s]" />
+                <div className="absolute inset-[-28%] rounded-full border border-primary/10 animate-[halo-pulse_9s_ease-in-out_infinite_2s]" />
 
-              {/* Orbital ring 1 - tilted 20° */}
-              <div
-                className="absolute inset-0 rounded-full border border-primary/30"
-                style={{ transform: "rotateX(70deg) rotateZ(20deg)", animation: "cosmic-spin 18s linear infinite" }}
-              >
-                {/* Orbiting dot on ring 1 */}
+                {/* Orbital ring 1 - tilted 20° */}
                 <div
-                  className="absolute w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_3px_rgba(201,168,76,0.8)]"
-                  style={{ top: "-5px", left: "50%", marginLeft: "-5px" }}
-                />
+                  className="absolute inset-0 rounded-full border border-primary/30"
+                  style={{ transform: "rotateX(70deg) rotateZ(20deg)", animation: "cosmic-spin 18s linear infinite" }}
+                >
+                  <div
+                    className="absolute w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_3px_rgba(201,168,76,0.8)]"
+                    style={{ top: "-5px", left: "50%", marginLeft: "-5px" }}
+                  />
+                </div>
+
+                {/* Orbital ring 2 - tilted 60° opposite */}
+                <div
+                  className="absolute inset-0 rounded-full border border-accent/30"
+                  style={{ transform: "rotateX(70deg) rotateZ(-50deg)", animation: "cosmic-spin-reverse 24s linear infinite" }}
+                >
+                  <div
+                    className="absolute w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_3px_rgba(196,126,142,0.8)]"
+                    style={{ top: "-4px", left: "50%", marginLeft: "-4px" }}
+                  />
+                </div>
+
+                {/* Orbital ring 3 - equatorial */}
+                <div
+                  className="absolute inset-[8%] rounded-full border border-primary/20"
+                  style={{ transform: "rotateX(70deg) rotateZ(90deg)", animation: "cosmic-spin 30s linear infinite" }}
+                >
+                  <div
+                    className="absolute w-1.5 h-1.5 rounded-full bg-primary/80 shadow-[0_0_6px_2px_rgba(201,168,76,0.6)]"
+                    style={{ top: "-3px", left: "50%", marginLeft: "-3px" }}
+                  />
+                </div>
+
+                {/* Twinkling star dots scattered around */}
+                {[
+                  { top: "2%",  left: "20%", delay: "0s",    size: "w-1 h-1" },
+                  { top: "10%", left: "78%", delay: "0.8s",  size: "w-1.5 h-1.5" },
+                  { top: "80%", left: "12%", delay: "1.4s",  size: "w-1 h-1" },
+                  { top: "88%", left: "72%", delay: "0.4s",  size: "w-1 h-1" },
+                  { top: "45%", left: "2%",  delay: "1.8s",  size: "w-1 h-1" },
+                  { top: "50%", left: "96%", delay: "0.2s",  size: "w-1.5 h-1.5" },
+                ].map((s, i) => (
+                  <div
+                    key={i}
+                    className={`absolute ${s.size} rounded-full bg-primary`}
+                    style={{ top: s.top, left: s.left, animation: `twinkle 2.5s ease-in-out infinite ${s.delay}` }}
+                  />
+                ))}
+
+                {/* Inner glow ring */}
+                <div className="absolute inset-[4%] rounded-full border border-primary/40 shadow-[0_0_20px_rgba(201,168,76,0.3)] animate-[pulse-glow_3s_ease-in-out_infinite]" />
               </div>
 
-              {/* Orbital ring 2 - tilted 60° opposite */}
-              <div
-                className="absolute inset-0 rounded-full border border-accent/30"
-                style={{ transform: "rotateX(70deg) rotateZ(-50deg)", animation: "cosmic-spin-reverse 24s linear infinite" }}
-              >
-                <div
-                  className="absolute w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_3px_rgba(196,126,142,0.8)]"
-                  style={{ top: "-4px", left: "50%", marginLeft: "-4px" }}
-                />
-              </div>
-
-              {/* Orbital ring 3 - equatorial */}
-              <div
-                className="absolute inset-[8%] rounded-full border border-primary/20"
-                style={{ transform: "rotateX(70deg) rotateZ(90deg)", animation: "cosmic-spin 30s linear infinite" }}
-              >
-                <div
-                  className="absolute w-1.5 h-1.5 rounded-full bg-primary/80 shadow-[0_0_6px_2px_rgba(201,168,76,0.6)]"
-                  style={{ top: "-3px", left: "50%", marginLeft: "-3px" }}
-                />
-              </div>
-
-              {/* Twinkling star dots scattered around */}
-              {[
-                { top: "2%",  left: "20%", delay: "0s",    size: "w-1 h-1" },
-                { top: "10%", left: "78%", delay: "0.8s",  size: "w-1.5 h-1.5" },
-                { top: "80%", left: "12%", delay: "1.4s",  size: "w-1 h-1" },
-                { top: "88%", left: "72%", delay: "0.4s",  size: "w-1 h-1" },
-                { top: "45%", left: "2%",  delay: "1.8s",  size: "w-1 h-1" },
-                { top: "50%", left: "96%", delay: "0.2s",  size: "w-1.5 h-1.5" },
-              ].map((s, i) => (
-                <div
-                  key={i}
-                  className={`absolute ${s.size} rounded-full bg-primary`}
-                  style={{ top: s.top, left: s.left, animation: `twinkle 2.5s ease-in-out infinite ${s.delay}` }}
-                />
-              ))}
-
-              {/* Inner glow ring */}
-              <div className="absolute inset-[4%] rounded-full border border-primary/40 shadow-[0_0_20px_rgba(201,168,76,0.3)] animate-[pulse-glow_3s_ease-in-out_infinite]" />
-
-              {/* The image */}
-              <div className="relative z-10 w-[75%] h-[75%] animate-float">
+              {/* The image — always visible; float + heavy glow only on desktop */}
+              <div className="relative z-10 w-[75%] h-[75%] md:animate-float">
                 <img
                   src={colortexture}
                   alt="Glowing Lotus"
-                  className="w-full h-full object-cover rounded-full border-2 border-primary/80 shadow-[0_0_20px_6px_rgba(201,168,76,0.6),0_0_60px_20px_rgba(201,168,76,0.35),0_0_100px_40px_rgba(201,168,76,0.15)] animate-[pulse-glow_3s_ease-in-out_infinite]"
+                  className="w-full h-full object-cover rounded-full border-2 border-primary/80
+                    shadow-[0_0_20px_6px_rgba(201,168,76,0.6)]
+                    md:shadow-[0_0_20px_6px_rgba(201,168,76,0.6),0_0_60px_20px_rgba(201,168,76,0.35),0_0_100px_40px_rgba(201,168,76,0.15)]
+                    md:animate-[pulse-glow_3s_ease-in-out_infinite]"
                 />
-                {/* Overlay to kill the white areas - multiply darkens whites to background */}
+                {/* Overlay to kill white areas */}
                 <div className="absolute inset-0 rounded-full bg-background/60 mix-blend-multiply pointer-events-none" />
-                {/* Vignette that fades edges into the dark background */}
+                {/* Vignette */}
                 <div
                   className="absolute inset-0 rounded-full pointer-events-none"
                   style={{ background: "radial-gradient(circle, transparent 45%, hsl(343,65%,8%) 85%)" }}
@@ -134,7 +144,7 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 md:animate-bounce">
           <span className="text-[10px] tracking-[0.2em] uppercase text-primary">Scroll</span>
           <div className="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent" />
         </div>

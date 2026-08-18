@@ -1,0 +1,32 @@
+On kosmictrinity.in, mobile screens experience severe visual flickering during 
+scrolling — this is separate from the earlier menu/navigation fixes (commits 
+22bb0bb, 07bdd07, 9022d90) and should not undo any of them. Diagnose the mobile 
+rendering issue and fix it.
+
+Specifically, on screens below 768px:
+
+1. Disable or simplify all scroll-triggered opacity/transform reveal animations — 
+   e.g. the fade-in cards like "Ancient Wisdom, Present Clarity" and the "Sacred 
+   Offerings" (Dharma/Artha/Kaam) cards that animate in as you scroll. On mobile, 
+   these should render at opacity:1 / final position by default, not animate in 
+   per-scroll.
+2. Disable or simplify any backdrop-filter/blur effects (e.g. on the chat widget 
+   panel or menu overlay), animated gradients, the constellation/particle background 
+   layer behind the hero circle, and any other continuously-animated background 
+   (e.g. the pulsing glow behind the Ganesha/Bodhi chat icon) on mobile — these are 
+   likely GPU compositing every scroll frame and causing jank/flicker on Android in 
+   particular.
+3. Audit for elements that repeatedly mount/unmount or re-trigger their animation 
+   as they enter/exit the viewport during scroll (e.g. an IntersectionObserver-based 
+   reveal that re-fires every time a section crosses the threshold in either 
+   direction, instead of firing once). Fix so animations trigger once and stay 
+   settled, or are skipped entirely on mobile.
+4. Check for sticky/fixed positioned elements (the navbar, the chat toggle button) 
+   that might be causing repaint/reflow thrashing on scroll on Android specifically.
+5. Keep the visual design intact on desktop — this should be a mobile-only 
+   (< 768px) simplification, not a redesign, and must not regress the menu-flicker, 
+   chat-widget-overlap, or navigation-flash fixes already deployed.
+
+After the fix, verify smooth scrolling on an actual Android device or emulator 
+(not just desktop responsive mode) — scroll the full homepage top to bottom and 
+back, and confirm no flicker, no repeated fade-ins, and no visible jank.

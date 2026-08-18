@@ -94,7 +94,7 @@ export default function Dharma() {
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 3,333 &nbsp;·&nbsp; $33 &nbsp;·&nbsp; €33</p>
                 <button
-                  onClick={() => book("Soul Calling Guidebook", 100)}
+                  onClick={() => book("Soul Calling Guidebook", 333300)}
                   className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"
                 >
                   Get the Guidebook <ArrowRight size={12} />
@@ -121,7 +121,7 @@ export default function Dharma() {
                   <p className="text-muted-foreground text-xs font-light mb-3">Deep natal chart consultation on Zoom</p>
                   <p className="text-primary font-serif mb-4">Rs. 8,500 &nbsp;·&nbsp; $85 &nbsp;·&nbsp; €85</p>
                   <button
-                    onClick={() => book("Swadharm Session – Astrology-Based (60 min)", 100)}
+                    onClick={() => book("Swadharm Session – Astrology-Based (60 min)", 850000)}
                     className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"
                   >
                     Book Now <ArrowRight size={12} />
@@ -133,7 +133,7 @@ export default function Dharma() {
                   <p className="text-muted-foreground text-xs font-light mb-3">Intuitive consultation on Zoom</p>
                   <p className="text-accent font-serif mb-4">Rs. 3,500 &nbsp;·&nbsp; $35 &nbsp;·&nbsp; €35</p>
                   <button
-                    onClick={() => book("Swadharm Session – Intuitive Reading (30 min)", 100)}
+                    onClick={() => book("Swadharm Session – Intuitive Reading (30 min)", 350000)}
                     className="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-accent text-accent hover:bg-accent/10 font-serif tracking-wider uppercase text-xs rounded transition-colors"
                   >
                     Book Now <ArrowRight size={12} />
@@ -158,7 +158,7 @@ export default function Dharma() {
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 5,500 &nbsp;·&nbsp; $55 &nbsp;·&nbsp; €55</p>
                 <button
-                  onClick={() => book("Soulfarm Season Reading", 100)}
+                  onClick={() => book("Soulfarm Season Reading", 550000)}
                   className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"
                 >
                   Book Now <ArrowRight size={12} />

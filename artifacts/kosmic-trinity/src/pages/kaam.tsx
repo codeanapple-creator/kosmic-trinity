@@ -107,7 +107,7 @@ export default function Kaam() {
                       <p className="text-muted-foreground text-sm mb-1">Couples (2 birth charts)</p>
                       <p className="text-foreground font-serif mb-3">Rs. 16,000 / $160 / €160</p>
                       <button
-                        onClick={() => book("Sayujya Session – Couples (Astrology, 60 min)", 100)}
+                        onClick={() => book("Sayujya Session – Couples (Astrology, 60 min)", 1600000)}
                         className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors"
                       >
                         Book Now <ArrowRight size={12} />
@@ -117,7 +117,7 @@ export default function Kaam() {
                       <p className="text-muted-foreground text-sm mb-1">Individual (1 birth chart)</p>
                       <p className="text-foreground font-serif mb-3">Rs. 8,500 / $85 / €85</p>
                       <button
-                        onClick={() => book("Sayujya Session – Individual (Astrology, 60 min)", 100)}
+                        onClick={() => book("Sayujya Session – Individual (Astrology, 60 min)", 850000)}
                         className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors"
                       >
                         Book Now <ArrowRight size={12} />
@@ -130,7 +130,7 @@ export default function Kaam() {
                   <div className="flex items-center justify-between flex-wrap gap-3">
                     <p className="text-foreground font-serif">Rs. 3,500 / $35 / €35</p>
                     <button
-                      onClick={() => book("Sayujya Oracle Reading (30 min)", 100)}
+                      onClick={() => book("Sayujya Oracle Reading (30 min)", 350000)}
                       className="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-accent text-accent hover:bg-accent/10 font-serif tracking-wider uppercase text-xs rounded transition-colors"
                     >
                       Book Now <ArrowRight size={12} />
@@ -156,7 +156,7 @@ export default function Kaam() {
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-foreground font-serif text-lg">Rs. 8,500 &nbsp;<span className="text-muted-foreground text-sm font-light">/ $85 / €85</span></p>
                 <button
-                  onClick={() => book("Santati Session", 100)}
+                  onClick={() => book("Santati Session", 850000)}
                   className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary/10 font-serif tracking-wider uppercase text-xs rounded transition-colors"
                 >
                   Book Santati <ArrowRight size={12} />

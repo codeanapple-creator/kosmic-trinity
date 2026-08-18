@@ -25,7 +25,7 @@ const SERVICES: Array<{
     description:
       "Decode the deeper intention behind your birth - your tendencies, gifts brought from past lives, and karmic tasks for this life. Based on your birth chart and intuitive mapping, this guidebook is crafted personally for you and delivered as a PDF over email.",
     price: "Rs. 3,333",
-    amountPaise: 100,
+    amountPaise: 333300,
     currency: "INR",
     pdfOnly: true,
   },
@@ -38,7 +38,7 @@ const SERVICES: Array<{
     description:
       "Understand repeating patterns and unfinished cycles that shape your journey, and uncover the purpose your soul has uniquely chosen for this life. A discussion around your embedded patterns and how they are leading you toward the Dharm your soul has chosen.",
     price: "Rs. 8,500",
-    amountPaise: 100,
+    amountPaise: 850000,
     currency: "INR",
   },
   {
@@ -50,7 +50,7 @@ const SERVICES: Array<{
     description:
       "Understand repeating patterns and unfinished cycles that shape your journey, and uncover the purpose your soul has uniquely chosen for this life. An intuitive consultation exploring the Dharm your soul has chosen.",
     price: "Rs. 3,500",
-    amountPaise: 100,
+    amountPaise: 350000,
     currency: "INR",
   },
   {
@@ -62,7 +62,7 @@ const SERVICES: Array<{
     description:
       "A live 1:1 Astrology based reading for checking transits, solar return themes, and understanding timelines - to check what to sow, reap and harvest in the current phase of your life. An invitation to align with your cosmic seasons consciously.",
     price: "Rs. 5,500",
-    amountPaise: 100,
+    amountPaise: 550000,
     currency: "INR",
   },
   // ── Artha ────────────────────────────────────────────────────────────────
@@ -75,7 +75,7 @@ const SERVICES: Array<{
     description:
       "Identify what wealth means for your soul, the subconscious patterns influencing your financial flow, clarity on direction, decisions, and professional shifts - and work through energetic, psychological, and ancestral blocks around money.",
     price: "Rs. 8,500",
-    amountPaise: 100,
+    amountPaise: 850000,
     currency: "INR",
   },
   {
@@ -87,7 +87,7 @@ const SERVICES: Array<{
     description:
       "Discover strengths you may not be fully utilising yet - your tangible talents, your money element, and ways to use them for monetary benefits. A PDF reading based on your birth chart, designed to reveal the unique cosmic blueprint behind your earning and holding capacity.",
     price: "Rs. 2,500",
-    amountPaise: 100,
+    amountPaise: 250000,
     currency: "INR",
     pdfOnly: true,
   },
@@ -100,7 +100,7 @@ const SERVICES: Array<{
     description:
       "Oracle Cards-based reading to uncover solutions for financial issues, fields to monetise, and to resolve blockages and patterns around money concerns. 30-minute live session - no limit on questions within the stipulated timeframe.",
     price: "Rs. 3,500",
-    amountPaise: 100,
+    amountPaise: 350000,
     currency: "INR",
   },
   {
@@ -112,7 +112,7 @@ const SERVICES: Array<{
     description:
       "CA Shruti Gupta brings clarity and structure to your financial world. This session goes beyond accounting - working with money as energy, helping you build systems that create ease, confidence, and sustainable growth. For homemakers, women entrepreneurs, and small business owners.",
     price: "Rs. 2,500",
-    amountPaise: 100,
+    amountPaise: 250000,
     currency: "INR",
   },
   // ── Kaam ─────────────────────────────────────────────────────────────────
@@ -125,7 +125,7 @@ const SERVICES: Array<{
     description:
       "Understand relational dynamics, patterns leading to unresolved emotional loops, conflicts, your unique love language, deep desires, and your soul's chosen way to experience and embody love in close relationships. For couples - 2 birth charts.",
     price: "Rs. 16,000",
-    amountPaise: 100,
+    amountPaise: 1600000,
     currency: "INR",
   },
   {
@@ -137,7 +137,7 @@ const SERVICES: Array<{
     description:
       "Understand relational dynamics, patterns leading to unresolved emotional loops, conflicts, your unique love language, deep desires, and your soul's chosen way to experience and embody love in close relationships. Individual birth chart reading.",
     price: "Rs. 8,500",
-    amountPaise: 100,
+    amountPaise: 850000,
     currency: "INR",
   },
   {
@@ -149,7 +149,7 @@ const SERVICES: Array<{
     description:
       "Understand relational dynamics, patterns leading to unresolved emotional loops, conflicts, your unique love language, deep desires, and your soul's chosen way to experience and embody love in close relationships. Oracle card-based reading.",
     price: "Rs. 3,500",
-    amountPaise: 100,
+    amountPaise: 350000,
     currency: "INR",
   },
   {
@@ -161,7 +161,7 @@ const SERVICES: Array<{
     description:
       "Understand your children - their behavioural patterns, creative potentials, talents, hidden challenges, and aligned games and activities to support them better. An astrology-based consultation dedicated entirely to your child's cosmic blueprint.",
     price: "Rs. 8,500",
-    amountPaise: 100,
+    amountPaise: 850000,
     currency: "INR",
   },
 ];

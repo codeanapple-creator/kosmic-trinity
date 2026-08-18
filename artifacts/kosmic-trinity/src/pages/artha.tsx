@@ -100,7 +100,7 @@ export default function Artha() {
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 8,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $85 / €85</span></p>
                 <button
-                  onClick={() => book("Samriddhi Session", 100)}
+                  onClick={() => book("Samriddhi Session", 850000)}
                   className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"
                 >
                   Book Now <ArrowRight size={12} />
@@ -124,7 +124,7 @@ export default function Artha() {
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $25 / €25</span></p>
                 <button
-                  onClick={() => book("SARTHAK – A Book of Money Magic", 100)}
+                  onClick={() => book("SARTHAK – A Book of Money Magic", 250000)}
                   className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary/10 font-serif tracking-wider uppercase text-xs rounded transition-colors"
                 >
                   Get SARTHAK <ArrowRight size={12} />
@@ -148,7 +148,7 @@ export default function Artha() {
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 3,500 &nbsp;<span className="text-primary/70 text-sm font-light">/ $35 / €35</span></p>
                 <button
-                  onClick={() => book("Power of Pentacles", 100)}
+                  onClick={() => book("Power of Pentacles", 350000)}
                   className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"
                 >
                   Book Now <ArrowRight size={12} />
@@ -175,7 +175,7 @@ export default function Artha() {
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 2,500 &nbsp;<span className="text-primary/70 text-sm font-light">discovery call</span></p>
                 <button
-                  onClick={() => book("SHREE by Shruti", 100)}
+                  onClick={() => book("SHREE by Shruti", 250000)}
                   className="inline-flex items-center gap-2 px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary/10 font-serif tracking-wider uppercase text-xs rounded transition-colors"
                 >
                   Unlock your SHREE <ArrowRight size={12} />

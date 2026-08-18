@@ -153,12 +153,14 @@ export default function Triveni() {
             <p className="text-muted-foreground font-light mb-8 max-w-xl mx-auto">
               Triveni is a limited-seat, deeply personal container. Reach out through Abhivyakti to explore if this journey is aligned for you right now.
             </p>
-            <Link
-              href="/abhivyakti"
+            <a
+              href="https://wa.me/4915213716432?text=Hi%2C%20I%27d%20like%20to%20apply%20for%20Triveni"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-sm rounded hover:bg-primary/90 transition-colors shadow-[0_0_20px_rgba(201,168,76,0.2)]"
             >
               Apply for Triveni <ArrowRight size={14} />
-            </Link>
+            </a>
           </div>
         </MotionSection>
 

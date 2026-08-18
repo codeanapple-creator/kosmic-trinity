@@ -1,0 +1,40 @@
+Make the following changes to kosmictrinity.in. WhatsApp number to use throughout: 
++49 152 1371 6432 (WhatsApp deep link format: https://wa.me/4915213716432 — optionally 
+add a prefilled message per instance, e.g. https://wa.me/4915213716432?text=Hi%2C%20I%27d%20
+like%20to%20know%20more%20about%20[session name]).
+
+1. Calendar integration: Review the current state of calendar integration for 
+   bookings (there is already a googleCalendar.ts in the api-server from a previous 
+   commit — check whether it's actually wired into the booking flow end-to-end, or 
+   whether it exists but isn't connected to the UI). Report back what's missing 
+   before implementing further, since the specific requirement here needs more 
+   detail from the site owner (e.g. should users see available time slots and book 
+   directly, or is this about confirmed bookings syncing to a calendar?).
+
+2. Triveni page — "Apply Now" button: Currently this button redirects to the 
+   Abhivyakti page. Change it to instead open a WhatsApp chat with 
+   https://wa.me/4915213716432 (opening in a new tab), instead of navigating to 
+   /abhivyakti.
+
+3. Abhivyakti page: Add a WhatsApp contact link/button using the same number 
+   (https://wa.me/4915213716432), so visitors on this page can reach out directly 
+   via WhatsApp.
+
+4. Swadhyay page — "Let's Tango with Tarot" booking: Find this session/offering 
+   (search the codebase for "Let's Tango" or "Tango" or "Swadhyay" to locate the 
+   exact page/component — it wasn't clearly identified from prior context). Its 
+   current booking button is linking to the wrong destination ("landing kahi aur," 
+   i.e. going somewhere unrelated instead of a working booking flow). Fix this 
+   button to link to WhatsApp instead: https://wa.me/4915213716432, opening in a new 
+   tab, same as the other WhatsApp links above.
+
+For all WhatsApp links: use target="_blank" rel="noopener noreferrer" (or your 
+router's equivalent for external links) so it opens in a new tab/the WhatsApp app 
+rather than navigating away from the site. Keep the visual design/button styling as 
+currently implemented — only change the destination/behavior, not the appearance, 
+unless a button's copy needs updating (e.g. if it currently says something like 
+"Redirecting to Abhivyakti," update the label to reflect it now opens WhatsApp).
+
+After implementing, list every file changed and every button/link updated so it's 
+easy to verify each of the 3 destinations was actually changed and test on both 
+desktop and mobile that each opens WhatsApp correctly with the right number.

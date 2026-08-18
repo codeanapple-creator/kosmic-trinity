@@ -187,7 +187,7 @@ export default function Kaam() {
                 No artistic experience needed. Just be present, and allow your inner creator to reveal.
               </p>
               <a
-                href="https://wa.me/4915213716432"
+                href="https://wa.me/4915213716342"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-2 bg-accent text-accent-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-accent/90 transition-colors"

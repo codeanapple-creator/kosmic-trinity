@@ -61,7 +61,7 @@ export default function Journal() {
             <div className="flex items-center justify-between flex-wrap gap-4">
               <p className="text-primary font-serif text-lg">Rs. 25,000 &nbsp;·&nbsp; $250 &nbsp;·&nbsp; €250</p>
               <a
-                href="https://wa.me/4915213716432?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Let%27s%20Tango%20with%20Intuition"
+                href="https://wa.me/4915213716342?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Let%27s%20Tango%20with%20Intuition"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"

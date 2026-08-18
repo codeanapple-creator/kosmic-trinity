@@ -44,7 +44,7 @@ export default function Abhivyakti() {
               </p>
               <p className="text-xs text-accent/70 mb-8">Intuitive Guidance</p>
               <a
-                href="https://wa.me/4915213716432"
+                href="https://wa.me/4915213716342"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-2 border border-accent text-accent rounded hover:bg-accent hover:text-accent-foreground transition-colors font-serif uppercase tracking-widest text-xs"
@@ -65,7 +65,7 @@ export default function Abhivyakti() {
               </p>
               <p className="text-xs text-primary/70 mb-8">Analytical · Grounded · Practical Wisdom</p>
               <a
-                href="https://wa.me/4915213716432"
+                href="https://wa.me/4915213716342"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-2 border border-primary text-primary rounded hover:bg-primary hover:text-primary-foreground transition-colors font-serif uppercase tracking-widest text-xs"
@@ -104,7 +104,7 @@ export default function Abhivyakti() {
             All Abhivyakti sessions are booked via WhatsApp and scheduled through a shared calendar link. Reach out and we will guide you from there.
           </p>
           <a
-            href="https://wa.me/4915213716432"
+            href="https://wa.me/4915213716342"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-foreground text-background font-serif uppercase tracking-widest text-sm rounded hover:bg-foreground/90 transition-colors"

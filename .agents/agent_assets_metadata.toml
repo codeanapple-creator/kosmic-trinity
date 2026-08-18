@@ -30,3 +30,10 @@ id = "1PBArOqRzRmOF2IDqWgSn"
 uri = "file://attached_assets/image_search/sangam_pexels_2.jpg"
 type = "image"
 title = "Option B — Mahakumbh Prayagraj aerial"
+
+[[outputs]]
+id = "eTQ680fY8UZWGRTE47yCY"
+uri = "file://kosmic-trinity-src.zip"
+type = "unspecified"
+title = "kosmic-trinity-src.zip"
+description = "Full source code for the Kosmic Trinity frontend — src/, index.html, public/, config files. 7 MB, no node_modules."

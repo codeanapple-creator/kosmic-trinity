@@ -1,5 +1,8 @@
 import nodemailer from 'nodemailer';
 
+/** Google Calendar appointment scheduling link — update here to change everywhere */
+const APPOINTMENT_URL = 'https://calendar.app.google/5RdqsFPw5yKBmYSw5';
+
 export async function sendBookingConfirmation(params: {
   clientName: string;
   clientEmail: string;
@@ -44,18 +47,38 @@ export async function sendBookingConfirmation(params: {
     to: params.clientEmail,
     subject: `Your Booking is Confirmed — ${params.serviceName}`,
     html: `
-      <div style="font-family: Georgia, serif; background: #1a0508; color: #f5e8c8; padding: 32px; border-radius: 8px;">
-        <h2 style="color: #C9A84C;">Booking Confirmed ✦</h2>
+      <div style="font-family: Georgia, serif; background: #1a0508; color: #f5e8c8; padding: 32px; border-radius: 8px; max-width: 600px;">
+        <h2 style="color: #C9A84C; margin-top: 0;">Booking Confirmed ✦</h2>
         <p>Dear ${params.clientName},</p>
-        <p>Your payment of <strong style="color: #C9A84C;">${formattedAmount}</strong> for <strong>${params.serviceName}</strong> has been received.</p>
-        <p style="margin-top: 24px;">Please use the link below to choose your preferred date and time:</p>
-        <a href="${params.calendarLink}" style="display:inline-block; margin-top:12px; padding: 12px 24px; background: #C9A84C; color: #1a0508; text-decoration: none; border-radius: 4px; font-weight: bold;">
-          Book Your Date &amp; Time
+        <p>Your payment of <strong style="color: #C9A84C;">${formattedAmount}</strong> for <strong>${params.serviceName}</strong> has been received. We're delighted to have you on this journey.</p>
+
+        <hr style="border: none; border-top: 1px solid #3a1a20; margin: 24px 0;" />
+
+        <!-- Step 1: Fill birth details -->
+        <p style="margin: 0 0 6px; color: #C9A84C; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Step 1 — Share Your Birth Details</p>
+        <p style="margin: 0 0 12px; color: #ccc; font-size: 14px;">To prepare your personalised session, please complete your birth details using the button below:</p>
+        <a href="${params.calendarLink}" style="display:inline-block; padding: 12px 24px; background: #3a1a20; color: #C9A84C; text-decoration: none; border-radius: 4px; font-weight: bold; border: 1px solid #C9A84C; font-size: 14px;">
+          Enter Birth Details →
         </a>
-        <p style="margin-top: 32px; color: #aaa; font-size: 13px;">
-          If you have any questions, reply to this email or reach out at kosmictrinity@gmail.com.<br/>
+
+        <hr style="border: none; border-top: 1px solid #3a1a20; margin: 28px 0;" />
+
+        <!-- Step 2: Book session time -->
+        <p style="margin: 0 0 6px; color: #C9A84C; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Step 2 — Book Your Session Time</p>
+        <p style="margin: 0 0 12px; color: #ccc; font-size: 14px;">Please choose a convenient date and time for your session using the link below. Once booked, we'll see it on our calendar and confirm your session.</p>
+        <a href="${APPOINTMENT_URL}" style="display:inline-block; padding: 12px 28px; background: #C9A84C; color: #1a0508; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 14px;">
+          Book Your Session Time →
+        </a>
+        <p style="margin: 10px 0 0; font-size: 12px; color: #888;">
+          Or copy this link: <a href="${APPOINTMENT_URL}" style="color: #C9A84C;">${APPOINTMENT_URL}</a>
+        </p>
+
+        <hr style="border: none; border-top: 1px solid #3a1a20; margin: 28px 0;" />
+
+        <p style="margin: 0; color: #aaa; font-size: 13px; line-height: 1.7;">
+          Questions? Reply to this email or write to us at <a href="mailto:kosmictrinity@gmail.com" style="color: #C9A84C;">kosmictrinity@gmail.com</a>.<br/>
           With cosmic love,<br/>
-          <strong>thekosmictrinity</strong>
+          <strong style="color: #f5e8c8;">The Kosmic Trinity</strong>
         </p>
       </div>
     `,
@@ -170,7 +193,6 @@ export async function sendOrderConfirmation(params: {
   }).format(params.amountPaise / 100);
 
   const isService = params.itemType === 'service';
-  const CALENDAR_URL = 'https://calendar.google.com/calendar/appointments';
 
   const mailToKosmic = {
     from: `"Kosmic Trinity" <${process.env.GMAIL_USER}>`,
@@ -199,9 +221,9 @@ export async function sendOrderConfirmation(params: {
         <p>Dear ${params.clientName},</p>
         <p>Your payment of <strong style="color: #C9A84C;">${formattedAmount}</strong> for <strong>${params.itemName}</strong> has been received.</p>
         ${isService ? `
-        <p style="margin-top: 24px;">Please use the link below to choose your preferred date and time:</p>
-        <a href="${CALENDAR_URL}" style="display:inline-block; margin-top:12px; padding: 12px 24px; background: #C9A84C; color: #1a0508; text-decoration: none; border-radius: 4px; font-weight: bold;">
-          Book Your Date &amp; Time
+        <p style="margin-top: 24px;">Please choose a convenient date and time for your session using the link below. Once booked, we'll see it on our calendar and confirm your session.</p>
+        <a href="${APPOINTMENT_URL}" style="display:inline-block; margin-top:12px; padding: 12px 28px; background: #C9A84C; color: #1a0508; text-decoration: none; border-radius: 4px; font-weight: bold;">
+          Book Your Session Time &rarr;
         </a>` : `
         <p style="margin-top: 24px;">We will reach out within 24 hours to confirm your order and arrange delivery details.</p>`}
         <p style="margin-top: 32px; color: #aaa; font-size: 13px;">

@@ -158,7 +158,7 @@ export default function Dharma() {
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <p className="text-primary font-serif text-lg">Rs. 5,500 &nbsp;·&nbsp; $55 &nbsp;·&nbsp; €55</p>
                 <button
-                  onClick={() => book("Soulfarm Season Reading", 550000)}
+                  onClick={() => book("Soulfarm Season Reading", 100)}
                   className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground font-serif tracking-wider uppercase text-xs rounded hover:bg-primary/90 transition-colors"
                 >
                   Book Now <ArrowRight size={12} />

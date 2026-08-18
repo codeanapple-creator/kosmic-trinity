@@ -65,11 +65,11 @@ const products: Array<{
     id: 5,
     name: "Quote Desk Calendar",
     type: "Illustrated · Stationery",
-    price: "Rs. 1,000",
+    price: "Rs. 2,500",
     images: [quoteCalendar],
     tag: "Gift · Stationery",
     description:
-      "A spiral-bound desk calendar featuring original watercolour illustrations and handwritten soul quotes - one for every month. A thoughtful gift for anyone on a growth journey.",
+      "A spiral-bound desk calendar featuring 100 original watercolour illustrations and handwritten soul quotes. Place it however you like on your desk — it fits every corner, every mood. A thoughtful gift for anyone on a growth journey.",
   },
   {
     id: 6,

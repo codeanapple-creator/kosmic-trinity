@@ -62,7 +62,7 @@ const SERVICES: Array<{
     description:
       "A live 1:1 Astrology based reading for checking transits, solar return themes, and understanding timelines - to check what to sow, reap and harvest in the current phase of your life. An invitation to align with your cosmic seasons consciously.",
     price: "Rs. 5,500",
-    amountPaise: 100,
+    amountPaise: 550000,
     currency: "INR",
   },
   // ── Artha ────────────────────────────────────────────────────────────────

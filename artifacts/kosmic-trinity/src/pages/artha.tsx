@@ -58,7 +58,7 @@ export default function Artha() {
             By definition, Artha encompasses economic prosperity, career, skills, and resources needed for livelihood - but its deeper purpose is to provide the material security needed to sustain oneself and family, and to perform duties (Dharma).
           </p>
           <p className="text-muted-foreground leading-relaxed text-base font-light">
-            Esoteric tools like Astrology and Tarot Cards assist by identifying your optimal career fields, your unique way of accumulating and enjoying wealth, discovering time windows of financial abundance or risk, and showing how to safely and righteously acquire resources. It ensures that you do not waste energy on the wrong professions, helping you build the security needed to fulfil your Kaam (desires) in a Dharmic, righteous way.
+            Esoteric tools like Astrology and Oracle Cards assist by identifying your optimal career fields, your unique way of accumulating and enjoying wealth, discovering time windows of financial abundance or risk, and showing how to safely and righteously acquire resources. It ensures that you do not waste energy on the wrong professions, helping you build the security needed to fulfil your Kaam (desires) in a Dharmic, righteous way.
           </p>
         </MotionSection>
 

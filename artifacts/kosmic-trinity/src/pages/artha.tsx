@@ -52,13 +52,13 @@ export default function Artha() {
         {/* Philosophy */}
         <MotionSection delay={0.15} className="mb-10 max-w-3xl mx-auto">
           <p className="text-muted-foreground leading-relaxed text-lg font-light mb-5">
-            In the Hindu spiritual framework, Artha is one of the four essential pillars of human life - representing wealth, resources, structure, security, and material balance. Artha in Sanskrit means "meaning / value". It is not just money or gold but the value you derive from it.
+            In the Hindu spiritual framework, Artha is one of the four essential pillars of human life - representing wealth, resources, structure, security, and material balance. The pursuit of wealth, prosperity, and material resources is necessary for a meaningful life. Artha in Sanskrit means "meaning / value". It is not just money or gold but the value you derive from it.
           </p>
           <p className="text-muted-foreground leading-relaxed text-base font-light mb-5">
             By definition, Artha encompasses economic prosperity, career, skills, and resources needed for livelihood - but its deeper purpose is to provide the material security needed to sustain oneself and family, and to perform duties (Dharma).
           </p>
           <p className="text-muted-foreground leading-relaxed text-base font-light">
-            Esoteric tools like Astrology and Oracle Cards assist by identifying your optimal career fields, your unique way of accumulating and enjoying wealth, discovering time windows of financial abundance or risk, and showing how to safely and righteously acquire resources. It ensures that you do not waste energy on the wrong professions, helping you build the security needed to fulfil your Kaam (desires) in a Dharmic, righteous way.
+            Esoteric tools like Astrology and Tarot Cards assist by identifying your optimal career fields, your unique way of accumulating and enjoying wealth, discovering time windows of financial abundance or risk, and showing how to safely and righteously acquire resources. It ensures that you do not waste energy on the wrong professions, helping you build the security needed to fulfil your Kaam (desires) in a Dharmic, righteous way.
           </p>
         </MotionSection>
 

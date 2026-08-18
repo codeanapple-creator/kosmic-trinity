@@ -55,7 +55,8 @@ router.post('/booking/birth-details', async (req, res) => {
       bookingId,
       fullName,
       dateOfBirth,
-      birthTime,
+      birthTime: rawBirthTime,
+      birthTimeUnknown,
       birthPlace,
       birthCity,
       birthState,
@@ -64,8 +65,22 @@ router.post('/booking/birth-details', async (req, res) => {
       longitude,
     } = req.body;
 
-    if (!bookingId || !fullName || !dateOfBirth || !birthTime || !birthPlace) {
+    // birthTime is optional when the customer ticks "I don't know my exact time"
+    const birthTime: string = birthTimeUnknown ? 'Unknown' : (rawBirthTime ?? '');
+
+    if (!bookingId || !fullName || !dateOfBirth || !birthPlace) {
       res.status(400).json({ error: 'Please fill in all required fields.' });
+      return;
+    }
+    if (!birthTimeUnknown && !birthTime) {
+      res.status(400).json({ error: 'Please enter your birth time or tick "I don\'t know".' });
+      return;
+    }
+
+    // Guard against future dates of birth
+    const dob = new Date(dateOfBirth);
+    if (dob > new Date()) {
+      res.status(400).json({ error: 'Date of birth cannot be in the future.' });
       return;
     }
 

@@ -84,6 +84,7 @@ export default function ThankYou() {
     birthTime: "",
     birthPlace: "",
   });
+  const [birthTimeUnknown, setBirthTimeUnknown] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [, setLocation] = useLocation();
@@ -109,11 +110,14 @@ export default function ThankYou() {
       .finally(() => setLoadingBooking(false));
   }, [ref]);
 
+  const today = new Date().toISOString().split("T")[0];
+
   function validate() {
     const e: Record<string, string> = {};
     if (!form.fullName.trim()) e.fullName = "Please enter your full name.";
     if (!form.dateOfBirth) e.dateOfBirth = "Please enter your date of birth.";
-    if (!form.birthTime) e.birthTime = "Please enter your exact birth time.";
+    else if (form.dateOfBirth > today) e.dateOfBirth = "Date of birth cannot be in the future.";
+    if (!birthTimeUnknown && !form.birthTime) e.birthTime = "Please enter your birth time, or tick 'I don't know'.";
     if (!form.birthPlace.trim()) e.birthPlace = "Please enter your place of birth.";
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -127,7 +131,12 @@ export default function ThankYou() {
       const res = await fetch(`${API}/booking/birth-details`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ bookingId: booking.bookingId, ...form }),
+        body: JSON.stringify({
+          bookingId: booking.bookingId,
+          ...form,
+          birthTime: birthTimeUnknown ? "Unknown" : form.birthTime,
+          birthTimeUnknown,
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Submission failed");
@@ -247,6 +256,7 @@ export default function ThankYou() {
                 <input
                   type="date"
                   value={form.dateOfBirth}
+                  max={today}
                   onChange={(e) => setForm({ ...form, dateOfBirth: e.target.value })}
                   className="w-full px-4 py-2.5 bg-background border border-border rounded text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors"
                 />
@@ -261,12 +271,36 @@ export default function ThankYou() {
                 <input
                   type="time"
                   value={form.birthTime}
+                  disabled={birthTimeUnknown}
                   onChange={(e) => setForm({ ...form, birthTime: e.target.value })}
-                  className="w-full px-4 py-2.5 bg-background border border-border rounded text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors"
+                  className="w-full px-4 py-2.5 bg-background border border-border rounded text-sm text-foreground focus:outline-none focus:border-primary/60 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 />
-                <p className="text-[11px] text-muted-foreground mt-1">
-                  Please enter your birth time as accurately as possible. Use 24-hour format or select AM/PM.
-                </p>
+                {/* "I don't know" toggle */}
+                <label className="flex items-center gap-2 mt-2 cursor-pointer select-none group">
+                  <input
+                    type="checkbox"
+                    checked={birthTimeUnknown}
+                    onChange={(e) => {
+                      setBirthTimeUnknown(e.target.checked);
+                      if (e.target.checked) setForm((f) => ({ ...f, birthTime: "" }));
+                      setErrors((err) => ({ ...err, birthTime: "" }));
+                    }}
+                    className="w-3.5 h-3.5 accent-primary"
+                  />
+                  <span className="text-[11px] text-muted-foreground group-hover:text-foreground transition-colors">
+                    I don't know my exact birth time
+                  </span>
+                </label>
+                {!birthTimeUnknown && (
+                  <p className="text-[11px] text-muted-foreground mt-1">
+                    Enter as accurately as possible — even an approximate hour helps.
+                  </p>
+                )}
+                {birthTimeUnknown && (
+                  <p className="text-[11px] text-primary/70 mt-1">
+                    No problem — your astrologer will work with what's available.
+                  </p>
+                )}
                 {errors.birthTime && <p className="text-red-400 text-xs mt-1">{errors.birthTime}</p>}
               </div>
 

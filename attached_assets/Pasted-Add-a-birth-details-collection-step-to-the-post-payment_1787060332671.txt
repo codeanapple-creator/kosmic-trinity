@@ -1,0 +1,38 @@
+Add a birth-details collection step to the post-payment flow on kosmictrinity.in. 
+After a successful payment (CCAvenue returns success — see the existing 
+/api/ccavenue/response handler and booking-confirmed.tsx / thank-you.tsx pages), 
+the user should land on a page with a form to collect:
+
+- Date of Birth (date picker)
+- Time of Birth (time picker — include an "I don't know my exact time" option if 
+  feasible, since this is common for astrology bookings)
+- Place of Birth (text input — city/town, ideally with state/country too)
+
+Include validation (all fields required, sensible date/time constraints — no future 
+dates for DOB) and a clear submit button.
+
+On submit:
+1. Send an email to kosmictrinity@gmail.com containing the submitted birth details, 
+   along with whatever customer/order context is already available at that point in 
+   the flow (customer name, email, phone, order ID, session/service purchased — 
+   pull this from the existing booking/order record rather than asking the user to 
+   re-enter it). Use the existing mailer.ts / nodemailer setup already in the 
+   api-server rather than adding a new email library.
+   NOTE: this mailer previously failed with "534-5.7.9 Application-specific 
+   password required" when sending via Gmail SMTP — if that's still unresolved, 
+   flag it, since this new email will hit the same wall until a Gmail App Password 
+   is configured in the .env.
+2. Also store the submitted birth details in the database, associated with the 
+   relevant booking/order record (there's already a bookings schema at 
+   lib/db/src/schema/bookings.ts — extend it with dob/tob/pob fields if they don't 
+   exist yet, rather than only sending an email with no persistent record).
+3. After successful submission, show the user a confirmation (e.g. "Thank you, your 
+   birth details have been received — your reading will be prepared shortly") rather 
+   than silently redirecting.
+
+Handle the case where the birth-details submission fails (network error, server 
+error) — show the user an error message and let them retry, rather than losing 
+their input.
+
+This page should fit the existing site's visual design/theme, consistent with 
+booking-confirmed.tsx and thank-you.tsx.

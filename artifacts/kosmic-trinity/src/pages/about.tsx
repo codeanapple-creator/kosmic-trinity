@@ -63,16 +63,25 @@ export default function About() {
             {/* Story Text */}
             <div className="lg:col-span-7 space-y-6">
               <p className="text-muted-foreground leading-relaxed text-base font-light">
-                We are three sisters from Prayagraj - the city where the Ganga, Yamuna, and the invisible Saraswati converge. We grew up at the Triveni Sangam, watching three rivers become one sacred body of water. That image never left us.
+                Born in Prayagraj, Uttar Pradesh, India — a place where three rivers, Ganga, Yamuna, and the mythical Saraswati meet at the sacred Triveni Sangam, we three sisters have not just witnessed or dipped our bodies in this confluence… we have felt it in our bones. We have lived this confluence in our lives, our family, and in our value system.
               </p>
               <p className="text-muted-foreground leading-relaxed text-base font-light">
-                Each of us followed a different current. One moved toward psyche and spirit - drawn to the invisible architectures of the soul, astrology, and the language of symbols. Another was pulled toward wealth and money energy - fascinated by how abundance flows, blocks, and transforms. The third fell into art and aesthetics - poetry, craft, beauty, and the emotional worlds people carry inside them.
+                The idea that three distinct currents can flow together and create something far more powerful than their individual paths, is exactly how three of us chose different paths in life and yet remain intertwined at the core.
               </p>
               <p className="text-muted-foreground leading-relaxed text-base font-light">
-                We were different rivers. And then - like the Sangam - we met again.
+                Three sisters. Three very different inclinations.<br />
+                One drawn to the unseen patterns of the psyche and spirit.<br />
+                One rooted in the world of value, money-energy, and the cyclic flow of wealth.<br />
+                One immersed in art, aesthetics, and creative expression.
               </p>
               <p className="text-muted-foreground leading-relaxed text-base font-light">
-                Kosmic Trinity is what happens when three distinct streams of wisdom - soul-reading, abundance-mapping, and emotional-creative intelligence - flow together. We are not one voice. We are a confluence.
+                At first, these were just personal paths. But over time, the significance of TRIAD energy, as told in Vedic philosophy for centuries, has been revealed in our lives and choices too.
+              </p>
+              <p className="text-muted-foreground leading-relaxed text-base font-light">
+                Our Gods and Goddesses embody the idea of Trinity — Brahma, Vishnu, Mahesh and Mahasaraswati, Mahalakshmi, and Mahakali. Even the early Vedic texts speak of the "Three Goals in life — Dharma, Artha, and Kaam", collectively called as Trivarga (three categories).
+              </p>
+              <p className="text-muted-foreground leading-relaxed text-base font-light">
+                Kosmic Trinity was born at the intersection of all these currents. A space where we use our gifts of intuition, esoteric wisdom, financial literacy, and creative art to help you understand your own Dharm, Arth and Kaam.
               </p>
             </div>
           </div>

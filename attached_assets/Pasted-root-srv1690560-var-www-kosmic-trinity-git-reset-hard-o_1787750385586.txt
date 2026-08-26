@@ -1,0 +1,74 @@
+root@srv1690560:/var/www/kosmic-trinity# git reset --hard origin/main
+bash deploy.sh
+HEAD is now at a878ca9 fix: add @types/three as explicit devDependency to fix VPS typecheck failure
+From https://github.com/codeanapple-creator/kosmic-trinity
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+Scope: all 9 workspace projects
+✓ Lockfile passes supply-chain policies (verified 16m ago)
+Lockfile is up to date, resolution step is skipped
+Packages: +4 -4
+++++----
+Progress: resolved 4, reused 4, downloaded 0, added 4, done
+. preinstall$ sh -c 'rm -f package-lock.json yarn.lock; case "$npm_config_user_agent" in pnpm/*) ;; *) echo "Use pnpm instead" >&2; exit 1 ;; esac'
+└─ Done in 22ms
+Done in 2.3s using pnpm v11.8.0
+$ vite build --config vite.config.ts
+vite v7.3.3 building client environment for production...
+src/components/ui/tooltip.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+✓ 2205 modules transformed.
+dist/public/index.html                                                  3.57 kB │ gzip:   1.34 kB
+dist/public/assets/colortexture_1777355912930-BbtF4Oir.jpeg           110.01 kB
+dist/public/assets/bodhi_nobg-BTgzARAr.png                            145.48 kB
+dist/public/assets/IMG-20240813-WA0008_1779269733081-W_7UsyPL.jpg     147.18 kB
+dist/public/assets/thekosmictrinitygold_1777355949969-B9tjCVHN.png    634.20 kB
+dist/public/assets/IMG-20251014-WA0009_1779269733082-B-Dtlb7k.jpg     927.42 kB
+dist/public/assets/sangam_pexels_1_1782111372144-CX6vZY9l.jpg       1,018.14 kB
+dist/public/assets/sacred_geometry-lNoDQBf8.png                     1,900.25 kB
+dist/public/assets/20251010_083736_1779269733080-DVmoMtkc.jpg       1,983.58 kB
+dist/public/assets/20251010_083707_1779269733078-Di68R4HO.jpg       2,409.85 kB
+dist/public/assets/20250903_084417_1779269733047-dT6vS0_H.jpg       2,434.93 kB
+dist/public/assets/20250903_084431_1779269733076-B6cBLhzm.jpg       2,496.55 kB
+dist/public/assets/20250924_071513_1779269733077-CmbiSMU7.jpg       7,292.78 kB
+dist/public/assets/index-DQIILFCf.css                                 147.28 kB │ gzip:  21.97 kB
+dist/public/assets/index-CvH9McQA.js                                  698.88 kB │ gzip: 212.84 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 5.01s
+$ node ./build.mjs
+
+  dist/index.mjs                       3.0mb ⚠️
+  dist/pino-worker.mjs               153.4kb
+  dist/pino-file.mjs                 142.1kb
+  dist/pino-pretty.mjs               114.6kb
+  dist/thread-stream-worker.mjs        7.3kb
+  dist/index.mjs.map                   5.1mb
+  dist/pino-worker.mjs.map           256.9kb
+  dist/pino-file.mjs.map             229.0kb
+  dist/pino-pretty.mjs.map           204.0kb
+  dist/thread-stream-worker.mjs.map   12.0kb
+
+⚡ Done in 535ms
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [kosmic-api](ids: [ 0 ])
+[PM2] [kosmic-api](0) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ kosmic-api    │ default     │ 0.0.0   │ fork    │ 900574   │ 0s     │ 33   │ online    │ 0%       │ 22.6mb   │ root     │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+host metrics | cpu: 5% | ram usage: 12.6% | disk: ⇓ 0.085mb/s ⇑ 0.116mb/s |
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [kosmic-api](ids: [ 0 ])
+[PM2] [kosmic-api](0) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ kosmic-api    │ default     │ 0.0.0   │ fork    │ 900595   │ 0s     │ 34   │ online    │ 0%       │ 24.9mb   │ root     │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+host metrics | cpu: 5% | ram usage: 12.6% | disk: ⇓ 0.085mb/s ⇑ 0.116mb/s |
+Deploy complete: a878ca9 fix: add @types/three as explicit devDependency to fix VPS typecheck failure
+root@srv1690560:/var/www/kosmic-trinity# 

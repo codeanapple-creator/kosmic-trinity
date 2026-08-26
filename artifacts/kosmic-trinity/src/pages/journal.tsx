@@ -4,6 +4,13 @@ import { BookOpen, FileText, ArrowRight } from "lucide-react";
 
 const blogs = [
   {
+    href: "/journal/eclipse-art-ritual",
+    category: "Rituals & Magic",
+    title: "An Art Ritual for the Lunar Eclipse",
+    excerpt: "The August 28 Lunar Eclipse activates the tension between order and surrender, analysis and intuition. A guided watercolour and reflection ritual - with two full video walkthroughs - to help you listen to what your inner world has been saying all along.",
+    featured: true,
+  },
+  {
     href: "/journal/rising-sign",
     category: "Astrology",
     title: "Stop Fixating at Your Sun Sign, Unlock Your Rising Sign First",
@@ -26,7 +33,6 @@ const blogs = [
     category: "Kosmic Journal",
     title: "The Year Book for 2026 - Themes, Timing & Inner Alignment",
     excerpt: "Calculate your Personal Year Card and discover the overarching theme life is inviting you into this year. All 21 Major Arcana themes for 2026, written by Kriti. An anchor for the year ahead.",
-    featured: true,
   },
 ];
 
@@ -124,6 +130,12 @@ export default function Journal() {
                 <h3 className="text-lg font-serif">Free Resources</h3>
               </div>
               <ul className="space-y-3">
+                <li>
+                  <Link href="/journal/eclipse-art-ritual" className="block p-3 border border-border bg-card/50 rounded hover:border-primary/50 transition-colors group">
+                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Lunar Eclipse Art Ritual</h4>
+                    <p className="text-xs text-muted-foreground mt-1">Free Ritual · Rituals & Magic</p>
+                  </Link>
+                </li>
                 <li>
                   <Link href="/journal/rising-sign" className="block p-3 border border-border bg-card/50 rounded hover:border-primary/50 transition-colors group">
                     <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Unlock Your Rising Sign</h4>

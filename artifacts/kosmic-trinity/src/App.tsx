@@ -30,6 +30,7 @@ import RisingSign from "@/pages/blog/rising-sign";
 import ElementalMagic from "@/pages/blog/elemental-magic";
 import SummerSolstice from "@/pages/blog/summer-solstice";
 import TarotYearbook from "@/pages/blog/tarot-yearbook";
+import EclipseArtRitual from "@/pages/blog/eclipse-art-ritual";
 
 const queryClient = new QueryClient();
 
@@ -68,6 +69,7 @@ function Router() {
           <Route path="/journal/elemental-magic" component={ElementalMagic} />
           <Route path="/journal/summer-solstice" component={SummerSolstice} />
           <Route path="/journal/tarot-yearbook" component={TarotYearbook} />
+          <Route path="/journal/eclipse-art-ritual" component={EclipseArtRitual} />
           <Route component={NotFound} />
         </Switch>
       </main>

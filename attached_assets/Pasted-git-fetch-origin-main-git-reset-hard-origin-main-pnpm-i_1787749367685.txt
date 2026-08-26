@@ -1,0 +1,64 @@
+git fetch origin main
+git reset --hard origin/main
+pnpm install
+pnpm build
+pm2 restart all
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 8 (delta 5), reused 8 (delta 5), pack-reused 0 (from 0)
+Unpacking objects: 100% (8/8), 2.02 KiB | 207.00 KiB/s, done.
+From https://github.com/codeanapple-creator/kosmic-trinity
+ * branch            main       -> FETCH_HEAD
+   e465491..a878ca9  main       -> origin/main
+HEAD is now at a878ca9 fix: add @types/three as explicit devDependency to fix VPS typecheck failure
+Scope: all 9 workspace projects
+✓ Lockfile passes supply-chain policies (614 entries in 6.7s)
+Lockfile is up to date, resolution step is skipped
+Packages: +2 -1
+++-
+Progress: resolved 2, reused 2, downloaded 0, added 1, done
+. preinstall$ sh -c 'rm -f package-lock.json yarn.lock; case "$npm_config_user_agent" in pnpm/*) ;; *) echo "Use pnpm instead" >&2; exit 1 ;; esac'
+└─ Done in 36ms
+Done in 7.8s using pnpm v11.8.0
+$ pnpm run typecheck && pnpm -r --if-present run build
+$ pnpm run typecheck:libs && pnpm -r --filter "./artifacts/**" --filter "./scripts" --if-present run typecheck
+$ tsc --build
+Scope: 4 of 9 workspace projects
+artifacts/api-server typecheck$ tsc -p tsconfig.json --noEmit
+└─ Done in 18.2s
+artifacts/kosmic-trinity typecheck$ tsc -p tsconfig.json --noEmit
+└─ Done in 6.3s
+artifacts/mockup-sandbox typecheck$ tsc -p tsconfig.json --noEmit
+└─ Done in 3.8s
+scripts typecheck$ tsc -p tsconfig.json --noEmit
+└─ Done in 1.3s
+Scope: 8 of 9 workspace projects
+artifacts/mockup-sandbox build$ vite build
+│ failed to load config from /root/kosmic-trinity/artifacts/mockup-sandbox/vite.config.ts
+│ error during build:
+│ Error: PORT environment variable is required but was not provided.
+│     at file:///root/kosmic-trinity/artifacts/mockup-sandbox/node_modules/.vite-temp/vite.config.ts.timestamp-1787749323598-cbcd8cd3705fe.mjs:145:9
+│     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+│     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+│     at async loadConfigFromBundledFile (file:///root/kosmic-trinity/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_t…
+│     at async bundleAndLoadConfigFile (file:///root/kosmic-trinity/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx…
+│     at async loadConfigFromFile (file:///root/kosmic-trinity/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21…
+│     at async resolveConfig (file:///root/kosmic-trinity/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_ya…
+│     at async createBuilder (file:///root/kosmic-trinity/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_ya…
+│     at async CAC.<anonymous> (file:///root/kosmic-trinity/node_modules/.pnpm/vite@7.3.3_@types+node@25.6.2_jiti@2.7.0_lightningcss@1.32.0_tsx@4.21.0_…
+└─ Failed in 986ms at /root/kosmic-trinity/artifacts/mockup-sandbox
+/root/kosmic-trinity/artifacts/mockup-sandbox:
+[ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL] @workspace/mockup-sandbox@2.0.0 build: `vite build`
+Exit status 1
+[ELIFECYCLE] Command failed with exit code 1.
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [all](ids: [ 0 ])
+[PM2] [kosmic-api](0) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ kosmic-api    │ default     │ 0.0.0   │ fork    │ 900143   │ 0s     │ 31   │ online    │ 0%       │ 22.5mb   │ root     │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+host metrics | cpu: 45.7% | ram usage: 25.3% | lo: ⇓ 0.001mb/s ⇑ 0.001mb/s | eth0: ⇓ 0.879mb/s ⇑ 0.019mb/s | disk: ⇓ 0.002mb/s ⇑ 2.186mb/s |
+root@srv1690560:~/kosmic-trinity# 

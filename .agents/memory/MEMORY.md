@@ -1,0 +1,1 @@
+- [VPS deploys of this pnpm monorepo](vps-deploy-pnpm-monorepo.md) — root `pnpm build` fails off-Replit (needs PORT/BASE_PATH for every artifact); peer-only `@types/*` can silently differ across hosts.

@@ -1,0 +1,43 @@
+git reset --hard origin/main
+git log -1 --oneline
+pnpm build
+pm2 restart all
+pm2 status
+-bash: cd: /path/to/kosmic-trinity: No such file or directory
+From https://github.com/codeanapple-creator/kosmic-trinity
+ * branch            main       -> FETCH_HEAD
+HEAD is now at e465491 Add new eclipse art ritual blog post and update journal page
+e465491 (HEAD -> main, origin/main, origin/HEAD) Add new eclipse art ritual blog post and update journal page
+$ pnpm run typecheck && pnpm -r --if-present run build
+$ pnpm run typecheck:libs && pnpm -r --filter "./artifacts/**" --filter "./scripts" --if-present run typecheck
+$ tsc --build
+Scope: 4 of 9 workspace projects
+artifacts/api-server typecheck$ tsc -p tsconfig.json --noEmit
+└─ Running...
+artifacts/kosmic-trinity typecheck$ tsc -p tsconfig.json --noEmit
+│ src/components/ui/ganesha-3d.tsx(4,24): error TS7016: Could not find a declaration file for module 'three'. '/root/kosmic-trinity/node_modules/.pnpm/…
+│   If the 'three' package actually exposes this module, consider sending a pull request to amend 'https://github.com/DefinitelyTyped/DefinitelyTyped/t…
+└─ Failed in 4.9s at /root/kosmic-trinity/artifacts/kosmic-trinity
+/root/kosmic-trinity/artifacts/kosmic-trinity:
+[ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL] @workspace/kosmic-trinity@0.0.0 typecheck: `tsc -p tsconfig.json --noEmit`
+Exit status 1
+artifacts/mockup-sandbox typecheck$ tsc -p tsconfig.json --noEmit
+└─ Running...
+[ELIFECYCLE] Command failed with exit code 1.
+[ELIFECYCLE] Command failed with exit code 1.
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [all](ids: [ 0 ])
+[PM2] [kosmic-api](0) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ kosmic-api    │ default     │ 0.0.0   │ fork    │ 899910   │ 0s     │ 30   │ online    │ 0%       │ 21.5mb   │ root     │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+host metrics | cpu: 0.3% | ram usage: 9.8% | disk: ⇓ 0mb/s ⇑ 0.001mb/s |
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ kosmic-api    │ default     │ 0.0.0   │ fork    │ 899910   │ 0s     │ 30   │ online    │ 100%     │ 111.8mb  │ root     │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+host metrics | cpu: 0.3% | ram usage: 9.8% | disk: ⇓ 0mb/s ⇑ 0.001mb/s |
+root@srv1690560:~/kosmic-trinity# 

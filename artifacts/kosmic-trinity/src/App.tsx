@@ -10,6 +10,10 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { GaneshaChat } from "@/components/ui/ganesha-chat";
 
+import Navratri from "@/pages/navratri/index";
+import NavratriSuccess from "@/pages/navratri/success";
+import { NavratriPromotion } from "@/components/navratri/navratri-popup";
+
 import Home from "@/pages/home";
 import About from "@/pages/about";
 import Dharma from "@/pages/dharma";
@@ -43,6 +47,7 @@ function ScrollToTop() {
 }
 
 function Router() {
+  const [location] = useLocation();
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <ScrollToTop />
@@ -64,6 +69,8 @@ function Router() {
           <Route path="/booking/success" component={BookingSuccess} />
           <Route path="/thank-you" component={ThankYou} />
           <Route path="/booking-confirmed" component={BookingConfirmed} />
+          <Route path="/navratri" component={Navratri} />
+          <Route path="/navratri/success" component={NavratriSuccess} />
           <Route path="/admin/bookings" component={AdminBookings} />
           <Route path="/journal/rising-sign" component={RisingSign} />
           <Route path="/journal/elemental-magic" component={ElementalMagic} />
@@ -74,7 +81,8 @@ function Router() {
         </Switch>
       </main>
       <Footer />
-      <GaneshaChat />
+      {!location.startsWith("/navratri") && <GaneshaChat />}
+      <NavratriPromotion />
     </div>
   );
 }

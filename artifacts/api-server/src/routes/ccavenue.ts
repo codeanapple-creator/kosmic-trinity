@@ -4,6 +4,7 @@ import { sendBookingConfirmation } from '../mailer.js';
 import { db } from '@workspace/db';
 import { bookingsTable } from '@workspace/db/schema';
 import { eq } from 'drizzle-orm';
+import { settleNavratriPayment } from '../navratriPayments.js';
 
 const router = Router();
 
@@ -102,6 +103,20 @@ router.post('/ccavenue/response', async (req, res) => {
 
     const decrypted = ccavenueDecrypt(encResp, workingKey);
     const params = new URLSearchParams(decrypted);
+
+    // Navratri has its own persisted, server-priced order and group enrollment
+    // flow. Never send circle participants to the astrology birth-details form.
+    if (params.get('order_id')?.startsWith('NV26-') || params.get('merchant_param2') === 'navratri') {
+      try {
+        const merchantId = process.env.CCAVENUE_MERCHANT_ID;
+        if (!merchantId) throw new Error('CCAvenue merchant is not configured.');
+        res.redirect(303, await settleNavratriPayment(params, merchantId));
+      } catch (err) {
+        req.log.error({ err }, 'Navratri payment verification failed');
+        res.redirect(303, '/navratri?error=verification_failed');
+      }
+      return;
+    }
 
     const orderStatus   = params.get('order_status');
     const serviceName   = params.get('merchant_param1') || '';

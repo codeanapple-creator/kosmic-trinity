@@ -6,6 +6,7 @@ import enquiryRouter from "./enquiry.js";
 import razorpayRouter from "./razorpay.js";
 import ccavenueRouter from "./ccavenue.js";
 import adminRouter from "./admin.js";
+import navratriRouter from "./navratri.js";
 
 const router: IRouter = Router();
 
@@ -16,5 +17,6 @@ router.use(enquiryRouter);
 router.use(razorpayRouter);
 router.use(ccavenueRouter);
 router.use(adminRouter);
+router.use(navratriRouter);
 
 export default router;

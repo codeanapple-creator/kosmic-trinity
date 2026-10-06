@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
 
-type OverlayName = "nav" | "chat";
+type OverlayName = "nav" | "chat" | "promo";
 
 interface OverlayContextValue {
   activeOverlay: OverlayName | null;

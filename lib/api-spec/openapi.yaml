@@ -11,6 +11,108 @@ tags:
   - name: health
     description: Health operations
 paths:
+  /navratri/offer:
+    get:
+      operationId: getNavratriOffer
+      tags: [navratri]
+      summary: Public Navratri Circle offer without the private group link
+      responses:
+        "200":
+          description: Offer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NavratriOffer"
+  /navratri/quote:
+    post:
+      operationId: quoteNavratri
+      tags: [navratri]
+      summary: Calculate the Navratri price and validate an optional coupon
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NavratriCouponInput"
+      responses:
+        "200":
+          description: Server-calculated price
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NavratriQuote"
+        "400":
+          description: Invalid coupon
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NavratriError"
+  /navratri/initiate:
+    post:
+      operationId: initiateNavratri
+      tags: [navratri]
+      summary: Save an enrollment order and create a CCAvenue payment request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NavratriEnrollmentInput"
+      responses:
+        "200":
+          description: CCAvenue handoff
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NavratriPayment"
+        "400":
+          description: Invalid participant details or coupon
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NavratriError"
+        "409":
+          description: Enrollment is closed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NavratriError"
+        "503":
+          description: Checkout unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NavratriError"
+  /navratri/enrollment/{orderId}:
+    get:
+      operationId: getNavratriEnrollment
+      tags: [navratri]
+      summary: Get payment status and unlock the WhatsApp invitation only after payment
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Enrollment status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NavratriEnrollment"
+        "404":
+          description: Unknown enrollment reference
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NavratriError"
+        "503":
+          description: Status temporarily unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NavratriError"
   /healthz:
     get:
       operationId: healthCheck
@@ -26,6 +128,65 @@ paths:
                 $ref: "#/components/schemas/HealthStatus"
 components:
   schemas:
+    NavratriOffer:
+      type: object
+      required: [eventId, eventName, startDate, endDate, amountPaise, currency, registrationOpen]
+      properties:
+        eventId: { type: string }
+        eventName: { type: string }
+        startDate: { type: string }
+        endDate: { type: string }
+        amountPaise: { type: integer }
+        currency: { type: string }
+        registrationOpen: { type: boolean }
+    NavratriCouponInput:
+      type: object
+      properties:
+        couponCode: { type: string, maxLength: 64 }
+    NavratriQuote:
+      type: object
+      required: [baseAmountPaise, discountPercent, amountPaise, currency, couponCode]
+      properties:
+        baseAmountPaise: { type: integer }
+        discountPercent: { type: integer }
+        amountPaise: { type: integer }
+        currency: { type: string }
+        couponCode: { type: [string, "null"] }
+    NavratriEnrollmentInput:
+      type: object
+      required: [clientName, clientEmail, clientPhone]
+      properties:
+        clientName: { type: string, minLength: 2, maxLength: 100 }
+        clientEmail: { type: string, format: email, maxLength: 254 }
+        clientPhone: { type: string, minLength: 6, maxLength: 30 }
+        couponCode: { type: string, maxLength: 64 }
+    NavratriPayment:
+      type: object
+      required: [encryptedData, accessCode, ccavenueUrl, orderId, amountPaise, currency]
+      properties:
+        encryptedData: { type: string }
+        accessCode: { type: string }
+        ccavenueUrl: { type: string }
+        orderId: { type: string }
+        amountPaise: { type: integer }
+        currency: { type: string }
+    NavratriEnrollment:
+      type: object
+      required: [status, amountPaise, currency, eventName, startDate, whatsappUrl]
+      properties:
+        status:
+          type: string
+          enum: [pending, paid, failed]
+        amountPaise: { type: integer }
+        currency: { type: string }
+        eventName: { type: string }
+        startDate: { type: string }
+        whatsappUrl: { type: [string, "null"] }
+    NavratriError:
+      type: object
+      required: [error]
+      properties:
+        error: { type: string }
     HealthStatus:
       type: object
       properties:

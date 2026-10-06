@@ -25,3 +25,11 @@ A type package that is only pulled in transitively (e.g. `@types/three`, present
 **Why:** pnpm's strict node_modules only guarantees resolution for a package's own declared dependencies, not transitively-inherited peer resolutions.
 
 **How to apply:** if a workspace package imports something whose types only appear in the lockfile as a peer dependency of another package, add the `@types/*` package as an explicit `devDependency` in that workspace package's own `package.json`, even though it "works" without it locally.
+
+## Production VPS directory
+
+For this site's Hostinger VPS, deploy from `/var/www/kosmic-trinity` using `bash deploy.sh`. Do not deploy from `~/kosmic-trinity` (`/root/kosmic-trinity`).
+
+**Why:** the user supplied nginx's active configuration and terminal output confirming two separate clones. Nginx serves the `/var/www` clone; rebuilding the `/root` clone left the live site unchanged.
+
+**How to apply:** give the full command `cd /var/www/kosmic-trinity && bash deploy.sh`. Treat nginx's active configuration as the authority if the server setup later changes. Preserve local server edits before resolving any pull conflict; do not assume a hard reset only touches the files mentioned by git's error.

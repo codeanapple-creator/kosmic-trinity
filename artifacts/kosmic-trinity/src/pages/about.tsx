@@ -75,10 +75,10 @@ export default function About() {
                 One immersed in art, aesthetics, and creative expression.
               </p>
               <p className="text-muted-foreground leading-relaxed text-base font-light">
-                At first, these were just personal paths. But over time, the significance of TRIAD energy, as told in Vedic philosophy for centuries, has been revealed in our lives and choices too.
+                At first, these were just personal paths. But over time, the significance of TRIAD energy, as told in spiritual philosophy for centuries, has been revealed in our lives and choices too.
               </p>
               <p className="text-muted-foreground leading-relaxed text-base font-light">
-                Our Gods and Goddesses embody the idea of Trinity — Brahma, Vishnu, Mahesh and Mahasaraswati, Mahalakshmi, and Mahakali. Even the early Vedic texts speak of the "Three Goals in life — Dharma, Artha, and Kaam", collectively called as Trivarga (three categories).
+                Our Gods and Goddesses embody the idea of Trinity — Brahma, Vishnu, Mahesh and Mahasaraswati, Mahalakshmi, and Mahakali. Even the early spiritual texts speak of the "Three Goals in life — Dharma, Artha, and Kaam", collectively called as Trivarga (three categories).
               </p>
               <p className="text-muted-foreground leading-relaxed text-base font-light">
                 Kosmic Trinity was born at the intersection of all these currents. A space where we use our gifts of intuition, esoteric wisdom, financial literacy, and creative art to help you understand your own Dharm, Arth and Kaam.

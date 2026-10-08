@@ -1,2 +1,3 @@
 - [VPS deploys of this pnpm monorepo](vps-deploy-pnpm-monorepo.md) — root `pnpm build` fails off-Replit (needs PORT/BASE_PATH for every artifact); peer-only `@types/*` can silently differ across hosts.
 - [Navratri Circle](navratri-circle.md) — group enrollment is separate from astrology appointments; the returning-participant coupon is not public marketing.
+- [Brand wording](brand-wording.md) — no “Vedic” in website text, chatbot copy or shared-link metadata; use “Astrology” instead.

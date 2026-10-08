@@ -45,7 +45,7 @@ export default function Dharma() {
         {/* Intro */}
         <MotionSection delay={0.15} className="mb-6 text-center max-w-2xl mx-auto">
           <p className="text-muted-foreground leading-relaxed text-lg font-light mb-4">
-            There is a difference between what you are good at and what you are meant to embody as your purpose. Vedic philosophy upholds Dharm to be the highest of all - because that is what helps a soul fulfil her desires, ambitions, and responsibilities righteously, while maintaining order in the world.
+            There is a difference between what you are good at and what you are meant to embody as your purpose. Spiritual philosophy upholds Dharm to be the highest of all - because that is what helps a soul fulfil her desires, ambitions, and responsibilities righteously, while maintaining order in the world.
           </p>
           <p className="text-muted-foreground leading-relaxed text-base font-light">
             Yet often, in trying to maintain that order, we forget that each soul has her own Dharma. And no - it is not a job title or a role to perform. It is the quiet, persistent call of your deepest nature.
